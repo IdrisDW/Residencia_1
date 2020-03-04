@@ -77,6 +77,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(248, 22);
             this.txtApellido.TabIndex = 59;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // button3
             // 
@@ -130,6 +131,7 @@
             this.cbxCargarTodo.TabIndex = 54;
             this.cbxCargarTodo.Text = "Ver todos los pacientes";
             this.cbxCargarTodo.UseVisualStyleBackColor = true;
+            this.cbxCargarTodo.CheckedChanged += new System.EventHandler(this.cbxCargarTodo_CheckedChanged);
             // 
             // txtNombre
             // 
@@ -138,6 +140,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(248, 22);
             this.txtNombre.TabIndex = 53;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblApellido
             // 

@@ -13,7 +13,7 @@ namespace ProyectoResInv_1
     public partial class FrmDoctor : Form
     {
         private int? id;
-        public FrmDoctor(int? id=null)
+        public FrmDoctor(int? id = null)
         {
             InitializeComponent();
             this.id = id;
@@ -21,7 +21,7 @@ namespace ProyectoResInv_1
 
 
         private void Refresh() {
-            DataSet1TableAdapters.DoctorTableAdapter ta = 
+            DataSet1TableAdapters.DoctorTableAdapter ta =
                 new DataSet1TableAdapters.DoctorTableAdapter();
 
             DataSet1.DoctorDataTable dt = ta.GetDataDoctor();
@@ -30,30 +30,24 @@ namespace ProyectoResInv_1
 
 
         }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            DataSet1TableAdapters.DoctorTableAdapter ta_doctor = new DataSet1TableAdapters.DoctorTableAdapter();
-            ta_doctor.InsertQueryDoctor(txtNombre.Text.Trim(), txtApellido.Text.Trim());
-         
-            // this.Close();
-        }
+ 
 
         private void FrmDoctor_Load(object sender, EventArgs e)
         {
-         //   Refresh();
-            if (id != null) {
-                DataSet1TableAdapters.DoctorTableAdapter ta =
-              new DataSet1TableAdapters.DoctorTableAdapter();
+            Refresh();
+            /* Refresh();
+             if (id != null) {
+                 DataSet1TableAdapters.DoctorTableAdapter ta =
+               new DataSet1TableAdapters.DoctorTableAdapter();
 
-              DataSet1.DoctorDataTable dt=  ta.GetDataByIdDoctor((int)id);
-                DataSet1.DoctorRow row = (DataSet1.DoctorRow)dt.Rows[0];
+                 DataSet1.DoctorDataTable dt = ta.GetDataByIdDoctor((int)id);
+                 DataSet1.DoctorRow row = (DataSet1.DoctorRow)dt.Rows[0];
 
-                txtNombre.Text = row.DoctorName;
-                txtApellido.Text = row.DoctorLastName;
+                 txtNombre.Text = row.DoctorName;
+                 txtApellido.Text = row.DoctorLastName;
 
 
-            }
+             }*/
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -66,15 +60,20 @@ namespace ProyectoResInv_1
 
 
         }
-
+        int idd;
         private int? GetId() {
             try {
+                MessageBox.Show("mensaje");
+            idd=    int.Parse(
+                    dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()
+                    );
                 return int.Parse(
                     dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()
                     );
 
             }
-            catch   {
+            catch {
+                MessageBox.Show("mensaje2");
                 return null;
             }
 
@@ -83,8 +82,36 @@ namespace ProyectoResInv_1
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            int? id = GetId();
+            MessageBox.Show(id.ToString());
+            if (id != null)
+            {
+                DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
+                DataSet1.DoctorDataTable dt = ta.GetDataByIdDoctor((int)id);
+                DataSet1.DoctorRow row = (DataSet1.DoctorRow)dt.Rows[0];
+
+                txtNombre.Text = row.DoctorName;
+                txtApellido.Text = row.DoctorLastName;
+            }
+
+  
+        }
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show( idd.ToString());
             DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
-            if (id == null)
+            MessageBox.Show( idd.ToString());
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+
+                MessageBox.Show("Verifique que ningun campo este vacio");
+            }
+
+
+            else
+            if (idd == null)
             {
                 ta.InsertQueryDoctor(txtNombre.Text.Trim(), txtApellido.Text.Trim());
 
@@ -92,9 +119,10 @@ namespace ProyectoResInv_1
             }
             else
             {
-                ta.UpdateQueryDoctor(txtNombre.Text.Trim(), txtApellido.Text.Trim(), (int)id);
+                ta.UpdateQueryDoctor(txtNombre.Text.Trim(), txtApellido.Text.Trim(), (int)idd);
             }
-            this.Close();
+
+            // this.Close();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -104,6 +132,45 @@ namespace ProyectoResInv_1
                 DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
                 ta.DeleteQueryDoctor((int)id);
             }
+        }
+
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            /*  if ((e.KeyChar >= 33 && e.KeyChar <= 64 || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 163) || (e.KeyChar >= 166 && e.KeyChar <=255))) {
+                  MessageBox.Show("Solo letras","Advertencia",MessageBoxButtons.OK , MessageBoxIcon.Exclamation);
+
+                  e.Handled = true;
+                  return;
+              }*/
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Solo se permiten Letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+         //   else if (e.KeyChar == (char)Keys.Tab)
+          //  {
+            //    txtApellido.Focus();
+            //}
+        }
+
+        private void cbxCargarTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+                if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                {
+                    MessageBox.Show("Solo se permiten Letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            
         }
     }
 }
