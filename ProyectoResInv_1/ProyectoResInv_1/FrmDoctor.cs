@@ -12,11 +12,16 @@ namespace ProyectoResInv_1
 {
     public partial class FrmDoctor : Form
     {
+        
+         
         private int? id;
-        public FrmDoctor(int? id = null)
+        private string DoctorName = "", DoctorLastName= "";
+        public FrmDoctor(int? id = null,string DoctorName = "", string DoctorLastName="")
         {
             InitializeComponent();
             this.id = id;
+            this.DoctorName = DoctorName;
+            this.DoctorLastName = DoctorLastName;
         }
 
 
@@ -25,16 +30,19 @@ namespace ProyectoResInv_1
                 new DataSet1TableAdapters.DoctorTableAdapter();
 
             DataSet1.DoctorDataTable dt = ta.GetDataDoctor();
-
+           
             dataGridView1.DataSource = dt;
-
-
+            dataGridView1.Columns[0].HeaderText = "Id";
+            dataGridView1.Columns[1].HeaderText = "Nombre";
+            dataGridView1.Columns[2].HeaderText = "Apellido";
         }
  
 
         private void FrmDoctor_Load(object sender, EventArgs e)
         {
+             
             Refresh();
+          
             /* Refresh();
              if (id != null) {
                  DataSet1TableAdapters.DoctorTableAdapter ta =
@@ -79,6 +87,50 @@ namespace ProyectoResInv_1
 
 
         }
+        string docName, docLastName;
+        private int? GetDoctorName()
+        {
+            try
+            {
+               
+               docName = 
+                        dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString()
+                        ;
+                return int.Parse(
+                    dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString()
+                    );
+
+            }
+            catch
+            {
+                
+                return null;
+            }
+
+
+        }//getdoctorName
+
+        private int? GetDoctorLastName()
+        {
+            try
+            {
+
+                docLastName =
+                         dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString()
+                         ;
+                return int.Parse(
+                    dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString()
+                    );
+
+            }
+            catch
+            {
+
+                return null;
+            }
+
+
+        }//getdoctorLastName
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -111,15 +163,20 @@ namespace ProyectoResInv_1
 
 
             else
-            if (idd == null)
+            if ( idd== 0)
             {
                 ta.InsertQueryDoctor(txtNombre.Text.Trim(), txtApellido.Text.Trim());
-
+                txtNombre.Clear();
+                txtApellido.Clear();
+                idd = 0;
 
             }
             else
             {
                 ta.UpdateQueryDoctor(txtNombre.Text.Trim(), txtApellido.Text.Trim(), (int)idd);
+                txtNombre.Clear();
+                txtApellido.Clear();
+                idd = 0;
             }
 
             // this.Close();
@@ -161,6 +218,89 @@ namespace ProyectoResInv_1
             Refresh();
         }
 
+        private void txtBuscarDoctor_TextChanged(object sender, EventArgs e)
+        {
+           
+
+            //
+              //  DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
+
+               // MessageBox.Show(ta.Equals(" SELECT * FROM DOCTOR WHERE doctorName LIKE '%" + txtBuscarDoctor + "%' +OR doctorLastName LIKE '%" + txtBuscarDoctor + "%'   ").ToString());
+                //dataGridView1.DataSource = ta.Equals(" SELECT * FROM DOCTOR WHERE doctorName LIKE '%" + txtBuscarDoctor + "%' +OR doctorLastName LIKE '%" + txtBuscarDoctor + "%'   ");
+                //
+
+
+                // DataSet1.DoctorDataTable dt = ta.GetDataDoctor();
+
+                // dataGridView1.DataSource = dt;
+
+                /*
+
+                    DataView dv;
+                    dv = new DataView(ds.Tables[0], "type = 'business' ", "type Desc", DataViewRowState.CurrentRows);
+                    dataGridView1.DataSource = dv;
+
+                 */
+                /*
+               DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
+               dataGridView1 = new dataGridView1(ta);
+
+               //from here
+               string dataOutput = "";
+               string[] busqueda = this.txtBuscarDoctor.Text.Split(' ');
+
+               foreach (string palabra in busqueda) {
+                   if (dataOutput.Length == 0)
+                   {
+                       dataOutput = "(DoctorName LIKE '%" + palabra + "%' OR DoctorLastName LIKE '%" + palabra + "%')";
+                   }
+                   else {
+                       dataOutput += " AND (DoctorName LIKE '%" + palabra + "%' OR DoctorLastName LIKE '%" + palabra + "%')";
+                   }
+               }*/
+            
+            }
+
+        private void txtBuscarDoctor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            try
+            {
+                DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
+                DataSet1.DoctorDataTable dt = ta.GetDataByFilteringD(txtBuscarDoctor.Text, txtBuscarDoctor.Text);
+                 
+           //     DataSet1.DoctorRow row = (DataSet1.DoctorRow)dt.Rows[0];
+                /**/
+
+                //Cargamos el resultado en el DataTable
+             //   ta.Fill(dt);
+                ta.FillBy1FilteringD( dt, txtBuscarDoctor.Text,txtBuscarDoctor.Text);
+
+                //Cargamos el DGV
+                dataGridView1.DataSource = dt;
+
+
+                /**/
+                //    txtNombre.Text = row.DoctorName;
+                //    txtApellido.Text = row.DoctorLastName;
+                /*
+                DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
+                DataSet1.DoctorDataTable dt = ta.GetDataByFilteringD(txtBuscarDoctor.Text, txtBuscarDoctor.Text);
+                DataSet1.DoctorRow row = (DataSet1.DoctorRow)dt.Rows[0];
+                txtNombre.Text = row.DoctorName;
+                txtApellido.Text = row.DoctorLastName;
+                */
+
+
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             
@@ -172,5 +312,19 @@ namespace ProyectoResInv_1
                 }
             
         }
-    }
+
+        
+
+
+
+
+
+        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+             
+              
+            }
+        }
 }

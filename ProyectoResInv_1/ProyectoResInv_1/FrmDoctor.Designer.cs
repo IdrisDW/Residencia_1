@@ -100,6 +100,7 @@
             this.button2.TabIndex = 57;
             this.button2.Text = "Buscar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtBuscarDoctor
             // 
@@ -108,6 +109,8 @@
             this.txtBuscarDoctor.Name = "txtBuscarDoctor";
             this.txtBuscarDoctor.Size = new System.Drawing.Size(262, 22);
             this.txtBuscarDoctor.TabIndex = 56;
+            this.txtBuscarDoctor.TextChanged += new System.EventHandler(this.txtBuscarDoctor_TextChanged);
+            this.txtBuscarDoctor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarDoctor_KeyPress);
             // 
             // dataGridView1
             // 
