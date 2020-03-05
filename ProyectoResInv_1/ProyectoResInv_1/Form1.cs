@@ -29,5 +29,11 @@ namespace ProyectoResInv_1
            // Refresh();
 
         }
+
+        private void btnDoctores_Click(object sender, EventArgs e)
+        {
+            FrmDoctor frmdoctor = new FrmDoctor();
+            frmdoctor.ShowDialog();
+        }
     }
 }

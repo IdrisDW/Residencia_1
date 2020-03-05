@@ -83,12 +83,13 @@
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(508, 386);
+            this.button3.Location = new System.Drawing.Point(387, 386);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(84, 41);
             this.button3.TabIndex = 58;
             this.button3.Text = "Limpiar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -100,6 +101,7 @@
             this.button2.TabIndex = 57;
             this.button2.Text = "Buscar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtBuscarDoctor
@@ -130,9 +132,9 @@
             this.cbxCargarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCargarTodo.Location = new System.Drawing.Point(401, 348);
             this.cbxCargarTodo.Name = "cbxCargarTodo";
-            this.cbxCargarTodo.Size = new System.Drawing.Size(191, 20);
+            this.cbxCargarTodo.Size = new System.Drawing.Size(184, 20);
             this.cbxCargarTodo.TabIndex = 54;
-            this.cbxCargarTodo.Text = "Ver todos los pacientes";
+            this.cbxCargarTodo.Text = "Ver todos los registros";
             this.cbxCargarTodo.UseVisualStyleBackColor = true;
             this.cbxCargarTodo.CheckedChanged += new System.EventHandler(this.cbxCargarTodo_CheckedChanged);
             // 
@@ -190,7 +192,7 @@
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEditar.Location = new System.Drawing.Point(626, 386);
+            this.btnEditar.Location = new System.Drawing.Point(520, 386);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(84, 41);
             this.btnEditar.TabIndex = 63;
@@ -202,7 +204,7 @@
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEliminar.Location = new System.Drawing.Point(738, 386);
+            this.btnEliminar.Location = new System.Drawing.Point(657, 386);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 41);
             this.btnEliminar.TabIndex = 64;

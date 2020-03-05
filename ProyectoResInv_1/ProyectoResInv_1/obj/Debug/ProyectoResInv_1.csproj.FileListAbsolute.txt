@@ -14,3 +14,5 @@ C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\Proyect
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmMedicamento.resources
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmPaciente.resources
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmMaterial.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Form2.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FormProductos.resources

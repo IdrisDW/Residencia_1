@@ -12,11 +12,11 @@ namespace ProyectoResInv_1
 {
     public partial class FrmDoctor : Form
     {
-        
-         
+
+
         private int? id;
-        private string DoctorName = "", DoctorLastName= "";
-        public FrmDoctor(int? id = null,string DoctorName = "", string DoctorLastName="")
+        private string DoctorName = "", DoctorLastName = "";
+        public FrmDoctor(int? id = null, string DoctorName = "", string DoctorLastName = "")
         {
             InitializeComponent();
             this.id = id;
@@ -30,19 +30,19 @@ namespace ProyectoResInv_1
                 new DataSet1TableAdapters.DoctorTableAdapter();
 
             DataSet1.DoctorDataTable dt = ta.GetDataDoctor();
-           
+
             dataGridView1.DataSource = dt;
             dataGridView1.Columns[0].HeaderText = "Id";
             dataGridView1.Columns[1].HeaderText = "Nombre";
             dataGridView1.Columns[2].HeaderText = "Apellido";
         }
- 
+
 
         private void FrmDoctor_Load(object sender, EventArgs e)
         {
-             
+
             Refresh();
-          
+
             /* Refresh();
              if (id != null) {
                  DataSet1TableAdapters.DoctorTableAdapter ta =
@@ -71,17 +71,17 @@ namespace ProyectoResInv_1
         int idd;
         private int? GetId() {
             try {
-                MessageBox.Show("mensaje");
-            idd=    int.Parse(
-                    dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()
-                    );
+             //   MessageBox.Show("mensaje");
+                idd = int.Parse(
+                        dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()
+                        );
                 return int.Parse(
                     dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()
                     );
 
             }
             catch {
-                MessageBox.Show("mensaje2");
+             //   MessageBox.Show("mensaje2");
                 return null;
             }
 
@@ -92,10 +92,10 @@ namespace ProyectoResInv_1
         {
             try
             {
-               
-               docName = 
-                        dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString()
-                        ;
+
+                docName =
+                         dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString()
+                         ;
                 return int.Parse(
                     dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString()
                     );
@@ -103,7 +103,7 @@ namespace ProyectoResInv_1
             }
             catch
             {
-                
+
                 return null;
             }
 
@@ -146,15 +146,15 @@ namespace ProyectoResInv_1
                 txtApellido.Text = row.DoctorLastName;
             }
 
-  
+
         }
 
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show( idd.ToString());
+            MessageBox.Show(idd.ToString());
             DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
-            MessageBox.Show( idd.ToString());
+            MessageBox.Show(idd.ToString());
             if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text))
             {
 
@@ -163,7 +163,7 @@ namespace ProyectoResInv_1
 
 
             else
-            if ( idd== 0)
+            if (idd == 0)
             {
                 ta.InsertQueryDoctor(txtNombre.Text.Trim(), txtApellido.Text.Trim());
                 txtNombre.Clear();
@@ -184,13 +184,44 @@ namespace ProyectoResInv_1
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int? id = GetId();
-            if (id != null) {
-                DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
-                ta.DeleteQueryDoctor((int)id);
-            }
-        }
 
+            string message = "Estas seguro que desea eliminar este registro?";
+            string title = "Advertencia";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            //
+            int? id = GetId();
+
+            if (result == DialogResult.Yes)
+            {
+                if (id != null)
+                {
+                    DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
+                    try
+                    {
+                        ta.DeleteQueryDoctor((int)id);
+                        Refresh();
+                    }
+                    catch (Exception mensaje)
+                    {
+                        MessageBox.Show(mensaje.ToString());
+                    }
+                }
+            }
+            else
+            {
+               
+                // Do something  
+            } 
+
+                //
+
+
+                //  ta.DeleteQueryDoctor((int)id);
+
+            
+        }
+    
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -299,6 +330,11 @@ namespace ProyectoResInv_1
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            txtBuscarDoctor.Clear();
         }
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
