@@ -79,6 +79,7 @@
             this.btnProveedores.TabIndex = 64;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // btnMateriales
             // 
@@ -89,6 +90,7 @@
             this.btnMateriales.TabIndex = 63;
             this.btnMateriales.Text = "Materiales";
             this.btnMateriales.UseVisualStyleBackColor = true;
+            this.btnMateriales.Click += new System.EventHandler(this.btnMateriales_Click);
             // 
             // btnCompuestos
             // 
@@ -109,6 +111,7 @@
             this.btnPacientes.TabIndex = 61;
             this.btnPacientes.Text = "Pacientes";
             this.btnPacientes.UseVisualStyleBackColor = true;
+            this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
             // 
             // btnDoctores
             // 

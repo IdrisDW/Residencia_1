@@ -28,41 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLimpiarProv = new System.Windows.Forms.Button();
-            this.btnBuscarProv = new System.Windows.Forms.Button();
             this.txtBusquedaProv = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cbxCargarTodo = new System.Windows.Forms.CheckBox();
             this.lblInfoSubtitulo = new System.Windows.Forms.Label();
             this.lblAgregarTitulo = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cbxCargarTodo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnLimpiarProv
-            // 
-            this.btnLimpiarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLimpiarProv.Location = new System.Drawing.Point(475, 377);
-            this.btnLimpiarProv.Name = "btnLimpiarProv";
-            this.btnLimpiarProv.Size = new System.Drawing.Size(84, 41);
-            this.btnLimpiarProv.TabIndex = 43;
-            this.btnLimpiarProv.Text = "Limpiar";
-            this.btnLimpiarProv.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarProv
-            // 
-            this.btnBuscarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarProv.Location = new System.Drawing.Point(354, 377);
-            this.btnBuscarProv.Name = "btnBuscarProv";
-            this.btnBuscarProv.Size = new System.Drawing.Size(84, 41);
-            this.btnBuscarProv.TabIndex = 42;
-            this.btnBuscarProv.Text = "Buscar";
-            this.btnBuscarProv.UseVisualStyleBackColor = true;
             // 
             // txtBusquedaProv
             // 
@@ -71,6 +51,7 @@
             this.txtBusquedaProv.Name = "txtBusquedaProv";
             this.txtBusquedaProv.Size = new System.Drawing.Size(262, 22);
             this.txtBusquedaProv.TabIndex = 38;
+            this.txtBusquedaProv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusquedaProv_KeyPress);
             // 
             // dataGridView1
             // 
@@ -79,17 +60,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(745, 150);
             this.dataGridView1.TabIndex = 36;
-            // 
-            // cbxCargarTodo
-            // 
-            this.cbxCargarTodo.AutoSize = true;
-            this.cbxCargarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCargarTodo.Location = new System.Drawing.Point(610, 388);
-            this.cbxCargarTodo.Name = "cbxCargarTodo";
-            this.cbxCargarTodo.Size = new System.Drawing.Size(192, 20);
-            this.cbxCargarTodo.TabIndex = 34;
-            this.cbxCargarTodo.Text = "Ver todos los productos";
-            this.cbxCargarTodo.UseVisualStyleBackColor = true;
             // 
             // lblInfoSubtitulo
             // 
@@ -119,6 +89,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(248, 22);
             this.txtNombre.TabIndex = 45;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
             // 
@@ -140,6 +111,7 @@
             this.btnActualizar.TabIndex = 47;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnGuardar
             // 
@@ -151,25 +123,90 @@
             this.btnGuardar.TabIndex = 46;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEliminar.Location = new System.Drawing.Point(622, 367);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 41);
+            this.btnEliminar.TabIndex = 74;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEditar.Location = new System.Drawing.Point(485, 367);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(84, 41);
+            this.btnEditar.TabIndex = 73;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLimpiar.Location = new System.Drawing.Point(352, 367);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(84, 41);
+            this.btnLimpiar.TabIndex = 72;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(352, 367);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 41);
+            this.button2.TabIndex = 71;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            // 
+            // cbxCargarTodo
+            // 
+            this.cbxCargarTodo.AutoSize = true;
+            this.cbxCargarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCargarTodo.Location = new System.Drawing.Point(366, 329);
+            this.cbxCargarTodo.Name = "cbxCargarTodo";
+            this.cbxCargarTodo.Size = new System.Drawing.Size(184, 20);
+            this.cbxCargarTodo.TabIndex = 70;
+            this.cbxCargarTodo.Text = "Ver todos los registros";
+            this.cbxCargarTodo.UseVisualStyleBackColor = true;
+            this.cbxCargarTodo.CheckedChanged += new System.EventHandler(this.cbxCargarTodo_CheckedChanged);
             // 
             // FrmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 622);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.cbxCargarTodo);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.btnLimpiarProv);
-            this.Controls.Add(this.btnBuscarProv);
             this.Controls.Add(this.txtBusquedaProv);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.cbxCargarTodo);
             this.Controls.Add(this.lblInfoSubtitulo);
             this.Controls.Add(this.lblAgregarTitulo);
             this.Name = "FrmProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedor";
+            this.Load += new System.EventHandler(this.FrmProveedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,17 +214,18 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnLimpiarProv;
-        private System.Windows.Forms.Button btnBuscarProv;
         private System.Windows.Forms.TextBox txtBusquedaProv;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.CheckBox cbxCargarTodo;
         private System.Windows.Forms.Label lblInfoSubtitulo;
         private System.Windows.Forms.Label lblAgregarTitulo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox cbxCargarTodo;
     }
 }

@@ -35,5 +35,23 @@ namespace ProyectoResInv_1
             FrmDoctor frmdoctor = new FrmDoctor();
             frmdoctor.ShowDialog();
         }
+
+        private void btnPacientes_Click(object sender, EventArgs e)
+        {
+            FrmPaciente frmpaciente = new FrmPaciente();
+            frmpaciente.ShowDialog();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedor frmProveedor = new FrmProveedor();
+            frmProveedor.ShowDialog();
+        }
+
+        private void btnMateriales_Click(object sender, EventArgs e)
+        {
+            FrmMaterial frmMaterial = new FrmMaterial();
+            frmMaterial.ShowDialog();
+        }
     }
 }

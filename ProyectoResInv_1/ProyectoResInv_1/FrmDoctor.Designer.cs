@@ -31,7 +31,7 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtApellido = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtBuscarDoctor = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -79,17 +79,17 @@
             this.txtApellido.TabIndex = 59;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
-            // button3
+            // btnLimpiar
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(387, 386);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 41);
-            this.button3.TabIndex = 58;
-            this.button3.Text = "Limpiar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLimpiar.Location = new System.Drawing.Point(387, 386);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(84, 41);
+            this.btnLimpiar.TabIndex = 58;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -222,7 +222,7 @@
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtBuscarDoctor);
             this.Controls.Add(this.dataGridView1);
@@ -247,7 +247,7 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtBuscarDoctor;
         private System.Windows.Forms.DataGridView dataGridView1;

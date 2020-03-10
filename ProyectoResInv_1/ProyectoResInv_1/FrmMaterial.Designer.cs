@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLimpiarMat = new System.Windows.Forms.Button();
-            this.btnBuscarMaterial = new System.Windows.Forms.Button();
             this.btnLimpiarProv = new System.Windows.Forms.Button();
-            this.btnBuscarProv = new System.Windows.Forms.Button();
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.txtBuscarMat = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvProveedor = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clnFechaExp = new System.Windows.Forms.MonthCalendar();
-            this.cbxCargarTodo = new System.Windows.Forms.CheckBox();
-            this.txtUnidades = new System.Windows.Forms.TextBox();
             this.udCantidad = new System.Windows.Forms.NumericUpDown();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -50,62 +45,39 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblInfoSubtitulo = new System.Windows.Forms.Label();
             this.lblAgregarTitulo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.udUnidades = new System.Windows.Forms.NumericUpDown();
+            this.btnElegir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udUnidades)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnLimpiarMat
-            // 
-            this.btnLimpiarMat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarMat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLimpiarMat.Location = new System.Drawing.Point(490, 386);
-            this.btnLimpiarMat.Name = "btnLimpiarMat";
-            this.btnLimpiarMat.Size = new System.Drawing.Size(84, 41);
-            this.btnLimpiarMat.TabIndex = 43;
-            this.btnLimpiarMat.Text = "Limpiar";
-            this.btnLimpiarMat.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarMaterial
-            // 
-            this.btnBuscarMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarMaterial.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarMaterial.Location = new System.Drawing.Point(369, 386);
-            this.btnBuscarMaterial.Name = "btnBuscarMaterial";
-            this.btnBuscarMaterial.Size = new System.Drawing.Size(84, 41);
-            this.btnBuscarMaterial.TabIndex = 42;
-            this.btnBuscarMaterial.Text = "Buscar";
-            this.btnBuscarMaterial.UseVisualStyleBackColor = true;
             // 
             // btnLimpiarProv
             // 
             this.btnLimpiarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLimpiarProv.Location = new System.Drawing.Point(793, 147);
+            this.btnLimpiarProv.Location = new System.Drawing.Point(780, 230);
             this.btnLimpiarProv.Name = "btnLimpiarProv";
             this.btnLimpiarProv.Size = new System.Drawing.Size(60, 24);
             this.btnLimpiarProv.TabIndex = 41;
             this.btnLimpiarProv.Text = "Limpiar";
             this.btnLimpiarProv.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarProv
-            // 
-            this.btnBuscarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarProv.Location = new System.Drawing.Point(713, 147);
-            this.btnBuscarProv.Name = "btnBuscarProv";
-            this.btnBuscarProv.Size = new System.Drawing.Size(60, 24);
-            this.btnBuscarProv.TabIndex = 40;
-            this.btnBuscarProv.Text = "Buscar";
-            this.btnBuscarProv.UseVisualStyleBackColor = true;
+            this.btnLimpiarProv.Click += new System.EventHandler(this.btnLimpiarProv_Click);
             // 
             // txtProveedor
             // 
             this.txtProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProveedor.Location = new System.Drawing.Point(522, 147);
+            this.txtProveedor.Location = new System.Drawing.Point(602, 119);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(158, 22);
             this.txtProveedor.TabIndex = 39;
+            this.txtProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProveedor_KeyPress);
             // 
             // txtBuscarMat
             // 
@@ -115,13 +87,13 @@
             this.txtBuscarMat.Size = new System.Drawing.Size(262, 22);
             this.txtBuscarMat.TabIndex = 38;
             // 
-            // dataGridView2
+            // dgvProveedor
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(522, 186);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(331, 83);
-            this.dataGridView2.TabIndex = 37;
+            this.dgvProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProveedor.Location = new System.Drawing.Point(522, 147);
+            this.dgvProveedor.Name = "dgvProveedor";
+            this.dgvProveedor.Size = new System.Drawing.Size(331, 66);
+            this.dgvProveedor.TabIndex = 37;
             // 
             // dataGridView1
             // 
@@ -136,25 +108,6 @@
             this.clnFechaExp.Location = new System.Drawing.Point(214, 147);
             this.clnFechaExp.Name = "clnFechaExp";
             this.clnFechaExp.TabIndex = 35;
-            // 
-            // cbxCargarTodo
-            // 
-            this.cbxCargarTodo.AutoSize = true;
-            this.cbxCargarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCargarTodo.Location = new System.Drawing.Point(625, 397);
-            this.cbxCargarTodo.Name = "cbxCargarTodo";
-            this.cbxCargarTodo.Size = new System.Drawing.Size(196, 20);
-            this.cbxCargarTodo.TabIndex = 34;
-            this.cbxCargarTodo.Text = "Ver todos los materiales";
-            this.cbxCargarTodo.UseVisualStyleBackColor = true;
-            // 
-            // txtUnidades
-            // 
-            this.txtUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnidades.Location = new System.Drawing.Point(625, 84);
-            this.txtUnidades.Name = "txtUnidades";
-            this.txtUnidades.Size = new System.Drawing.Size(166, 22);
-            this.txtUnidades.TabIndex = 33;
             // 
             // udCantidad
             // 
@@ -193,6 +146,7 @@
             this.btnGuardar.TabIndex = 29;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblProveedor
             // 
@@ -265,22 +219,103 @@
             this.lblAgregarTitulo.TabIndex = 22;
             this.lblAgregarTitulo.Text = "Agregar material";
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEliminar.Location = new System.Drawing.Point(637, 382);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 41);
+            this.btnEliminar.TabIndex = 74;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEditar.Location = new System.Drawing.Point(500, 382);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(84, 41);
+            this.btnEditar.TabIndex = 73;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLimpiar.Location = new System.Drawing.Point(367, 382);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(84, 41);
+            this.btnLimpiar.TabIndex = 72;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(367, 382);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 41);
+            this.button2.TabIndex = 71;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(381, 344);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(184, 20);
+            this.checkBox1.TabIndex = 70;
+            this.checkBox1.Text = "Ver todos los registros";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // udUnidades
+            // 
+            this.udUnidades.DecimalPlaces = 2;
+            this.udUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.udUnidades.Location = new System.Drawing.Point(592, 81);
+            this.udUnidades.Name = "udUnidades";
+            this.udUnidades.Size = new System.Drawing.Size(248, 22);
+            this.udUnidades.TabIndex = 76;
+            // 
+            // btnElegir
+            // 
+            this.btnElegir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElegir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnElegir.Location = new System.Drawing.Point(780, 115);
+            this.btnElegir.Name = "btnElegir";
+            this.btnElegir.Size = new System.Drawing.Size(60, 24);
+            this.btnElegir.TabIndex = 77;
+            this.btnElegir.Text = "Elegir";
+            this.btnElegir.UseVisualStyleBackColor = true;
+            this.btnElegir.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 622);
-            this.Controls.Add(this.btnLimpiarMat);
-            this.Controls.Add(this.btnBuscarMaterial);
+            this.Controls.Add(this.btnElegir);
+            this.Controls.Add(this.udUnidades);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnLimpiarProv);
-            this.Controls.Add(this.btnBuscarProv);
             this.Controls.Add(this.txtProveedor);
             this.Controls.Add(this.txtBuscarMat);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvProveedor);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.clnFechaExp);
-            this.Controls.Add(this.cbxCargarTodo);
-            this.Controls.Add(this.txtUnidades);
             this.Controls.Add(this.udCantidad);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnActualizar);
@@ -293,28 +328,25 @@
             this.Controls.Add(this.lblInfoSubtitulo);
             this.Controls.Add(this.lblAgregarTitulo);
             this.Name = "FrmMaterial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Material";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.FrmMaterial_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udUnidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnLimpiarMat;
-        private System.Windows.Forms.Button btnBuscarMaterial;
         private System.Windows.Forms.Button btnLimpiarProv;
-        private System.Windows.Forms.Button btnBuscarProv;
         private System.Windows.Forms.TextBox txtProveedor;
         private System.Windows.Forms.TextBox txtBuscarMat;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvProveedor;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MonthCalendar clnFechaExp;
-        private System.Windows.Forms.CheckBox cbxCargarTodo;
-        private System.Windows.Forms.TextBox txtUnidades;
         private System.Windows.Forms.NumericUpDown udCantidad;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnActualizar;
@@ -326,5 +358,12 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblInfoSubtitulo;
         private System.Windows.Forms.Label lblAgregarTitulo;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.NumericUpDown udUnidades;
+        private System.Windows.Forms.Button btnElegir;
     }
 }

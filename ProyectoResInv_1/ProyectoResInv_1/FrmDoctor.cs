@@ -169,6 +169,7 @@ namespace ProyectoResInv_1
                 txtNombre.Clear();
                 txtApellido.Clear();
                 idd = 0;
+                Refresh();
 
             }
             else
@@ -177,6 +178,7 @@ namespace ProyectoResInv_1
                 txtNombre.Clear();
                 txtApellido.Clear();
                 idd = 0;
+                Refresh();
             }
 
             // this.Close();
@@ -185,7 +187,7 @@ namespace ProyectoResInv_1
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
-            string message = "Estas seguro que desea eliminar este registro?";
+            string message = "Esta seguro que desea eliminar este registro?";
             string title = "Advertencia";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
@@ -335,6 +337,7 @@ namespace ProyectoResInv_1
         private void button3_Click(object sender, EventArgs e)
         {
             txtBuscarDoctor.Clear();
+            Refresh();
         }
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
