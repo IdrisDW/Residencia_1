@@ -138,6 +138,7 @@
             // clnFechaExp
             // 
             this.clnFechaExp.Location = new System.Drawing.Point(214, 185);
+            this.clnFechaExp.MaxSelectionCount = 1;
             this.clnFechaExp.Name = "clnFechaExp";
             this.clnFechaExp.TabIndex = 35;
             // 

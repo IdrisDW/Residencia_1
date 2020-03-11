@@ -1655,9 +1655,9 @@ namespace ProyectoResInv_1 {
             
             private global::System.Data.DataColumn columnProductUnits;
             
-            private global::System.Data.DataColumn columnidSupplier;
-            
             private global::System.Data.DataColumn columnProductUnitType;
+            
+            private global::System.Data.DataColumn columnidSupplier;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1734,17 +1734,17 @@ namespace ProyectoResInv_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn idSupplierColumn {
+            public global::System.Data.DataColumn ProductUnitTypeColumn {
                 get {
-                    return this.columnidSupplier;
+                    return this.columnProductUnitType;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ProductUnitTypeColumn {
+            public global::System.Data.DataColumn idSupplierColumn {
                 get {
-                    return this.columnProductUnitType;
+                    return this.columnidSupplier;
                 }
             }
             
@@ -1785,7 +1785,7 @@ namespace ProyectoResInv_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductRow AddProductRow(string ProductName, int ProductQuantity, System.DateTime ProductExpDate, decimal ProductUnits, SupplierRow parentSupplierRowByFK_Product_Supplier, string ProductUnitType) {
+            public ProductRow AddProductRow(string ProductName, int ProductQuantity, System.DateTime ProductExpDate, decimal ProductUnits, string ProductUnitType, SupplierRow parentSupplierRowByFK_Product_Supplier) {
                 ProductRow rowProductRow = ((ProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1793,10 +1793,10 @@ namespace ProyectoResInv_1 {
                         ProductQuantity,
                         ProductExpDate,
                         ProductUnits,
-                        null,
-                        ProductUnitType};
+                        ProductUnitType,
+                        null};
                 if ((parentSupplierRowByFK_Product_Supplier != null)) {
-                    columnValuesArray[5] = parentSupplierRowByFK_Product_Supplier[0];
+                    columnValuesArray[6] = parentSupplierRowByFK_Product_Supplier[0];
                 }
                 rowProductRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductRow);
@@ -1832,8 +1832,8 @@ namespace ProyectoResInv_1 {
                 this.columnProductQuantity = base.Columns["ProductQuantity"];
                 this.columnProductExpDate = base.Columns["ProductExpDate"];
                 this.columnProductUnits = base.Columns["ProductUnits"];
-                this.columnidSupplier = base.Columns["idSupplier"];
                 this.columnProductUnitType = base.Columns["ProductUnitType"];
+                this.columnidSupplier = base.Columns["idSupplier"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1849,10 +1849,10 @@ namespace ProyectoResInv_1 {
                 base.Columns.Add(this.columnProductExpDate);
                 this.columnProductUnits = new global::System.Data.DataColumn("ProductUnits", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductUnits);
-                this.columnidSupplier = new global::System.Data.DataColumn("idSupplier", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidSupplier);
                 this.columnProductUnitType = new global::System.Data.DataColumn("ProductUnitType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductUnitType);
+                this.columnidSupplier = new global::System.Data.DataColumn("idSupplier", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidSupplier);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_Product}, true));
                 this.columnid_Product.AutoIncrement = true;
@@ -2525,22 +2525,6 @@ namespace ProyectoResInv_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int idSupplier {
-                get {
-                    try {
-                        return ((int)(this[this.tableProduct.idSupplierColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'idSupplier\' in table \'Product\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProduct.idSupplierColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string ProductUnitType {
                 get {
                     try {
@@ -2552,6 +2536,22 @@ namespace ProyectoResInv_1 {
                 }
                 set {
                     this[this.tableProduct.ProductUnitTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int idSupplier {
+                get {
+                    try {
+                        return ((int)(this[this.tableProduct.idSupplierColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'idSupplier\' in table \'Product\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProduct.idSupplierColumn] = value;
                 }
             }
             
@@ -2616,18 +2616,6 @@ namespace ProyectoResInv_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsidSupplierNull() {
-                return this.IsNull(this.tableProduct.idSupplierColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetidSupplierNull() {
-                this[this.tableProduct.idSupplierColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductUnitTypeNull() {
                 return this.IsNull(this.tableProduct.ProductUnitTypeColumn);
             }
@@ -2636,6 +2624,18 @@ namespace ProyectoResInv_1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProductUnitTypeNull() {
                 this[this.tableProduct.ProductUnitTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsidSupplierNull() {
+                return this.IsNull(this.tableProduct.idSupplierColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetidSupplierNull() {
+                this[this.tableProduct.idSupplierColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5413,12 +5413,12 @@ WHERE        (MaterialName LIKE '%' + @MaterialName + '%') OR
             tableMapping.ColumnMappings.Add("ProductQuantity", "ProductQuantity");
             tableMapping.ColumnMappings.Add("ProductExpDate", "ProductExpDate");
             tableMapping.ColumnMappings.Add("ProductUnits", "ProductUnits");
-            tableMapping.ColumnMappings.Add("idSupplier", "idSupplier");
             tableMapping.ColumnMappings.Add("ProductUnitType", "ProductUnitType");
+            tableMapping.ColumnMappings.Add("idSupplier", "idSupplier");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [product] WHERE (([id_Product] = @Original_id_Product) AND ((@IsNull_ProductName = 1 AND [ProductName] IS NULL) OR ([ProductName] = @Original_ProductName)) AND ((@IsNull_ProductQuantity = 1 AND [ProductQuantity] IS NULL) OR ([ProductQuantity] = @Original_ProductQuantity)) AND ((@IsNull_ProductExpDate = 1 AND [ProductExpDate] IS NULL) OR ([ProductExpDate] = @Original_ProductExpDate)) AND ((@IsNull_ProductUnits = 1 AND [ProductUnits] IS NULL) OR ([ProductUnits] = @Original_ProductUnits)) AND ((@IsNull_idSupplier = 1 AND [idSupplier] IS NULL) OR ([idSupplier] = @Original_idSupplier)) AND ((@IsNull_ProductUnitType = 1 AND [ProductUnitType] IS NULL) OR ([ProductUnitType] = @Original_ProductUnitType)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [product] WHERE (([id_Product] = @Original_id_Product) AND ((@IsNull_ProductName = 1 AND [ProductName] IS NULL) OR ([ProductName] = @Original_ProductName)) AND ((@IsNull_ProductQuantity = 1 AND [ProductQuantity] IS NULL) OR ([ProductQuantity] = @Original_ProductQuantity)) AND ((@IsNull_ProductExpDate = 1 AND [ProductExpDate] IS NULL) OR ([ProductExpDate] = @Original_ProductExpDate)) AND ((@IsNull_ProductUnits = 1 AND [ProductUnits] IS NULL) OR ([ProductUnits] = @Original_ProductUnits)) AND ((@IsNull_ProductUnitType = 1 AND [ProductUnitType] IS NULL) OR ([ProductUnitType] = @Original_ProductUnitType)) AND ((@IsNull_idSupplier = 1 AND [idSupplier] IS NULL) OR ([idSupplier] = @Original_idSupplier)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Product", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5429,32 +5429,32 @@ WHERE        (MaterialName LIKE '%' + @MaterialName + '%') OR
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductExpDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductExpDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductUnits", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductUnits", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductUnits", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ProductUnits", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductUnitType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductUnitType", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductUnitType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductUnitType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [product] ([ProductName], [ProductQuantity], [ProductExpDate], [ProductUnits], [idSupplier], [ProductUnitType]) VALUES (@ProductName, @ProductQuantity, @ProductExpDate, @ProductUnits, @idSupplier, @ProductUnitType);
-SELECT id_Product, ProductName, ProductQuantity, ProductExpDate, ProductUnits, idSupplier, ProductUnitType FROM Product WHERE (id_Product = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [product] ([ProductName], [ProductQuantity], [ProductExpDate], [ProductUnits], [ProductUnitType], [idSupplier]) VALUES (@ProductName, @ProductQuantity, @ProductExpDate, @ProductUnits, @ProductUnitType, @idSupplier);
+SELECT id_Product, ProductName, ProductQuantity, ProductExpDate, ProductUnits, ProductUnitType, idSupplier FROM Product WHERE (id_Product = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductQuantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductQuantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductExpDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductExpDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductUnits", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ProductUnits", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductUnitType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductUnitType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [product] SET [ProductName] = @ProductName, [ProductQuantity] = @ProductQuantity, [ProductExpDate] = @ProductExpDate, [ProductUnits] = @ProductUnits, [idSupplier] = @idSupplier, [ProductUnitType] = @ProductUnitType WHERE (([id_Product] = @Original_id_Product) AND ((@IsNull_ProductName = 1 AND [ProductName] IS NULL) OR ([ProductName] = @Original_ProductName)) AND ((@IsNull_ProductQuantity = 1 AND [ProductQuantity] IS NULL) OR ([ProductQuantity] = @Original_ProductQuantity)) AND ((@IsNull_ProductExpDate = 1 AND [ProductExpDate] IS NULL) OR ([ProductExpDate] = @Original_ProductExpDate)) AND ((@IsNull_ProductUnits = 1 AND [ProductUnits] IS NULL) OR ([ProductUnits] = @Original_ProductUnits)) AND ((@IsNull_idSupplier = 1 AND [idSupplier] IS NULL) OR ([idSupplier] = @Original_idSupplier)) AND ((@IsNull_ProductUnitType = 1 AND [ProductUnitType] IS NULL) OR ([ProductUnitType] = @Original_ProductUnitType)));
-SELECT id_Product, ProductName, ProductQuantity, ProductExpDate, ProductUnits, idSupplier, ProductUnitType FROM Product WHERE (id_Product = @id_Product)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [product] SET [ProductName] = @ProductName, [ProductQuantity] = @ProductQuantity, [ProductExpDate] = @ProductExpDate, [ProductUnits] = @ProductUnits, [ProductUnitType] = @ProductUnitType, [idSupplier] = @idSupplier WHERE (([id_Product] = @Original_id_Product) AND ((@IsNull_ProductName = 1 AND [ProductName] IS NULL) OR ([ProductName] = @Original_ProductName)) AND ((@IsNull_ProductQuantity = 1 AND [ProductQuantity] IS NULL) OR ([ProductQuantity] = @Original_ProductQuantity)) AND ((@IsNull_ProductExpDate = 1 AND [ProductExpDate] IS NULL) OR ([ProductExpDate] = @Original_ProductExpDate)) AND ((@IsNull_ProductUnits = 1 AND [ProductUnits] IS NULL) OR ([ProductUnits] = @Original_ProductUnits)) AND ((@IsNull_ProductUnitType = 1 AND [ProductUnitType] IS NULL) OR ([ProductUnitType] = @Original_ProductUnitType)) AND ((@IsNull_idSupplier = 1 AND [idSupplier] IS NULL) OR ([idSupplier] = @Original_idSupplier)));
+SELECT id_Product, ProductName, ProductQuantity, ProductExpDate, ProductUnits, ProductUnitType, idSupplier FROM Product WHERE (id_Product = @id_Product)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductQuantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductQuantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductExpDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductExpDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductUnits", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ProductUnits", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductUnitType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductUnitType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Product", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5464,10 +5464,10 @@ SELECT id_Product, ProductName, ProductQuantity, ProductExpDate, ProductUnits, i
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductExpDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductExpDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductUnits", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductUnits", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductUnits", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ProductUnits", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductUnitType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductUnitType", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductUnitType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductUnitType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idSupplier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Product", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5484,7 +5484,8 @@ SELECT id_Product, ProductName, ProductQuantity, ProductExpDate, ProductUnits, i
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "select * from product";
+            this._commandCollection[0].CommandText = "select \r\nid_Product,\r\nProductName,\r\nProductQuantity,\r\nProductExpDate,\r\nProductUni" +
+                "ts,\r\nProductUnitType,\r\nidSupplier\r\n\r\n from product";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -5493,33 +5494,13 @@ SELECT id_Product, ProductName, ProductQuantity, ProductExpDate, ProductUnits, i
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Product", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Product", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT * FROM Product\r\nWHERE id_Product = @id_Product";
+            this._commandCollection[2].CommandText = "SELECT ProductExpDate, ProductName, ProductQuantity, ProductUnitType, ProductUnit" +
+                "s, idSupplier, id_Product FROM Product WHERE (id_Product = @id_Product)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Product", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT        id_Product,ProductName, ProductQuantity, ProductExpDate,ProductUnits, idSupplier,ProductUnitType
-FROM          Product
-WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
-                         (CONVERT (varchar(20),ProductQuantity)
-                         LIKE
-                        '%' 
-                        +
-                          CONVERT(varchar(20), @ProductQuantity)  
-                          + 
-                           '%') 
-                      OR
-                     (CONVERT (varchar(20),ProductExpDate) LIKE   '%' +
-                     CONVERT(varchar(20), @ProductExpDate)    +  '%') 
-                     OR
-                       (CONVERT (varchar(20),ProductUnits) LIKE   '%' +
-                     CONVERT(varchar(20), @ProductUnits)    +  '%') 
-                     OR
-                      (CONVERT (varchar(20),idSupplier) LIKE   '%' +
-                     CONVERT(varchar(20), @idSupplier)    +  '%')  
-                    OR
-                    (CONVERT (varchar(20),ProductUnitType) LIKE   '%' +
-                     CONVERT(varchar(20), @ProductUnitType)    +  '%')  ";
+            this._commandCollection[3].CommandText = @"SELECT ProductExpDate, ProductName, ProductQuantity, ProductUnitType, ProductUnits, idSupplier, id_Product FROM Product WHERE (ProductName LIKE '%' + @ProductName + '%') OR (CONVERT (varchar(20), ProductQuantity) LIKE '%' + CONVERT (varchar(20), @ProductQuantity) + '%') OR (CONVERT (varchar(20), ProductExpDate) LIKE '%' + CONVERT (varchar(20), @ProductExpDate) + '%') OR (CONVERT (varchar(20), ProductUnits) LIKE '%' + CONVERT (varchar(20), @ProductUnits) + '%') OR (CONVERT (varchar(20), idSupplier) LIKE '%' + CONVERT (varchar(20), @idSupplier) + '%') OR (CONVERT (varchar(20), ProductUnitType) LIKE '%' + CONVERT (varchar(20), @ProductUnitType) + '%')";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductQuantity", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5733,7 +5714,7 @@ WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_Product, string Original_ProductName, global::System.Nullable<int> Original_ProductQuantity, global::System.Nullable<global::System.DateTime> Original_ProductExpDate, global::System.Nullable<decimal> Original_ProductUnits, global::System.Nullable<int> Original_idSupplier, string Original_ProductUnitType) {
+        public virtual int Delete(int Original_id_Product, string Original_ProductName, global::System.Nullable<int> Original_ProductQuantity, global::System.Nullable<global::System.DateTime> Original_ProductExpDate, global::System.Nullable<decimal> Original_ProductUnits, string Original_ProductUnitType, global::System.Nullable<int> Original_idSupplier) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_Product));
             if ((Original_ProductName == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -5767,21 +5748,21 @@ WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_idSupplier.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_idSupplier.Value));
-            }
-            else {
+            if ((Original_ProductUnitType == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_ProductUnitType == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_ProductUnitType));
+            }
+            if ((Original_idSupplier.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_idSupplier.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_ProductUnitType));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5803,7 +5784,7 @@ WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ProductName, global::System.Nullable<int> ProductQuantity, global::System.Nullable<global::System.DateTime> ProductExpDate, global::System.Nullable<decimal> ProductUnits, global::System.Nullable<int> idSupplier, string ProductUnitType) {
+        public virtual int Insert(string ProductName, global::System.Nullable<int> ProductQuantity, global::System.Nullable<global::System.DateTime> ProductExpDate, global::System.Nullable<decimal> ProductUnits, string ProductUnitType, global::System.Nullable<int> idSupplier) {
             if ((ProductName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5828,17 +5809,17 @@ WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((idSupplier.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(idSupplier.Value));
-            }
-            else {
+            if ((ProductUnitType == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((ProductUnitType == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ProductUnitType));
+            }
+            if ((idSupplier.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(idSupplier.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ProductUnitType));
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5860,7 +5841,7 @@ WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ProductName, global::System.Nullable<int> ProductQuantity, global::System.Nullable<global::System.DateTime> ProductExpDate, global::System.Nullable<decimal> ProductUnits, global::System.Nullable<int> idSupplier, string ProductUnitType, int Original_id_Product, string Original_ProductName, global::System.Nullable<int> Original_ProductQuantity, global::System.Nullable<global::System.DateTime> Original_ProductExpDate, global::System.Nullable<decimal> Original_ProductUnits, global::System.Nullable<int> Original_idSupplier, string Original_ProductUnitType, int id_Product) {
+        public virtual int Update(string ProductName, global::System.Nullable<int> ProductQuantity, global::System.Nullable<global::System.DateTime> ProductExpDate, global::System.Nullable<decimal> ProductUnits, string ProductUnitType, global::System.Nullable<int> idSupplier, int Original_id_Product, string Original_ProductName, global::System.Nullable<int> Original_ProductQuantity, global::System.Nullable<global::System.DateTime> Original_ProductExpDate, global::System.Nullable<decimal> Original_ProductUnits, string Original_ProductUnitType, global::System.Nullable<int> Original_idSupplier, int id_Product) {
             if ((ProductName == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5885,17 +5866,17 @@ WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((idSupplier.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(idSupplier.Value));
-            }
-            else {
+            if ((ProductUnitType == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((ProductUnitType == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ProductUnitType));
+            }
+            if ((idSupplier.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(idSupplier.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ProductUnitType));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id_Product));
             if ((Original_ProductName == null)) {
@@ -5930,21 +5911,21 @@ WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_idSupplier.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_idSupplier.Value));
-            }
-            else {
+            if ((Original_ProductUnitType == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_ProductUnitType == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_ProductUnitType));
+            }
+            if ((Original_idSupplier.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_idSupplier.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_ProductUnitType));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(id_Product));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -5967,8 +5948,8 @@ WHERE        (ProductName LIKE '%' + @ProductName + '%') OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ProductName, global::System.Nullable<int> ProductQuantity, global::System.Nullable<global::System.DateTime> ProductExpDate, global::System.Nullable<decimal> ProductUnits, global::System.Nullable<int> idSupplier, string ProductUnitType, int Original_id_Product, string Original_ProductName, global::System.Nullable<int> Original_ProductQuantity, global::System.Nullable<global::System.DateTime> Original_ProductExpDate, global::System.Nullable<decimal> Original_ProductUnits, global::System.Nullable<int> Original_idSupplier, string Original_ProductUnitType) {
-            return this.Update(ProductName, ProductQuantity, ProductExpDate, ProductUnits, idSupplier, ProductUnitType, Original_id_Product, Original_ProductName, Original_ProductQuantity, Original_ProductExpDate, Original_ProductUnits, Original_idSupplier, Original_ProductUnitType, Original_id_Product);
+        public virtual int Update(string ProductName, global::System.Nullable<int> ProductQuantity, global::System.Nullable<global::System.DateTime> ProductExpDate, global::System.Nullable<decimal> ProductUnits, string ProductUnitType, global::System.Nullable<int> idSupplier, int Original_id_Product, string Original_ProductName, global::System.Nullable<int> Original_ProductQuantity, global::System.Nullable<global::System.DateTime> Original_ProductExpDate, global::System.Nullable<decimal> Original_ProductUnits, string Original_ProductUnitType, global::System.Nullable<int> Original_idSupplier) {
+            return this.Update(ProductName, ProductQuantity, ProductExpDate, ProductUnits, ProductUnitType, idSupplier, Original_id_Product, Original_ProductName, Original_ProductQuantity, Original_ProductExpDate, Original_ProductUnits, Original_ProductUnitType, Original_idSupplier, Original_id_Product);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

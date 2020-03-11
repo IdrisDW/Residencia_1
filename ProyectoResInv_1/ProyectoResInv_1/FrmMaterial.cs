@@ -17,7 +17,7 @@ namespace ProyectoResInv_1
         private string MaterialName = "";
         private int? MaterialQuantity;
         DateTime Materialdt = new DateTime().Date;
-        private string MaterialExpDate = "";
+       // private string MaterialExpDate = "";
         private decimal? MaterialUnits;
         private string MatSupplier = "";
 
@@ -208,8 +208,9 @@ namespace ProyectoResInv_1
               
                 ta.InsertQueryMaterial(txtNombre.Text.Trim(),(int)udCantidad.Value, clnFechaExp.SelectionRange.Start.ToShortDateString(),(decimal)udUnidades.Value,(int)valorIdSupplier);
                 txtNombre.Clear();
-                udCantidad.Value.Equals("0");
-                udUnidades.Value.Equals("0.00");
+                 udCantidad.Value = 0;
+                udUnidades.Value = 0 ;
+                 
                 clnFechaExp.SetDate(DateTime.Now);
 
 
@@ -234,8 +235,8 @@ namespace ProyectoResInv_1
  
 
                 txtNombre.Clear();
-                udCantidad.Value.Equals("0");
-                udUnidades.Value.Equals("0.00");
+                udCantidad.Value = 0;
+                udUnidades.Value = 0;
                 clnFechaExp.SetDate(DateTime.Now);
 
 

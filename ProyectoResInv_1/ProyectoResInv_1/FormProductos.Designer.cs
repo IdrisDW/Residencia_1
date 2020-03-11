@@ -53,7 +53,7 @@
             this.lblProveedor = new System.Windows.Forms.Label();
             this.lblUnidades = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTipoUnidad = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udUnidades)).BeginInit();
@@ -63,10 +63,11 @@
             // txtBuscarProd
             // 
             this.txtBuscarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProd.Location = new System.Drawing.Point(59, 395);
+            this.txtBuscarProd.Location = new System.Drawing.Point(59, 404);
             this.txtBuscarProd.Name = "txtBuscarProd";
             this.txtBuscarProd.Size = new System.Drawing.Size(262, 22);
             this.txtBuscarProd.TabIndex = 39;
+            this.txtBuscarProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarProd_KeyPress);
             // 
             // dataGridView1
             // 
@@ -79,6 +80,7 @@
             // clnFechaExp
             // 
             this.clnFechaExp.Location = new System.Drawing.Point(214, 147);
+            this.clnFechaExp.MaxSelectionCount = 1;
             this.clnFechaExp.Name = "clnFechaExp";
             this.clnFechaExp.TabIndex = 36;
             // 
@@ -86,6 +88,11 @@
             // 
             this.udCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.udCantidad.Location = new System.Drawing.Point(214, 113);
+            this.udCantidad.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.udCantidad.Name = "udCantidad";
             this.udCantidad.Size = new System.Drawing.Size(248, 22);
             this.udCantidad.TabIndex = 33;
@@ -159,6 +166,7 @@
             this.btnEliminar.TabIndex = 79;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -170,6 +178,7 @@
             this.btnEditar.TabIndex = 78;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnLimpiar
             // 
@@ -181,6 +190,7 @@
             this.btnLimpiar.TabIndex = 77;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // button2
             // 
@@ -200,10 +210,11 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(383, 357);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(188, 20);
+            this.checkBox1.Size = new System.Drawing.Size(184, 20);
             this.checkBox1.TabIndex = 75;
             this.checkBox1.Text = "Ver todos los registros";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // btnElegir
             // 
@@ -215,11 +226,17 @@
             this.btnElegir.TabIndex = 88;
             this.btnElegir.Text = "Elegir";
             this.btnElegir.UseVisualStyleBackColor = true;
+            this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
             // 
             // udUnidades
             // 
             this.udUnidades.DecimalPlaces = 2;
             this.udUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.udUnidades.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
             this.udUnidades.Location = new System.Drawing.Point(572, 81);
             this.udUnidades.Maximum = new decimal(new int[] {
             100000,
@@ -240,6 +257,7 @@
             this.btnLimpiarProv.TabIndex = 86;
             this.btnLimpiarProv.Text = "Limpiar";
             this.btnLimpiarProv.UseVisualStyleBackColor = true;
+            this.btnLimpiarProv.Click += new System.EventHandler(this.btnLimpiarProv_Click);
             // 
             // txtProveedor
             // 
@@ -248,6 +266,7 @@
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(158, 22);
             this.txtProveedor.TabIndex = 85;
+            this.txtProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProveedor_KeyPress);
             // 
             // dgvProveedor
             // 
@@ -267,6 +286,7 @@
             this.btnActualizar.TabIndex = 83;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnGuardar
             // 
@@ -278,6 +298,7 @@
             this.btnGuardar.TabIndex = 82;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblProveedor
             // 
@@ -309,20 +330,20 @@
             this.label1.TabIndex = 89;
             this.label1.Text = "Tipo de unidad";
             // 
-            // textBox1
+            // txtTipoUnidad
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(604, 113);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 22);
-            this.textBox1.TabIndex = 90;
+            this.txtTipoUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoUnidad.Location = new System.Drawing.Point(604, 113);
+            this.txtTipoUnidad.Name = "txtTipoUnidad";
+            this.txtTipoUnidad.Size = new System.Drawing.Size(216, 22);
+            this.txtTipoUnidad.TabIndex = 90;
             // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 622);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTipoUnidad);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnElegir);
             this.Controls.Add(this.udUnidades);
@@ -349,6 +370,7 @@
             this.Controls.Add(this.lblInfoSubtitulo);
             this.Controls.Add(this.lblAgregarTitulo);
             this.Name = "FormProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -386,6 +408,6 @@
         private System.Windows.Forms.Label lblProveedor;
         private System.Windows.Forms.Label lblUnidades;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTipoUnidad;
     }
 }

@@ -117,7 +117,7 @@
             this.udCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.udCantidad.Location = new System.Drawing.Point(214, 113);
             this.udCantidad.Maximum = new decimal(new int[] {
-            1000,
+            100000,
             0,
             0,
             0});
@@ -282,7 +282,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(381, 344);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(188, 20);
+            this.checkBox1.Size = new System.Drawing.Size(184, 20);
             this.checkBox1.TabIndex = 70;
             this.checkBox1.Text = "Ver todos los registros";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -292,6 +292,11 @@
             // 
             this.udUnidades.DecimalPlaces = 2;
             this.udUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.udUnidades.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
             this.udUnidades.Location = new System.Drawing.Point(592, 81);
             this.udUnidades.Maximum = new decimal(new int[] {
             100000,
