@@ -63,9 +63,9 @@
             // btnMedicamentos
             // 
             this.btnMedicamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMedicamentos.Location = new System.Drawing.Point(642, 241);
+            this.btnMedicamentos.Location = new System.Drawing.Point(467, 241);
             this.btnMedicamentos.Name = "btnMedicamentos";
-            this.btnMedicamentos.Size = new System.Drawing.Size(117, 102);
+            this.btnMedicamentos.Size = new System.Drawing.Size(120, 102);
             this.btnMedicamentos.TabIndex = 65;
             this.btnMedicamentos.Text = "Medicamentos";
             this.btnMedicamentos.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             // btnMateriales
             // 
             this.btnMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMateriales.Location = new System.Drawing.Point(465, 241);
+            this.btnMateriales.Location = new System.Drawing.Point(275, 241);
             this.btnMateriales.Name = "btnMateriales";
             this.btnMateriales.Size = new System.Drawing.Size(117, 102);
             this.btnMateriales.TabIndex = 63;
@@ -95,7 +95,7 @@
             // btnCompuestos
             // 
             this.btnCompuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompuestos.Location = new System.Drawing.Point(102, 241);
+            this.btnCompuestos.Location = new System.Drawing.Point(653, 241);
             this.btnCompuestos.Name = "btnCompuestos";
             this.btnCompuestos.Size = new System.Drawing.Size(117, 102);
             this.btnCompuestos.TabIndex = 62;
@@ -127,12 +127,13 @@
             // btnProductos
             // 
             this.btnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductos.Location = new System.Drawing.Point(286, 241);
+            this.btnProductos.Location = new System.Drawing.Point(89, 241);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(117, 102);
             this.btnProductos.TabIndex = 59;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // Form1
             // 

@@ -86,6 +86,7 @@
             this.txtBuscarMat.Name = "txtBuscarMat";
             this.txtBuscarMat.Size = new System.Drawing.Size(262, 22);
             this.txtBuscarMat.TabIndex = 38;
+            this.txtBuscarMat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarMat_KeyPress);
             // 
             // dgvProveedor
             // 
@@ -106,13 +107,20 @@
             // clnFechaExp
             // 
             this.clnFechaExp.Location = new System.Drawing.Point(214, 147);
+            this.clnFechaExp.MaxSelectionCount = 1;
             this.clnFechaExp.Name = "clnFechaExp";
             this.clnFechaExp.TabIndex = 35;
+            this.clnFechaExp.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.clnFechaExp_DateChanged);
             // 
             // udCantidad
             // 
             this.udCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.udCantidad.Location = new System.Drawing.Point(214, 113);
+            this.udCantidad.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.udCantidad.Name = "udCantidad";
             this.udCantidad.Size = new System.Drawing.Size(248, 22);
             this.udCantidad.TabIndex = 32;
@@ -129,12 +137,13 @@
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnActualizar.Location = new System.Drawing.Point(769, 290);
+            this.btnActualizar.Location = new System.Drawing.Point(748, 290);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(84, 41);
+            this.btnActualizar.Size = new System.Drawing.Size(105, 41);
             this.btnActualizar.TabIndex = 30;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnGuardar
             // 
@@ -229,6 +238,7 @@
             this.btnEliminar.TabIndex = 74;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -240,6 +250,7 @@
             this.btnEditar.TabIndex = 73;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnLimpiar
             // 
@@ -271,7 +282,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(381, 344);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(184, 20);
+            this.checkBox1.Size = new System.Drawing.Size(188, 20);
             this.checkBox1.TabIndex = 70;
             this.checkBox1.Text = "Ver todos los registros";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -282,6 +293,11 @@
             this.udUnidades.DecimalPlaces = 2;
             this.udUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.udUnidades.Location = new System.Drawing.Point(592, 81);
+            this.udUnidades.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.udUnidades.Name = "udUnidades";
             this.udUnidades.Size = new System.Drawing.Size(248, 22);
             this.udUnidades.TabIndex = 76;

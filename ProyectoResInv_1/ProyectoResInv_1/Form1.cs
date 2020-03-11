@@ -53,5 +53,11 @@ namespace ProyectoResInv_1
             FrmMaterial frmMaterial = new FrmMaterial();
             frmMaterial.ShowDialog();
         }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FormProductos formProductos = new FormProductos();
+            formProductos.ShowDialog();
+        }
     }
 }

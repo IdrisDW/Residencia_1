@@ -12,7 +12,7 @@ namespace ProyectoResInv_1
 {
     public partial class FrmMaterial : Form
     {
-        int idd;
+        int idd;int iddSupplier;
         private int? id;
         private string MaterialName = "";
         private int? MaterialQuantity;
@@ -141,7 +141,7 @@ namespace ProyectoResInv_1
         {
             try
             {
-                idd = int.Parse(
+                iddSupplier = int.Parse(
                         dgvProveedor.Rows[dgvProveedor.CurrentRow.Index].Cells[0].Value.ToString()
                         );
                 return int.Parse(
@@ -179,13 +179,20 @@ namespace ProyectoResInv_1
             }
         }
 
+        string fecha;
+        private void clnFechaExp_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            fecha = clnFechaExp.SelectionRange.Start.ToShortDateString();
+           // MessageBox.Show(fecha.ToString());
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            MessageBox.Show(idd.ToString());
+            int valorIdSupplier = int.Parse(dgvProveedor.Rows[dgvProveedor.CurrentRow.Index].Cells[0].Value.ToString());
+           // MessageBox.Show(idd.ToString());
             DataSet1TableAdapters.MaterialTableAdapter ta = new DataSet1TableAdapters.MaterialTableAdapter();
-            MessageBox.Show(idd.ToString());
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+         //   MessageBox.Show(idd.ToString());
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) )
 
 
             {
@@ -198,7 +205,8 @@ namespace ProyectoResInv_1
             if (idd == 0)
             {
                 // ta.InsertQueryMaterial(txtNombre.Text.Trim());
-                ta.InsertQueryMaterial(txtNombre.Text.Trim());
+              
+                ta.InsertQueryMaterial(txtNombre.Text.Trim(),(int)udCantidad.Value, clnFechaExp.SelectionRange.Start.ToShortDateString(),(decimal)udUnidades.Value,(int)valorIdSupplier);
                 txtNombre.Clear();
                 udCantidad.Value.Equals("0");
                 udUnidades.Value.Equals("0.00");
@@ -214,13 +222,29 @@ namespace ProyectoResInv_1
                 Refresh();
 
             }
-            else
-            {
-              //  ta.UpdateQuerySupplier(txtNombre.Text.Trim(), (int)idd);
+            else {
+              //  int valorIdSupplier = int.Parse(dgvProveedor.Rows[dgvProveedor.CurrentRow.Index].Cells[0].Value.ToString());
+
+                ta.UpdateQueryMaterial(txtNombre.Text.Trim(), (int)udCantidad.Value,
+                    clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value,
+
+                   valorIdSupplier 
+                    , (int)idd);
+
+ 
+
                 txtNombre.Clear();
+                udCantidad.Value.Equals("0");
+                udUnidades.Value.Equals("0.00");
+                clnFechaExp.SetDate(DateTime.Now);
 
+
+                txtProveedor.Clear();
+                txtProveedor.Enabled = true;
+                dgvProveedor.Enabled = true;
+                btnElegir.Enabled = true;
+                btnLimpiar.Enabled = true;
                 idd = 0;
-
                 Refresh();
             }
             /*
@@ -228,6 +252,103 @@ namespace ProyectoResInv_1
             
             
              */
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+            int? id = GetId();
+            MessageBox.Show(id.ToString());
+            if (id != null)
+            {
+                DataSet1TableAdapters.MaterialTableAdapter ta = new DataSet1TableAdapters.MaterialTableAdapter();
+                DataSet1.MaterialDataTable pt = ta.GetDataByIdMaterial((int)id);
+
+                DataSet1.MaterialRow row = (DataSet1.MaterialRow)pt.Rows[0];
+                txtNombre.Text = row.MaterialName;
+
+
+
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string message = "Esta seguro que desea eliminar este registro?";
+            string title = "Advertencia";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            //
+            int? id = GetId();
+
+            if (result == DialogResult.Yes)
+            {
+                if (id != null)
+                {
+                    DataSet1TableAdapters.MaterialTableAdapter ta = new DataSet1TableAdapters.MaterialTableAdapter();
+                    try
+                    {
+                        ta.DeleteQueryMaterial((int)id);
+                        Refresh();
+                    }
+                    catch (Exception mensaje)
+                    {
+                        MessageBox.Show(mensaje.ToString());
+                    }
+                }
+            }
+            else
+            {
+
+                // Do something  
+            }
+        }
+
+        private void txtBuscarMat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                DataSet1TableAdapters.MaterialTableAdapter ta = new DataSet1TableAdapters.MaterialTableAdapter();
+                DataSet1.MaterialDataTable dt =
+             ta.GetDataByMaterialFiltering(txtBuscarMat.Text//,//string
+              , txtBuscarMat.Text 
+              ,txtBuscarMat.Text
+              , txtBuscarMat.Text
+              , txtBuscarMat.Text
+                                                  //   ,txtBuscarMat.Text,// clnFechaExp.SelectionRange.Start.ToShortDateString(),
+                                                  //   , Convert.ToDecimal(txtBuscarMat.Text),//decimal
+                                                  //   , Convert.ToInt32(txtBuscarMat.Text)//int
+                                                  //,Convert.ToInt32(txtBuscarMat.Text)//int
+                                                  //   ,txtBuscarMat.Text,// clnFechaExp.SelectionRange.Start.ToShortDateString(),
+                                                  //   , Convert.ToDecimal(txtBuscarMat.Text),//decimal
+                                                  //   , Convert.ToInt32(txtBuscarMat.Text)//int
+                     );
+              //  (txtNombre.Text.Trim(), (int)udCantidad.Value,
+              //      clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value,
+
+                //   valorIdSupplier
+                //  , (int)idd);
+
+                ta.FillByMaterialFiltering(dt, txtBuscarMat.Text//,
+                   
+              ,  txtBuscarMat.Text 
+              , txtBuscarMat.Text
+              , txtBuscarMat.Text
+              , txtBuscarMat.Text
+              );
+
+                dataGridView1.DataSource = dt;
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }
