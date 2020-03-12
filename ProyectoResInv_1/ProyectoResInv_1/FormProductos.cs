@@ -174,6 +174,7 @@ namespace ProyectoResInv_1
         {
 
             int? id = GetId();
+            int valorcillo;
             MessageBox.Show(id.ToString());
             if (id != null)
             {
@@ -187,10 +188,30 @@ namespace ProyectoResInv_1
                txtTipoUnidad.Text = row.ProductUnitType;
                 clnFechaExp.SetDate(row.ProductExpDate);
 
-               
-                DataSet1TableAdapters.SupplierTableAdapter tas = new DataSet1TableAdapters.SupplierTableAdapter();
-                DataSet1.SupplierDataTable pts = tas.GetDataByIdSupplier((int)iddSupplier);
 
+                valorcillo =  row.idSupplier;
+                // MessageBox.Show(valorcillo.ToString());
+                //from here
+                DataSet1TableAdapters.SupplierTableAdapter tas = new DataSet1TableAdapters.SupplierTableAdapter();
+                DataSet1.SupplierDataTable pts = tas.GetDataByIdSupplier((int)valorcillo);
+              //  DataSet1.SupplierRow rowsup = (DataSet1.SupplierRow)pts.Rows[0];
+                //  txtProveedor.Text = rowsup.ToString();
+
+                dgvProveedor.DataSource = pts;
+                //   dgvProveedor.Rows[dgvProveedor.CurrentRow.Index].Cells[0].Value.Equals(valorcillo);
+
+
+
+
+                //DataSet1TableAdapters.SupplierTableAdapter tas = new DataSet1TableAdapters.SupplierTableAdapter();
+                //  DataSet1.SupplierDataTable pts = tas.GetDataByIdSupplier((int)iddSupplier);
+                // txtProveedor.Text = pts.ToString();
+                //iddSupplier= row.idSupplier;
+                //  DataSet1.SupplierRow rowsup = (DataSet1.SupplierRow)pts.Rows[0];
+
+                //  rowsup.id_Supplier = iddSupplier; 
+
+                //
                 // int.Parse(dgvProveedor.Rows[dgvProveedor.CurrentRow.Index].Cells[0].Value.ToString());
                 //DataSet1.SupplierRow rowsup = (DataSet1.SupplierRow)pts.Rows[0];
                 //rowsup.id_Supplier = row.idSupplier; 
@@ -286,7 +307,7 @@ namespace ProyectoResInv_1
                 clnFechaExp.SetDate(DateTime.Now);
                 valorIdSupplier = 0;
 
-
+                txtTipoUnidad.Clear();
                 txtProveedor.Clear();
                 txtProveedor.Enabled = true;
                 dgvProveedor.Enabled = true;

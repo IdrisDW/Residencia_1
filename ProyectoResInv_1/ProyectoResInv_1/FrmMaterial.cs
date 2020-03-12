@@ -259,6 +259,7 @@ namespace ProyectoResInv_1
         {
 
             int? id = GetId();
+            int valorcillo;
             MessageBox.Show(id.ToString());
             if (id != null)
             {
@@ -266,10 +267,25 @@ namespace ProyectoResInv_1
                 DataSet1.MaterialDataTable pt = ta.GetDataByIdMaterial((int)id);
 
                 DataSet1.MaterialRow row = (DataSet1.MaterialRow)pt.Rows[0];
+               
                 txtNombre.Text = row.MaterialName;
 
 
+                udCantidad.Value = row.MaterialQuantity;
+                udUnidades.Value = row.MaterialUnits;
+              //  txtTipoUnidad.Text = row.MaterialUnitType;
+                clnFechaExp.SetDate(row.MaterialExpDate);
 
+
+                valorcillo = row.idSupplier;
+                // MessageBox.Show(valorcillo.ToString());
+                //from here
+                DataSet1TableAdapters.SupplierTableAdapter tas = new DataSet1TableAdapters.SupplierTableAdapter();
+                DataSet1.SupplierDataTable pts = tas.GetDataByIdSupplier((int)valorcillo);
+                //  DataSet1.SupplierRow rowsup = (DataSet1.SupplierRow)pts.Rows[0];
+                //  txtProveedor.Text = rowsup.ToString();
+
+                dgvProveedor.DataSource = pts;
             }
         }
 
