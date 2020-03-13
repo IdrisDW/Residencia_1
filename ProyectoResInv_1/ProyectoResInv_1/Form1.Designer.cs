@@ -69,6 +69,7 @@
             this.btnMedicamentos.TabIndex = 65;
             this.btnMedicamentos.Text = "Medicamentos";
             this.btnMedicamentos.UseVisualStyleBackColor = true;
+            this.btnMedicamentos.Click += new System.EventHandler(this.btnMedicamentos_Click);
             // 
             // btnProveedores
             // 

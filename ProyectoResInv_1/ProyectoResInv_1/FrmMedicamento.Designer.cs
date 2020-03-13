@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLimpiarProd = new System.Windows.Forms.Button();
-            this.btnBuscarProductos = new System.Windows.Forms.Button();
             this.btnLimpiarProv = new System.Windows.Forms.Button();
             this.btnBuscarProv = new System.Windows.Forms.Button();
             this.txtProveedor = new System.Windows.Forms.TextBox();
@@ -37,8 +35,6 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clnFechaExp = new System.Windows.Forms.MonthCalendar();
-            this.cbxCargarTodo = new System.Windows.Forms.CheckBox();
-            this.Unidades = new System.Windows.Forms.TextBox();
             this.udCantidad = new System.Windows.Forms.NumericUpDown();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -50,42 +46,33 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblInfoSubtitulo = new System.Windows.Forms.Label();
             this.lblAgregarTitulo = new System.Windows.Forms.Label();
-            this.txtUnidadesDosis = new System.Windows.Forms.TextBox();
             this.lblUnidadDosis = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblCantidadDosis = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.udUnidades = new System.Windows.Forms.NumericUpDown();
+            this.udUnidadesDosis = new System.Windows.Forms.NumericUpDown();
+            this.udCantidadDosis = new System.Windows.Forms.NumericUpDown();
+            this.txtTipoUnidad = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udUnidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udUnidadesDosis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udCantidadDosis)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnLimpiarProd
-            // 
-            this.btnLimpiarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarProd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLimpiarProd.Location = new System.Drawing.Point(490, 386);
-            this.btnLimpiarProd.Name = "btnLimpiarProd";
-            this.btnLimpiarProd.Size = new System.Drawing.Size(84, 41);
-            this.btnLimpiarProd.TabIndex = 43;
-            this.btnLimpiarProd.Text = "Limpiar";
-            this.btnLimpiarProd.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarProductos
-            // 
-            this.btnBuscarProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProductos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarProductos.Location = new System.Drawing.Point(369, 386);
-            this.btnBuscarProductos.Name = "btnBuscarProductos";
-            this.btnBuscarProductos.Size = new System.Drawing.Size(84, 41);
-            this.btnBuscarProductos.TabIndex = 42;
-            this.btnBuscarProductos.Text = "Buscar";
-            this.btnBuscarProductos.UseVisualStyleBackColor = true;
             // 
             // btnLimpiarProv
             // 
             this.btnLimpiarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLimpiarProv.Location = new System.Drawing.Point(793, 185);
+            this.btnLimpiarProv.Location = new System.Drawing.Point(771, 176);
             this.btnLimpiarProv.Name = "btnLimpiarProv";
             this.btnLimpiarProv.Size = new System.Drawing.Size(60, 24);
             this.btnLimpiarProv.TabIndex = 41;
@@ -96,7 +83,7 @@
             // 
             this.btnBuscarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarProv.Location = new System.Drawing.Point(713, 185);
+            this.btnBuscarProv.Location = new System.Drawing.Point(691, 176);
             this.btnBuscarProv.Name = "btnBuscarProv";
             this.btnBuscarProv.Size = new System.Drawing.Size(60, 24);
             this.btnBuscarProv.TabIndex = 40;
@@ -106,7 +93,7 @@
             // txtProveedor
             // 
             this.txtProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProveedor.Location = new System.Drawing.Point(522, 185);
+            this.txtProveedor.Location = new System.Drawing.Point(500, 176);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(158, 22);
             this.txtProveedor.TabIndex = 39;
@@ -114,7 +101,7 @@
             // txtBuscarProd
             // 
             this.txtBuscarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProd.Location = new System.Drawing.Point(59, 395);
+            this.txtBuscarProd.Location = new System.Drawing.Point(41, 396);
             this.txtBuscarProd.Name = "txtBuscarProd";
             this.txtBuscarProd.Size = new System.Drawing.Size(262, 22);
             this.txtBuscarProd.TabIndex = 38;
@@ -122,7 +109,7 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(522, 226);
+            this.dataGridView2.Location = new System.Drawing.Point(500, 217);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(331, 83);
             this.dataGridView2.TabIndex = 37;
@@ -130,41 +117,22 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(59, 454);
+            this.dataGridView1.Location = new System.Drawing.Point(49, 433);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(745, 150);
             this.dataGridView1.TabIndex = 36;
             // 
             // clnFechaExp
             // 
-            this.clnFechaExp.Location = new System.Drawing.Point(214, 185);
+            this.clnFechaExp.Location = new System.Drawing.Point(201, 195);
             this.clnFechaExp.MaxSelectionCount = 1;
             this.clnFechaExp.Name = "clnFechaExp";
             this.clnFechaExp.TabIndex = 35;
             // 
-            // cbxCargarTodo
-            // 
-            this.cbxCargarTodo.AutoSize = true;
-            this.cbxCargarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCargarTodo.Location = new System.Drawing.Point(625, 397);
-            this.cbxCargarTodo.Name = "cbxCargarTodo";
-            this.cbxCargarTodo.Size = new System.Drawing.Size(224, 20);
-            this.cbxCargarTodo.TabIndex = 34;
-            this.cbxCargarTodo.Text = "Ver todos los medicamentos";
-            this.cbxCargarTodo.UseVisualStyleBackColor = true;
-            // 
-            // Unidades
-            // 
-            this.Unidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unidades.Location = new System.Drawing.Point(214, 142);
-            this.Unidades.Name = "Unidades";
-            this.Unidades.Size = new System.Drawing.Size(248, 22);
-            this.Unidades.TabIndex = 33;
-            // 
             // udCantidad
             // 
             this.udCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.udCantidad.Location = new System.Drawing.Point(214, 113);
+            this.udCantidad.Location = new System.Drawing.Point(201, 104);
             this.udCantidad.Name = "udCantidad";
             this.udCantidad.Size = new System.Drawing.Size(248, 22);
             this.udCantidad.TabIndex = 32;
@@ -172,7 +140,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(214, 84);
+            this.txtNombre.Location = new System.Drawing.Point(201, 75);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(248, 22);
             this.txtNombre.TabIndex = 31;
@@ -181,7 +149,7 @@
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnActualizar.Location = new System.Drawing.Point(769, 325);
+            this.btnActualizar.Location = new System.Drawing.Point(747, 316);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(84, 41);
             this.btnActualizar.TabIndex = 30;
@@ -192,7 +160,7 @@
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.Location = new System.Drawing.Point(596, 325);
+            this.btnGuardar.Location = new System.Drawing.Point(574, 316);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(84, 41);
             this.btnGuardar.TabIndex = 29;
@@ -203,7 +171,7 @@
             // 
             this.lblProveedor.AutoSize = true;
             this.lblProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProveedor.Location = new System.Drawing.Point(519, 157);
+            this.lblProveedor.Location = new System.Drawing.Point(497, 148);
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(72, 16);
             this.lblProveedor.TabIndex = 28;
@@ -213,7 +181,7 @@
             // 
             this.lblUnidades.AutoSize = true;
             this.lblUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidades.Location = new System.Drawing.Point(51, 145);
+            this.lblUnidades.Location = new System.Drawing.Point(29, 166);
             this.lblUnidades.Name = "lblUnidades";
             this.lblUnidades.Size = new System.Drawing.Size(67, 16);
             this.lblUnidades.TabIndex = 27;
@@ -223,7 +191,7 @@
             // 
             this.lblFechaExp.AutoSize = true;
             this.lblFechaExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaExp.Location = new System.Drawing.Point(51, 191);
+            this.lblFechaExp.Location = new System.Drawing.Point(38, 201);
             this.lblFechaExp.Name = "lblFechaExp";
             this.lblFechaExp.Size = new System.Drawing.Size(132, 16);
             this.lblFechaExp.TabIndex = 26;
@@ -233,7 +201,7 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(51, 115);
+            this.lblCantidad.Location = new System.Drawing.Point(29, 106);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(166, 16);
             this.lblCantidad.TabIndex = 25;
@@ -243,7 +211,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(51, 84);
+            this.lblNombre.Location = new System.Drawing.Point(29, 75);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(161, 16);
             this.lblNombre.TabIndex = 24;
@@ -253,7 +221,7 @@
             // 
             this.lblInfoSubtitulo.AutoSize = true;
             this.lblInfoSubtitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoSubtitulo.Location = new System.Drawing.Point(27, 52);
+            this.lblInfoSubtitulo.Location = new System.Drawing.Point(5, 43);
             this.lblInfoSubtitulo.Name = "lblInfoSubtitulo";
             this.lblInfoSubtitulo.Size = new System.Drawing.Size(250, 20);
             this.lblInfoSubtitulo.TabIndex = 23;
@@ -264,59 +232,200 @@
             this.lblAgregarTitulo.AutoSize = true;
             this.lblAgregarTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAgregarTitulo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblAgregarTitulo.Location = new System.Drawing.Point(67, 18);
+            this.lblAgregarTitulo.Location = new System.Drawing.Point(45, 9);
             this.lblAgregarTitulo.Name = "lblAgregarTitulo";
             this.lblAgregarTitulo.Size = new System.Drawing.Size(217, 24);
             this.lblAgregarTitulo.TabIndex = 22;
             this.lblAgregarTitulo.Text = "Agregar medicamento";
             // 
-            // txtUnidadesDosis
-            // 
-            this.txtUnidadesDosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnidadesDosis.Location = new System.Drawing.Point(689, 75);
-            this.txtUnidadesDosis.Name = "txtUnidadesDosis";
-            this.txtUnidadesDosis.Size = new System.Drawing.Size(95, 22);
-            this.txtUnidadesDosis.TabIndex = 45;
-            // 
             // lblUnidadDosis
             // 
             this.lblUnidadDosis.AutoSize = true;
             this.lblUnidadDosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidadDosis.Location = new System.Drawing.Point(519, 84);
+            this.lblUnidadDosis.Location = new System.Drawing.Point(497, 95);
             this.lblUnidadDosis.Name = "lblUnidadDosis";
             this.lblUnidadDosis.Size = new System.Drawing.Size(122, 16);
             this.lblUnidadDosis.TabIndex = 44;
             this.lblUnidadDosis.Text = "Unidades de dosis";
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(689, 115);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(95, 22);
-            this.textBox2.TabIndex = 47;
-            // 
             // lblCantidadDosis
             // 
             this.lblCantidadDosis.AutoSize = true;
             this.lblCantidadDosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadDosis.Location = new System.Drawing.Point(519, 113);
+            this.lblCantidadDosis.Location = new System.Drawing.Point(497, 123);
             this.lblCantidadDosis.Name = "lblCantidadDosis";
             this.lblCantidadDosis.Size = new System.Drawing.Size(117, 16);
             this.lblCantidadDosis.TabIndex = 46;
             this.lblCantidadDosis.Text = "Cantidad de dosis";
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(201, 136);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(248, 22);
+            this.textBox1.TabIndex = 94;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 136);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 16);
+            this.label2.TabIndex = 93;
+            this.label2.Text = "Presentacion";
+            // 
+            // udUnidades
+            // 
+            this.udUnidades.DecimalPlaces = 2;
+            this.udUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.udUnidades.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
+            this.udUnidades.Location = new System.Drawing.Point(201, 166);
+            this.udUnidades.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.udUnidades.Name = "udUnidades";
+            this.udUnidades.Size = new System.Drawing.Size(248, 22);
+            this.udUnidades.TabIndex = 95;
+            // 
+            // udUnidadesDosis
+            // 
+            this.udUnidadesDosis.DecimalPlaces = 2;
+            this.udUnidadesDosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.udUnidadesDosis.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
+            this.udUnidadesDosis.Location = new System.Drawing.Point(649, 93);
+            this.udUnidadesDosis.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.udUnidadesDosis.Name = "udUnidadesDosis";
+            this.udUnidadesDosis.Size = new System.Drawing.Size(133, 22);
+            this.udUnidadesDosis.TabIndex = 96;
+            // 
+            // udCantidadDosis
+            // 
+            this.udCantidadDosis.DecimalPlaces = 2;
+            this.udCantidadDosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.udCantidadDosis.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
+            this.udCantidadDosis.Location = new System.Drawing.Point(649, 121);
+            this.udCantidadDosis.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.udCantidadDosis.Name = "udCantidadDosis";
+            this.udCantidadDosis.Size = new System.Drawing.Size(133, 22);
+            this.udCantidadDosis.TabIndex = 97;
+            // 
+            // txtTipoUnidad
+            // 
+            this.txtTipoUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoUnidad.Location = new System.Drawing.Point(602, 59);
+            this.txtTipoUnidad.Name = "txtTipoUnidad";
+            this.txtTipoUnidad.Size = new System.Drawing.Size(216, 22);
+            this.txtTipoUnidad.TabIndex = 99;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(497, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 16);
+            this.label1.TabIndex = 98;
+            this.label1.Text = "Tipo de unidad";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEliminar.Location = new System.Drawing.Point(602, 377);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 41);
+            this.btnEliminar.TabIndex = 104;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEditar.Location = new System.Drawing.Point(465, 377);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(84, 41);
+            this.btnEditar.TabIndex = 103;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLimpiar.Location = new System.Drawing.Point(332, 377);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(84, 41);
+            this.btnLimpiar.TabIndex = 102;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(332, 377);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 41);
+            this.button2.TabIndex = 101;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(49, 369);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(184, 20);
+            this.checkBox1.TabIndex = 100;
+            this.checkBox1.Text = "Ver todos los registros";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // FrmMedicamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 622);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(852, 595);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.txtTipoUnidad);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.udCantidadDosis);
+            this.Controls.Add(this.udUnidadesDosis);
+            this.Controls.Add(this.udUnidades);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCantidadDosis);
-            this.Controls.Add(this.txtUnidadesDosis);
             this.Controls.Add(this.lblUnidadDosis);
-            this.Controls.Add(this.btnLimpiarProd);
-            this.Controls.Add(this.btnBuscarProductos);
             this.Controls.Add(this.btnLimpiarProv);
             this.Controls.Add(this.btnBuscarProv);
             this.Controls.Add(this.txtProveedor);
@@ -324,8 +433,6 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.clnFechaExp);
-            this.Controls.Add(this.cbxCargarTodo);
-            this.Controls.Add(this.Unidades);
             this.Controls.Add(this.udCantidad);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnActualizar);
@@ -338,19 +445,20 @@
             this.Controls.Add(this.lblInfoSubtitulo);
             this.Controls.Add(this.lblAgregarTitulo);
             this.Name = "FrmMedicamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Medicamento";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udUnidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udUnidadesDosis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udCantidadDosis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnLimpiarProd;
-        private System.Windows.Forms.Button btnBuscarProductos;
         private System.Windows.Forms.Button btnLimpiarProv;
         private System.Windows.Forms.Button btnBuscarProv;
         private System.Windows.Forms.TextBox txtProveedor;
@@ -358,8 +466,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MonthCalendar clnFechaExp;
-        private System.Windows.Forms.CheckBox cbxCargarTodo;
-        private System.Windows.Forms.TextBox Unidades;
         private System.Windows.Forms.NumericUpDown udCantidad;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnActualizar;
@@ -371,9 +477,19 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblInfoSubtitulo;
         private System.Windows.Forms.Label lblAgregarTitulo;
-        private System.Windows.Forms.TextBox txtUnidadesDosis;
         private System.Windows.Forms.Label lblUnidadDosis;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblCantidadDosis;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown udUnidades;
+        private System.Windows.Forms.NumericUpDown udUnidadesDosis;
+        private System.Windows.Forms.NumericUpDown udCantidadDosis;
+        private System.Windows.Forms.TextBox txtTipoUnidad;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

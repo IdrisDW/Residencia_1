@@ -20,11 +20,12 @@ namespace ProyectoResInv_1
        // private string MaterialExpDate = "";
         private decimal? MaterialUnits;
         private string MatSupplier = "";
+        private string MatQuanPres = "";
 
         public FrmMaterial(int? id = null, string MaterialName = "", int? MaterialQuantity = null,
        DateTime Materialdt = new DateTime() ,
           decimal? MaterialUnits = null,
-          string MatSupplier = "")
+          string MatSupplier = "", string MatQuanPres="")
         {
             InitializeComponent();
             this.id = id;
@@ -33,6 +34,7 @@ namespace ProyectoResInv_1
             this.Materialdt= Materialdt;
             this.MaterialUnits = MaterialUnits;
             this.MatSupplier = MatSupplier;
+            this.MatQuanPres = MatQuanPres;
         }
 
 
@@ -47,9 +49,13 @@ namespace ProyectoResInv_1
             dataGridView1.Columns[0].HeaderText = "Id";
             dataGridView1.Columns[1].HeaderText = "Nombre";
             dataGridView1.Columns[2].HeaderText = "Cantidad";
-            dataGridView1.Columns[3].HeaderText = "Caducidad";
+            dataGridView1.Columns[3].HeaderText = "Presentacion";
+             
             dataGridView1.Columns[4].HeaderText = "Unidades";
-            dataGridView1.Columns[5].HeaderText = "Proveedor";
+            dataGridView1.Columns[5].HeaderText = "Caducidad";
+         
+
+            dataGridView1.Columns[6].HeaderText = "Proveedor";
         }
 
 
@@ -91,26 +97,69 @@ namespace ProyectoResInv_1
             txtProveedor.Enabled = true;
             dgvProveedor.Enabled = true;
             btnElegir.Enabled = true;
+ 
         }
 
         private void txtProveedor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
+            if (checkBox1.Checked)
             {
-                DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
-                DataSet1.SupplierDataTable dt = ta.GetDataByFilteringSupplier(txtProveedor.Text);
+                //
+                try
+                {
+                    DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
+                    DataSet1.SupplierDataTable dt = ta.GetDataByBuscarIDProveedor(txtProveedor.Text);
+                    //ta.GetDataByIdSupplier(txtBusquedaProv.Text);
 
 
-                ta.FillByFilteringSupplier(dt,txtProveedor.Text);
+                    ta.FillByBuscarIDProveedor(dt, txtProveedor.Text);
 
 
-                dgvProveedor.DataSource = dt;
+                    dgvProveedor.DataSource = dt;
 
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //
             }
-            catch (System.Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
+                    DataSet1.SupplierDataTable dt = ta.GetDataByFilteringSupplier(txtProveedor.Text);
+
+
+                    ta.FillByFilteringSupplier(dt, txtProveedor.Text);
+
+
+                    dgvProveedor.DataSource = dt;
+
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+
+            //try
+            //{
+            //    DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
+            //    DataSet1.SupplierDataTable dt = ta.GetDataByFilteringSupplier(txtProveedor.Text);
+
+
+            //    ta.FillByFilteringSupplier(dt,txtProveedor.Text);
+
+
+            //    dgvProveedor.DataSource = dt;
+
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
 
@@ -206,7 +255,8 @@ namespace ProyectoResInv_1
             {
                 // ta.InsertQueryMaterial(txtNombre.Text.Trim());
               
-                ta.InsertQueryMaterial(txtNombre.Text.Trim(),(int)udCantidad.Value, clnFechaExp.SelectionRange.Start.ToShortDateString(),(decimal)udUnidades.Value,(int)valorIdSupplier);
+                ta.InsertQueryMaterial(txtNombre.Text.Trim(),(int)udCantidad.Value, clnFechaExp.SelectionRange.Start.ToShortDateString(),
+                    (decimal)udUnidades.Value,(int)valorIdSupplier, txtPresentacion.Text.Trim());
                 txtNombre.Clear();
                  udCantidad.Value = 0;
                 udUnidades.Value = 0 ;
@@ -221,7 +271,8 @@ namespace ProyectoResInv_1
                 btnLimpiar.Enabled = true;
                 idd = 0;
                 Refresh();
-
+                
+                txtPresentacion.Clear();
             }
             else {
               //  int valorIdSupplier = int.Parse(dgvProveedor.Rows[dgvProveedor.CurrentRow.Index].Cells[0].Value.ToString());
@@ -230,7 +281,7 @@ namespace ProyectoResInv_1
                     clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value,
 
                    valorIdSupplier 
-                    , (int)idd);
+                    , txtPresentacion.Text.Trim(),(int)idd);
 
  
 
@@ -239,8 +290,9 @@ namespace ProyectoResInv_1
                 udUnidades.Value = 0;
                 clnFechaExp.SetDate(DateTime.Now);
 
-
+                txtPresentacion.Clear();
                 txtProveedor.Clear();
+               
                 txtProveedor.Enabled = true;
                 dgvProveedor.Enabled = true;
                 btnElegir.Enabled = true;
@@ -332,6 +384,7 @@ namespace ProyectoResInv_1
               ,txtBuscarMat.Text
               , txtBuscarMat.Text
               , txtBuscarMat.Text
+              ,txtBuscarMat.Text
                                                   //   ,txtBuscarMat.Text,// clnFechaExp.SelectionRange.Start.ToShortDateString(),
                                                   //   , Convert.ToDecimal(txtBuscarMat.Text),//decimal
                                                   //   , Convert.ToInt32(txtBuscarMat.Text)//int
@@ -352,6 +405,7 @@ namespace ProyectoResInv_1
               , txtBuscarMat.Text
               , txtBuscarMat.Text
               , txtBuscarMat.Text
+              ,txtBuscarMat.Text
               );
 
                 dataGridView1.DataSource = dt;

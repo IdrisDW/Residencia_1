@@ -65,6 +65,48 @@ namespace ProyectoResInv_1
 
         private void txtBusquedaProv_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (checkBox1.Checked ) {
+                //
+                try
+                {
+                    DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
+                    DataSet1.SupplierDataTable dt = ta.GetDataByBuscarIDProveedor(txtBusquedaProv.Text);
+                        //ta.GetDataByIdSupplier(txtBusquedaProv.Text);
+
+
+                    ta.FillByBuscarIDProveedor( dt,txtBusquedaProv.Text);
+                     
+
+                    dataGridView1.DataSource = dt;
+
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //
+            }
+            else {
+                try
+                {
+                    DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
+                    DataSet1.SupplierDataTable dt = ta.GetDataByFilteringSupplier(txtBusquedaProv.Text);
+
+
+                    ta.FillByFilteringSupplier(dt, txtBusquedaProv.Text);
+
+
+                    dataGridView1.DataSource = dt;
+
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            //
+            /*
             try
             {
                 DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
@@ -80,7 +122,7 @@ namespace ProyectoResInv_1
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
 
         }
 
@@ -201,5 +243,7 @@ namespace ProyectoResInv_1
 
             }
         }
+
+         
     }
 }

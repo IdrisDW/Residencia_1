@@ -53,10 +53,11 @@ namespace ProyectoResInv_1
             dataGridView1.Columns[0].HeaderText = "Id";
             dataGridView1.Columns[1].HeaderText = "Nombre";
             dataGridView1.Columns[2].HeaderText = "Cantidad";
-            dataGridView1.Columns[3].HeaderText = "Caducidad";
-            dataGridView1.Columns[4].HeaderText = "Unidades";
-            dataGridView1.Columns[5].HeaderText = "Tipo Unidad";
-            dataGridView1.Columns[6].HeaderText = "Proveedor";
+            dataGridView1.Columns[3].HeaderText = "Presentacion";
+            dataGridView1.Columns[4].HeaderText = "Caducidad";
+            dataGridView1.Columns[5].HeaderText = "Unidades";
+            dataGridView1.Columns[6].HeaderText = "Tipo Unidad";
+            dataGridView1.Columns[7].HeaderText = "Proveedor";
              
         }
 
@@ -271,7 +272,7 @@ namespace ProyectoResInv_1
             {
                 // ta.InsertQueryMaterial(txtNombre.Text.Trim());
 
-                ta.InsertQueryProduct(txtNombre.Text.Trim(), (int)udCantidad.Value, clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value, (int)valorIdSupplier, txtTipoUnidad.Text.Trim());
+                ta.InsertQueryProduct(txtNombre.Text.Trim(), (int)udCantidad.Value, clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value, (int)valorIdSupplier, txtTipoUnidad.Text.Trim(), txtPresentacion.Text.Trim());
                 txtNombre.Clear();
                 udCantidad.Value = 0;
                 udUnidades.Value = 0;
@@ -286,20 +287,21 @@ namespace ProyectoResInv_1
                 idd = 0;
                 Refresh();
                 valorIdSupplier = 0;
-
+                txtPresentacion.Clear();
             }
             else
             {
                 //  int valorIdSupplier = int.Parse(dgvProveedor.Rows[dgvProveedor.CurrentRow.Index].Cells[0].Value.ToString());
 
-                ta.UpdateQueryProduct(txtNombre.Text.Trim(), (int)udCantidad.Value,
+                ta.UpdateQueryProduct(txtNombre.Text.Trim(), (int)udCantidad.Value, txtPresentacion.Text.Trim(),
                     clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value,
-
-                   valorIdSupplier,
-                   txtTipoUnidad.Text.Trim()
+                     txtTipoUnidad.Text.Trim(),
+                   valorIdSupplier
+                   
+                    
                     , (int)idd);
 
-
+        
 
                 txtNombre.Clear();
                 udCantidad.Value = 0;
@@ -330,6 +332,7 @@ namespace ProyectoResInv_1
               , txtBuscarProd.Text
               , txtBuscarProd.Text
               , txtBuscarProd.Text,
+              txtBuscarProd.Text,
               txtBuscarProd.Text
                      //   ,txtBuscarMat.Text,// clnFechaExp.SelectionRange.Start.ToShortDateString(),
                      //   , Convert.ToDecimal(txtBuscarMat.Text),//decimal
@@ -351,6 +354,7 @@ namespace ProyectoResInv_1
               , txtBuscarProd.Text
               , txtBuscarProd.Text
               , txtBuscarProd.Text,
+              txtBuscarProd.Text,
               txtBuscarProd.Text
               );
 
@@ -365,22 +369,65 @@ namespace ProyectoResInv_1
 
         private void txtProveedor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
+            if (checkBox2.Checked)
             {
-                DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
-                DataSet1.SupplierDataTable dt = ta.GetDataByFilteringSupplier(txtProveedor.Text);
+                //
+                try
+                {
+                    DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
+                    DataSet1.SupplierDataTable dt = ta.GetDataByBuscarIDProveedor(txtProveedor.Text);
+                    //ta.GetDataByIdSupplier(txtBusquedaProv.Text);
 
 
-                ta.FillByFilteringSupplier(dt, txtProveedor.Text);
+                    ta.FillByBuscarIDProveedor(dt, txtProveedor.Text);
 
 
-                dgvProveedor.DataSource = dt;
+                    dgvProveedor.DataSource = dt;
 
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //
             }
-            catch (System.Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
+                    DataSet1.SupplierDataTable dt = ta.GetDataByFilteringSupplier(txtProveedor.Text);
+
+
+                    ta.FillByFilteringSupplier(dt, txtProveedor.Text);
+
+
+                    dgvProveedor.DataSource = dt;
+
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+
+
+            //try
+            //{
+            //    DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
+            //    DataSet1.SupplierDataTable dt = ta.GetDataByFilteringSupplier(txtProveedor.Text);
+
+
+            //    ta.FillByFilteringSupplier(dt, txtProveedor.Text);
+
+
+            //    dgvProveedor.DataSource = dt;
+
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

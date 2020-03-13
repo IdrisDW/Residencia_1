@@ -54,6 +54,9 @@
             this.lblUnidades = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTipoUnidad = new System.Windows.Forms.TextBox();
+            this.txtPresentacion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udUnidades)).BeginInit();
@@ -63,7 +66,7 @@
             // txtBuscarProd
             // 
             this.txtBuscarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProd.Location = new System.Drawing.Point(59, 404);
+            this.txtBuscarProd.Location = new System.Drawing.Point(59, 397);
             this.txtBuscarProd.Name = "txtBuscarProd";
             this.txtBuscarProd.Size = new System.Drawing.Size(262, 22);
             this.txtBuscarProd.TabIndex = 39;
@@ -72,14 +75,14 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(59, 454);
+            this.dataGridView1.Location = new System.Drawing.Point(59, 435);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(745, 150);
             this.dataGridView1.TabIndex = 37;
             // 
             // clnFechaExp
             // 
-            this.clnFechaExp.Location = new System.Drawing.Point(214, 147);
+            this.clnFechaExp.Location = new System.Drawing.Point(219, 170);
             this.clnFechaExp.MaxSelectionCount = 1;
             this.clnFechaExp.Name = "clnFechaExp";
             this.clnFechaExp.TabIndex = 36;
@@ -109,7 +112,7 @@
             // 
             this.lblFechaExp.AutoSize = true;
             this.lblFechaExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaExp.Location = new System.Drawing.Point(56, 145);
+            this.lblFechaExp.Location = new System.Drawing.Point(61, 170);
             this.lblFechaExp.Name = "lblFechaExp";
             this.lblFechaExp.Size = new System.Drawing.Size(132, 16);
             this.lblFechaExp.TabIndex = 27;
@@ -160,7 +163,7 @@
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEliminar.Location = new System.Drawing.Point(639, 395);
+            this.btnEliminar.Location = new System.Drawing.Point(639, 388);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 41);
             this.btnEliminar.TabIndex = 79;
@@ -172,7 +175,7 @@
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEditar.Location = new System.Drawing.Point(502, 395);
+            this.btnEditar.Location = new System.Drawing.Point(502, 388);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(84, 41);
             this.btnEditar.TabIndex = 78;
@@ -184,7 +187,7 @@
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLimpiar.Location = new System.Drawing.Point(369, 395);
+            this.btnLimpiar.Location = new System.Drawing.Point(369, 388);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(84, 41);
             this.btnLimpiar.TabIndex = 77;
@@ -196,7 +199,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(369, 395);
+            this.button2.Location = new System.Drawing.Point(369, 388);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 41);
             this.button2.TabIndex = 76;
@@ -237,14 +240,14 @@
             0,
             0,
             131072});
-            this.udUnidades.Location = new System.Drawing.Point(572, 81);
+            this.udUnidades.Location = new System.Drawing.Point(604, 75);
             this.udUnidades.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.udUnidades.Name = "udUnidades";
-            this.udUnidades.Size = new System.Drawing.Size(248, 22);
+            this.udUnidades.Size = new System.Drawing.Size(216, 22);
             this.udUnidades.TabIndex = 87;
             // 
             // btnLimpiarProv
@@ -262,7 +265,7 @@
             // txtProveedor
             // 
             this.txtProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProveedor.Location = new System.Drawing.Point(582, 162);
+            this.txtProveedor.Location = new System.Drawing.Point(577, 167);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(158, 22);
             this.txtProveedor.TabIndex = 85;
@@ -280,7 +283,7 @@
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnActualizar.Location = new System.Drawing.Point(751, 312);
+            this.btnActualizar.Location = new System.Drawing.Point(735, 312);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(105, 41);
             this.btnActualizar.TabIndex = 83;
@@ -304,7 +307,7 @@
             // 
             this.lblProveedor.AutoSize = true;
             this.lblProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProveedor.Location = new System.Drawing.Point(499, 162);
+            this.lblProveedor.Location = new System.Drawing.Point(499, 167);
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(72, 16);
             this.lblProveedor.TabIndex = 81;
@@ -314,7 +317,7 @@
             // 
             this.lblUnidades.AutoSize = true;
             this.lblUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidades.Location = new System.Drawing.Point(499, 87);
+            this.lblUnidades.Location = new System.Drawing.Point(499, 81);
             this.lblUnidades.Name = "lblUnidades";
             this.lblUnidades.Size = new System.Drawing.Size(67, 16);
             this.lblUnidades.TabIndex = 80;
@@ -324,7 +327,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(499, 119);
+            this.label1.Location = new System.Drawing.Point(499, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 16);
             this.label1.TabIndex = 89;
@@ -333,16 +336,48 @@
             // txtTipoUnidad
             // 
             this.txtTipoUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoUnidad.Location = new System.Drawing.Point(604, 113);
+            this.txtTipoUnidad.Location = new System.Drawing.Point(604, 107);
             this.txtTipoUnidad.Name = "txtTipoUnidad";
             this.txtTipoUnidad.Size = new System.Drawing.Size(216, 22);
             this.txtTipoUnidad.TabIndex = 90;
+            // 
+            // txtPresentacion
+            // 
+            this.txtPresentacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPresentacion.Location = new System.Drawing.Point(214, 141);
+            this.txtPresentacion.Name = "txtPresentacion";
+            this.txtPresentacion.Size = new System.Drawing.Size(248, 22);
+            this.txtPresentacion.TabIndex = 92;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(61, 141);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 16);
+            this.label2.TabIndex = 91;
+            this.label2.Text = "Presentacion";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(622, 140);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(113, 20);
+            this.checkBox2.TabIndex = 93;
+            this.checkBox2.Text = "Filtrar por ID";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 622);
+            this.ClientSize = new System.Drawing.Size(852, 595);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.txtPresentacion);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTipoUnidad);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnElegir);
@@ -409,5 +444,8 @@
         private System.Windows.Forms.Label lblUnidades;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTipoUnidad;
+        private System.Windows.Forms.TextBox txtPresentacion;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

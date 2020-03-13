@@ -59,5 +59,11 @@ namespace ProyectoResInv_1
             FormProductos formProductos = new FormProductos();
             formProductos.ShowDialog();
         }
+
+        private void btnMedicamentos_Click(object sender, EventArgs e)
+        {
+            FrmMedicamento frmMedicamento = new FrmMedicamento();
+            frmMedicamento.ShowDialog();
+        }
     }
 }
