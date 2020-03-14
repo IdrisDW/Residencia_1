@@ -231,7 +231,7 @@ namespace ProyectoResInv_1
         {
 
             int? id = GetId();
-            MessageBox.Show(id.ToString());
+            //MessageBox.Show(id.ToString());
             if (id != null)
             {
                 DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
@@ -241,6 +241,10 @@ namespace ProyectoResInv_1
                 txtNombre.Text = row.SupplierName;
 
 
+            }
+            else
+            {
+                MessageBox.Show("No hay registros");
             }
         }
 

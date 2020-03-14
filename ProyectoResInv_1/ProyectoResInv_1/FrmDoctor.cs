@@ -135,7 +135,7 @@ namespace ProyectoResInv_1
         private void btnEditar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
-            MessageBox.Show(id.ToString());
+          //  MessageBox.Show(id.ToString());
             if (id != null)
             {
                 DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
@@ -146,7 +146,10 @@ namespace ProyectoResInv_1
                 txtApellido.Text = row.DoctorLastName;
             }
 
-
+            else
+            {
+                MessageBox.Show("No hay registros");
+            }
         }
 
 
@@ -154,7 +157,7 @@ namespace ProyectoResInv_1
         {
             MessageBox.Show(idd.ToString());
             DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
-            MessageBox.Show(idd.ToString());
+          //  MessageBox.Show(idd.ToString());
             if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text))
             {
 

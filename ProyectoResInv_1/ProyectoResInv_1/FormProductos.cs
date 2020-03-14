@@ -154,7 +154,7 @@ namespace ProyectoResInv_1
         private void btnElegir_Click(object sender, EventArgs e)
         {
             int? idS = GetIdSupplier();
-            MessageBox.Show(idS.ToString());
+            // MessageBox.Show(idS.ToString());
             if (idS != null)
             {
                 DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
@@ -169,14 +169,20 @@ namespace ProyectoResInv_1
                     = false;
 
             }
+            else
+            {
+                MessageBox.Show("No hay registros");
+            
+        
         }
+    }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
 
             int? id = GetId();
             int valorcillo;
-            MessageBox.Show(id.ToString());
+         //   MessageBox.Show(id.ToString());
             if (id != null)
             {
                 DataSet1TableAdapters.ProductTableAdapter ta = new DataSet1TableAdapters.ProductTableAdapter();
@@ -217,6 +223,10 @@ namespace ProyectoResInv_1
                 //DataSet1.SupplierRow rowsup = (DataSet1.SupplierRow)pts.Rows[0];
                 //rowsup.id_Supplier = row.idSupplier; 
 
+            }
+            else
+            {
+                MessageBox.Show("No hay registros");
             }
         }
 

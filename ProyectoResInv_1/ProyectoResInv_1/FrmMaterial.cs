@@ -211,7 +211,7 @@ namespace ProyectoResInv_1
         {
 
             int? idS = GetIdSupplier();
-            MessageBox.Show(idS.ToString());
+       //    MessageBox.Show(idS.ToString());
             if (idS != null)
             {
                 DataSet1TableAdapters.SupplierTableAdapter ta = new DataSet1TableAdapters.SupplierTableAdapter();
@@ -226,7 +226,12 @@ namespace ProyectoResInv_1
                     = false;
                 
             }
-        }
+            else
+            {
+                MessageBox.Show("No hay registros");
+            }
+        
+    }
 
         string fecha;
         private void clnFechaExp_DateChanged(object sender, DateRangeEventArgs e)
@@ -312,7 +317,7 @@ namespace ProyectoResInv_1
 
             int? id = GetId();
             int valorcillo;
-            MessageBox.Show(id.ToString());
+            //MessageBox.Show(id.ToString());
             if (id != null)
             {
                 DataSet1TableAdapters.MaterialTableAdapter ta = new DataSet1TableAdapters.MaterialTableAdapter();
@@ -338,6 +343,10 @@ namespace ProyectoResInv_1
                 //  txtProveedor.Text = rowsup.ToString();
 
                 dgvProveedor.DataSource = pts;
+            }
+            else
+            {
+                MessageBox.Show("No hay registros");
             }
         }
 

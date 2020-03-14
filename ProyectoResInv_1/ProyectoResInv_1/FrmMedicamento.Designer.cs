@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.btnLimpiarProv = new System.Windows.Forms.Button();
-            this.btnBuscarProv = new System.Windows.Forms.Button();
             this.txtProveedor = new System.Windows.Forms.TextBox();
-            this.txtBuscarProd = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.txtBuscarMed = new System.Windows.Forms.TextBox();
+            this.dgvProveedor = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clnFechaExp = new System.Windows.Forms.MonthCalendar();
             this.udCantidad = new System.Windows.Forms.NumericUpDown();
@@ -48,7 +47,7 @@
             this.lblAgregarTitulo = new System.Windows.Forms.Label();
             this.lblUnidadDosis = new System.Windows.Forms.Label();
             this.lblCantidadDosis = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.udUnidades = new System.Windows.Forms.NumericUpDown();
             this.udUnidadesDosis = new System.Windows.Forms.NumericUpDown();
@@ -60,7 +59,9 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.btnElegir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udUnidades)).BeginInit();
@@ -72,23 +73,13 @@
             // 
             this.btnLimpiarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLimpiarProv.Location = new System.Drawing.Point(771, 176);
+            this.btnLimpiarProv.Location = new System.Drawing.Point(675, 175);
             this.btnLimpiarProv.Name = "btnLimpiarProv";
             this.btnLimpiarProv.Size = new System.Drawing.Size(60, 24);
             this.btnLimpiarProv.TabIndex = 41;
             this.btnLimpiarProv.Text = "Limpiar";
             this.btnLimpiarProv.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarProv
-            // 
-            this.btnBuscarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarProv.Location = new System.Drawing.Point(691, 176);
-            this.btnBuscarProv.Name = "btnBuscarProv";
-            this.btnBuscarProv.Size = new System.Drawing.Size(60, 24);
-            this.btnBuscarProv.TabIndex = 40;
-            this.btnBuscarProv.Text = "Buscar";
-            this.btnBuscarProv.UseVisualStyleBackColor = true;
+            this.btnLimpiarProv.Click += new System.EventHandler(this.btnLimpiarProv_Click);
             // 
             // txtProveedor
             // 
@@ -97,22 +88,23 @@
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(158, 22);
             this.txtProveedor.TabIndex = 39;
+            this.txtProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProveedor_KeyPress);
             // 
-            // txtBuscarProd
+            // txtBuscarMed
             // 
-            this.txtBuscarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProd.Location = new System.Drawing.Point(41, 396);
-            this.txtBuscarProd.Name = "txtBuscarProd";
-            this.txtBuscarProd.Size = new System.Drawing.Size(262, 22);
-            this.txtBuscarProd.TabIndex = 38;
+            this.txtBuscarMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarMed.Location = new System.Drawing.Point(41, 396);
+            this.txtBuscarMed.Name = "txtBuscarMed";
+            this.txtBuscarMed.Size = new System.Drawing.Size(262, 22);
+            this.txtBuscarMed.TabIndex = 38;
             // 
-            // dataGridView2
+            // dgvProveedor
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(500, 217);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(331, 83);
-            this.dataGridView2.TabIndex = 37;
+            this.dgvProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProveedor.Location = new System.Drawing.Point(500, 217);
+            this.dgvProveedor.Name = "dgvProveedor";
+            this.dgvProveedor.Size = new System.Drawing.Size(331, 83);
+            this.dgvProveedor.TabIndex = 37;
             // 
             // dataGridView1
             // 
@@ -133,6 +125,11 @@
             // 
             this.udCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.udCantidad.Location = new System.Drawing.Point(201, 104);
+            this.udCantidad.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.udCantidad.Name = "udCantidad";
             this.udCantidad.Size = new System.Drawing.Size(248, 22);
             this.udCantidad.TabIndex = 32;
@@ -149,23 +146,25 @@
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnActualizar.Location = new System.Drawing.Point(747, 316);
+            this.btnActualizar.Location = new System.Drawing.Point(602, 316);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(84, 41);
+            this.btnActualizar.Size = new System.Drawing.Size(101, 41);
             this.btnActualizar.TabIndex = 30;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.Location = new System.Drawing.Point(574, 316);
+            this.btnGuardar.Location = new System.Drawing.Point(465, 316);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(84, 41);
             this.btnGuardar.TabIndex = 29;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblProveedor
             // 
@@ -258,13 +257,13 @@
             this.lblCantidadDosis.TabIndex = 46;
             this.lblCantidadDosis.Text = "Cantidad de dosis";
             // 
-            // textBox1
+            // txtPres
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(201, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 22);
-            this.textBox1.TabIndex = 94;
+            this.txtPres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPres.Location = new System.Drawing.Point(201, 136);
+            this.txtPres.Name = "txtPres";
+            this.txtPres.Size = new System.Drawing.Size(248, 22);
+            this.txtPres.TabIndex = 94;
             // 
             // label2
             // 
@@ -361,6 +360,7 @@
             this.btnEliminar.TabIndex = 104;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -372,6 +372,7 @@
             this.btnEditar.TabIndex = 103;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnLimpiar
             // 
@@ -383,6 +384,7 @@
             this.btnLimpiar.TabIndex = 102;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // button2
             // 
@@ -402,16 +404,42 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(49, 369);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(184, 20);
+            this.checkBox1.Size = new System.Drawing.Size(188, 20);
             this.checkBox1.TabIndex = 100;
             this.checkBox1.Text = "Ver todos los registros";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(575, 149);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(118, 20);
+            this.checkBox2.TabIndex = 105;
+            this.checkBox2.Text = "Filtrar por ID";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // btnElegir
+            // 
+            this.btnElegir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElegir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnElegir.Location = new System.Drawing.Point(771, 174);
+            this.btnElegir.Name = "btnElegir";
+            this.btnElegir.Size = new System.Drawing.Size(60, 24);
+            this.btnElegir.TabIndex = 106;
+            this.btnElegir.Text = "Elegir";
+            this.btnElegir.UseVisualStyleBackColor = true;
+            this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
             // 
             // FrmMedicamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 595);
+            this.Controls.Add(this.btnElegir);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnLimpiar);
@@ -422,15 +450,14 @@
             this.Controls.Add(this.udCantidadDosis);
             this.Controls.Add(this.udUnidadesDosis);
             this.Controls.Add(this.udUnidades);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPres);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCantidadDosis);
             this.Controls.Add(this.lblUnidadDosis);
             this.Controls.Add(this.btnLimpiarProv);
-            this.Controls.Add(this.btnBuscarProv);
             this.Controls.Add(this.txtProveedor);
-            this.Controls.Add(this.txtBuscarProd);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.txtBuscarMed);
+            this.Controls.Add(this.dgvProveedor);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.clnFechaExp);
             this.Controls.Add(this.udCantidad);
@@ -447,7 +474,8 @@
             this.Name = "FrmMedicamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Medicamento";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.FrmMedicamento_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udUnidades)).EndInit();
@@ -460,10 +488,9 @@
 
         #endregion
         private System.Windows.Forms.Button btnLimpiarProv;
-        private System.Windows.Forms.Button btnBuscarProv;
         private System.Windows.Forms.TextBox txtProveedor;
-        private System.Windows.Forms.TextBox txtBuscarProd;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox txtBuscarMed;
+        private System.Windows.Forms.DataGridView dgvProveedor;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MonthCalendar clnFechaExp;
         private System.Windows.Forms.NumericUpDown udCantidad;
@@ -479,7 +506,7 @@
         private System.Windows.Forms.Label lblAgregarTitulo;
         private System.Windows.Forms.Label lblUnidadDosis;
         private System.Windows.Forms.Label lblCantidadDosis;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPres;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown udUnidades;
         private System.Windows.Forms.NumericUpDown udUnidadesDosis;
@@ -491,5 +518,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button btnElegir;
     }
 }

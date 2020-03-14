@@ -148,7 +148,7 @@
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnActualizar.Location = new System.Drawing.Point(654, 104);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(84, 41);
+            this.btnActualizar.Size = new System.Drawing.Size(92, 41);
             this.btnActualizar.TabIndex = 47;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@
             this.cbxCargarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCargarTodo.Location = new System.Drawing.Point(39, 189);
             this.cbxCargarTodo.Name = "cbxCargarTodo";
-            this.cbxCargarTodo.Size = new System.Drawing.Size(184, 20);
+            this.cbxCargarTodo.Size = new System.Drawing.Size(188, 20);
             this.cbxCargarTodo.TabIndex = 65;
             this.cbxCargarTodo.Text = "Ver todos los registros";
             this.cbxCargarTodo.UseVisualStyleBackColor = true;

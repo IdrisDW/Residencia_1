@@ -108,7 +108,7 @@
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnActualizar.Location = new System.Drawing.Point(634, 79);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(84, 41);
+            this.btnActualizar.Size = new System.Drawing.Size(97, 41);
             this.btnActualizar.TabIndex = 47;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -180,7 +180,7 @@
             this.cbxCargarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCargarTodo.Location = new System.Drawing.Point(35, 159);
             this.cbxCargarTodo.Name = "cbxCargarTodo";
-            this.cbxCargarTodo.Size = new System.Drawing.Size(184, 20);
+            this.cbxCargarTodo.Size = new System.Drawing.Size(188, 20);
             this.cbxCargarTodo.TabIndex = 70;
             this.cbxCargarTodo.Text = "Ver todos los registros";
             this.cbxCargarTodo.UseVisualStyleBackColor = true;
@@ -192,11 +192,10 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(241, 159);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(113, 20);
+            this.checkBox1.Size = new System.Drawing.Size(118, 20);
             this.checkBox1.TabIndex = 75;
             this.checkBox1.Text = "Filtrar por ID";
             this.checkBox1.UseVisualStyleBackColor = true;
-//            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // FrmProveedor
             // 

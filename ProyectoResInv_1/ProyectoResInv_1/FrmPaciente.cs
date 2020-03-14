@@ -128,7 +128,7 @@ namespace ProyectoResInv_1
         private void btnEditar_Click(object sender, EventArgs e)
         {
             int? id = GetId();
-            MessageBox.Show(id.ToString());
+            //MessageBox.Show(id.ToString());
             if (id != null)
             {
                 DataSet1TableAdapters.PatientTableAdapter ta = new DataSet1TableAdapters.PatientTableAdapter();
@@ -140,6 +140,10 @@ namespace ProyectoResInv_1
                 txtEmail.Text = row.patientEmail;
 
 
+            }
+            else
+            {
+                MessageBox.Show("No hay registros");
             }
         }
 
