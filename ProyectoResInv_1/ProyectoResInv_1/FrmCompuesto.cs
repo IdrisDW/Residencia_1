@@ -42,6 +42,8 @@ namespace ProyectoResInv_1
             dataGridView1.Columns[8].HeaderText = "Unidades Dosis";
             dataGridView1.Columns[9].HeaderText = "Proveedor";
 
+            //
+
         }
 
 
@@ -74,10 +76,10 @@ namespace ProyectoResInv_1
             try
             {
                 idd = int.Parse(
-                        dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0].Value.ToString()
+                        dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0+1].Value.ToString()
                         );
                 return int.Parse(
-                    dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0].Value.ToString()
+                    dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0+1].Value.ToString()
                     );
 
             }
@@ -97,18 +99,26 @@ namespace ProyectoResInv_1
 
             DataSet1.MedicineDataTable dt = ta.GetDataMedicine();
             dgvMedicamento.DataSource = dt;
-            dgvMedicamento.Columns[0].HeaderText = "Id";
-            dgvMedicamento.Columns[1].HeaderText = "Nombre";
-            dgvMedicamento.Columns[2].HeaderText = "Caducidad";
-            dgvMedicamento.Columns[3].HeaderText = "Cantidad";
+         //   dgvMedicamento.Rows.Clear();
+            foreach (DataRow item in dt.Rows) {
+                int n = dgvMedicamento.Rows.Add();
+                dgvMedicamento.Rows[n].Cells[1].Value = item["id"].ToString();
+            }
+            //dgvMedicamento.Columns[0 + 1].HeaderText = "Id";
+            //dgvMedicamento.Columns[1 + 1].HeaderText = "Nombre";
+            //dgvMedicamento.Columns[2 + 1].HeaderText = "Caducidad";
+            //dgvMedicamento.Columns[3 + 1].HeaderText = "Cantidad";
 
-            dgvMedicamento.Columns[4].HeaderText = "Presentacion";
-            dgvMedicamento.Columns[5].HeaderText = "Unidades";
+            //dgvMedicamento.Columns[4 + 1].HeaderText = "Presentacion";
+            //dgvMedicamento.Columns[5 + 1].HeaderText = "Unidades";
 
-            dgvMedicamento.Columns[6].HeaderText = "Tipo Unidad";
-            dgvMedicamento.Columns[7].HeaderText = "Cantidad Dosis";
-            dgvMedicamento.Columns[8].HeaderText = "Unidades Dosis";
-            dgvMedicamento.Columns[9].HeaderText = "Proveedor";
+            //dgvMedicamento.Columns[6 + 1].HeaderText = "Tipo Unidad";
+            //dgvMedicamento.Columns[7 + 1].HeaderText = "Cantidad Dosis";
+            //dgvMedicamento.Columns[8 + 1].HeaderText = "Unidades Dosis";
+            //dgvMedicamento.Columns[9 + 1].HeaderText = "Proveedor";
+            //
+
+
 
         }
 
@@ -197,12 +207,14 @@ namespace ProyectoResInv_1
 
         private void FrmCompuesto_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.Medicine' table. You can move, or remove it, as needed.
+            this.medicineTableAdapter.FillMedicine(this.dataSet11.Medicine);
             Refresh();
             RefreshMedicine();
-            foreach (DataGridViewColumn c in dgvMedicamento.Columns)
+          /*  foreach (DataGridViewColumn c in dgvMedicamento.Columns)
             {
                 dgvMedSelected.Columns.Add(c.Clone() as DataGridViewColumn);
-            }
+            }*/
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -210,25 +222,87 @@ namespace ProyectoResInv_1
             Refresh();
         }
 
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow item in dgvMedicamento.Rows) {
+
+                dgvMedSelected.Rows.Clear();
+                if ((bool)item.Cells[0].Value == true) {
+                    int n = dgvMedSelected.Rows.Add();
+                    dgvMedSelected.Rows[n].Cells[0].Value = item.Cells[1];
+                    dgvMedSelected.Rows[n].Cells[1].Value = item.Cells[2];
+                    dgvMedSelected.Rows[n].Cells[2].Value = item.Cells[3];
+                    dgvMedSelected.Rows[n].Cells[3].Value = item.Cells[4];
+                    dgvMedSelected.Rows[n].Cells[4].Value = item.Cells[5];
+                    dgvMedSelected.Rows[n].Cells[5].Value = item.Cells[6];
+                    dgvMedSelected.Rows[n].Cells[6].Value = item.Cells[7];
+                    dgvMedSelected.Rows[n].Cells[7].Value = item.Cells[8];
+                    dgvMedSelected.Rows[n].Cells[8].Value = item.Cells[9];
+                    dgvMedSelected.Rows[n].Cells[9].Value = item.Cells[10];
+
+                }
+            }
+        }
+
+
+            /*
             int? idM = GetIdMedicine();
             int valorcillo;
+            int nuevo = 0;
+
             DataSet1TableAdapters.MedicineTableAdapter ta = new DataSet1TableAdapters.MedicineTableAdapter();
             DataSet1.MedicineDataTable pt = ta.GetDataByIdMedicine((int)idM);
 
             DataSet1.MedicineRow row = (DataSet1.MedicineRow)pt.Rows[0];
             MessageBox.Show(idM.ToString());
 
+            DataSet1.MedicineDataTable pt2 = ta.GetDataByIdMedicine((int)idM);
+            DataSet1.MedicineRow row2 = (DataSet1.MedicineRow)pt2.Rows[0];
+            DataSet1.MedicineRow row3;
             //then you can copy the rows values one by one (working on the selectedrows collection)
-            for (int fila = 0; fila < dgvMedicamento.Rows.Count; fila++)
-            {
-                for (int filas = 0; filas < dgvMedicamento.ColumnCount; filas++)
-                {
-                    row[filas] = dgvMedicamento.Rows[fila].Cells[filas].Value.ToString();
-                }
-            }
+            // MessageBox.Show(dgvMedicamento.Rows.Count.ToString());
+            //
 
+            //
+            /*
+            for (int fila = 0; fila < dgvMedicamento.Rows.Count; fila++)
+           {
+                for (int cells = 0; cells < dgvMedicamento.ColumnCount; cells++)
+                {*/
+                /*
+                    row2.MedicineName = row.MedicineName;
+                    row2.MedicineExpDate = row.MedicineExpDate;
+                    row2.MedicineQuantity = row.MedicineQuantity;
+                    row2.MedicineQuantityPres = row.MedicineQuantityPres;
+                    row2.MedicineUnits = row.MedicineUnits;
+                    row2.MedicineUnitsType = row.MedicineUnitsType;
+                    row2.MedicineDosQuan = row.MedicineDosQuan;
+                    row2.MedicineDosUnits = row.MedicineDosUnits;
+                    valorcillo = row.idSupplier;
+                    row2.idSupplier = row.idSupplier;
+
+            /**/
+
+            /**/
+            //*********************//
+
+            //MessageBox.Show(cells.ToString());
+
+            //row2[cells]= row[cells.ToString()];
+            //  row2.SetField(cells, row[cells.ToString()]);
+            //        row2.ItemArray(row[cells.ToString()]);
+            //  row3 = (DataSet1.MedicineRow)pt2.Rows[cells];//
+
+            //.ItemArray.;
+            // = row[cells.ToString()];
+            //row[cells]
+            //= dgvMedicamento.Rows[fila].Cells[cells].Value.ToString();
+            /*       }
+             }*/
+         //   dgvMedSelected.DataSource = pt2;
+          //  dgvMedSelected.SelectedRows[0].Cells[0].Value.ToString();
+         //   nuevo++;
 
                 /*
                 int? idM = GetIdMedicine();
@@ -301,7 +375,7 @@ namespace ProyectoResInv_1
                     MessageBox.Show("No hay registros");
                 }
                  */
-            }
+          //  }
 
             private void btnQuitar_Click(object sender, EventArgs e)
         {
