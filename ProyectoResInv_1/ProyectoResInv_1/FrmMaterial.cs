@@ -355,30 +355,37 @@ namespace ProyectoResInv_1
             string message = "Esta seguro que desea eliminar este registro?";
             string title = "Advertencia";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
+
             //
             int? id = GetId();
-
-            if (result == DialogResult.Yes)
+            if (id == null)
             {
-                if (id != null)
-                {
-                    DataSet1TableAdapters.MaterialTableAdapter ta = new DataSet1TableAdapters.MaterialTableAdapter();
-                    try
-                    {
-                        ta.DeleteQueryMaterial((int)id);
-                        Refresh();
-                    }
-                    catch (Exception mensaje)
-                    {
-                        MessageBox.Show(mensaje.ToString());
-                    }
-                }
+                MessageBox.Show("No hay registros");
             }
             else
             {
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    if (id != null)
+                    {
+                        DataSet1TableAdapters.MaterialTableAdapter ta = new DataSet1TableAdapters.MaterialTableAdapter();
+                        try
+                        {
+                            ta.DeleteQueryMaterial((int)id);
+                            Refresh();
+                        }
+                        catch (Exception mensaje)
+                        {
+                            MessageBox.Show(mensaje.ToString());
+                        }
+                    }
+                }
+                else
+                {
 
-                // Do something  
+                    // Do something  
+                }
             }
         }
 

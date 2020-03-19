@@ -102,6 +102,7 @@
             this.btnCompuestos.TabIndex = 62;
             this.btnCompuestos.Text = "Compuestos";
             this.btnCompuestos.UseVisualStyleBackColor = true;
+            this.btnCompuestos.Click += new System.EventHandler(this.btnCompuestos_Click);
             // 
             // btnPacientes
             // 

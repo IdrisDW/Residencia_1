@@ -93,10 +93,11 @@
             // txtBuscarMed
             // 
             this.txtBuscarMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarMed.Location = new System.Drawing.Point(41, 396);
+            this.txtBuscarMed.Location = new System.Drawing.Point(49, 395);
             this.txtBuscarMed.Name = "txtBuscarMed";
             this.txtBuscarMed.Size = new System.Drawing.Size(262, 22);
             this.txtBuscarMed.TabIndex = 38;
+            this.txtBuscarMed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarMed_KeyPress);
             // 
             // dgvProveedor
             // 
@@ -404,7 +405,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(49, 369);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(188, 20);
+            this.checkBox1.Size = new System.Drawing.Size(184, 20);
             this.checkBox1.TabIndex = 100;
             this.checkBox1.Text = "Ver todos los registros";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -416,7 +417,7 @@
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Location = new System.Drawing.Point(575, 149);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(118, 20);
+            this.checkBox2.Size = new System.Drawing.Size(113, 20);
             this.checkBox2.TabIndex = 105;
             this.checkBox2.Text = "Filtrar por ID";
             this.checkBox2.UseVisualStyleBackColor = true;

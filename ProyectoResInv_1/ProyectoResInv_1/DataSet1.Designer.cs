@@ -7364,7 +7364,7 @@ SELECT id_Medicine, MedicineName, MedicineExpDate, MedicineQuantity, MedicineQua
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        id_Medicine, MedicineName, MedicineExpDate, MedicineQuantity, Medic" +
@@ -7378,15 +7378,21 @@ SELECT id_Medicine, MedicineName, MedicineExpDate, MedicineQuantity, MedicineQua
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Medicine", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Medicine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        id_Medicine, MedicineName, MedicineExpDate, MedicineQuantity, Medic" +
+            this._commandCollection[2].CommandText = "SELECT    * \r\nFROM            Medicine\r\nWHERE        (CONVERT(varchar(20), id_Med" +
+                "icine) LIKE \'%\' + CONVERT(varchar(20), @id_Medicine) + \'%\')";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Medicine", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT        id_Medicine, MedicineName, MedicineExpDate, MedicineQuantity, Medic" +
                 "ineQuantityPres, MedicineUnits, MedicineUnitsType, MedicineDosQuan, MedicineDosU" +
                 "nits, idSupplier\r\nFROM            Medicine\r\nWHERE\r\nid_Medicine = @id_Medicine\r\n\r" +
                 "\n ";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Medicine", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Medicine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT        id_Medicine, MedicineName, MedicineExpDate, MedicineQuantity, MedicineQuantityPres, MedicineUnits, MedicineUnitsType, MedicineDosQuan, MedicineDosUnits, idSupplier
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Medicine", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Medicine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT        id_Medicine, MedicineName, MedicineExpDate, MedicineQuantity, MedicineQuantityPres, MedicineUnits, MedicineUnitsType, MedicineDosQuan, MedicineDosUnits, idSupplier
 FROM            Medicine
 WHERE
 
@@ -7414,45 +7420,19 @@ OR
 
 OR
  (CONVERT (varchar(20), idSupplier) LIKE '%' + CONVERT (varchar(20), @idSupplier) + '%') ";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineExpDate", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineQuantity", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineQuantityPres", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineUnits", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineUnitsType", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosQuan", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosUnits", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"INSERT INTO [Medicine] ([MedicineName], [MedicineExpDate], [MedicineQuantity], [MedicineQuantityPres], [MedicineUnits], [MedicineUnitsType], [MedicineDosQuan], [MedicineDosUnits], [idSupplier]) VALUES (@MedicineName, @MedicineExpDate, @MedicineQuantity, @MedicineQuantityPres, @MedicineUnits, @MedicineUnitsType, @MedicineDosQuan, @MedicineDosUnits, @idSupplier);
- 
- 
-";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineExpDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineExpDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineQuantity", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineQuantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineQuantityPres", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineQuantityPres", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineUnits", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "MedicineUnits", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineUnitsType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineUnitsType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosQuan", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "MedicineDosQuan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosUnits", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "MedicineDosUnits", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineExpDate", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineQuantity", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineQuantityPres", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineUnits", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineUnitsType", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosQuan", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosUnits", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @" 
-
-UPDATE [Medicine] 
-SET
-[MedicineName] = @MedicineName, [MedicineExpDate] = @MedicineExpDate, 
-[MedicineQuantity] = @MedicineQuantity, [MedicineQuantityPres] = @MedicineQuantityPres,
- [MedicineUnits] = @MedicineUnits, [MedicineUnitsType] = @MedicineUnitsType,
-[MedicineDosQuan] = @MedicineDosQuan, [MedicineDosUnits] = @MedicineDosUnits,
- [idSupplier] = @idSupplier 
-WHERE Id_Medicine = @id_Medicine 
-
+            this._commandCollection[5].CommandText = @"INSERT INTO [Medicine] ([MedicineName], [MedicineExpDate], [MedicineQuantity], [MedicineQuantityPres], [MedicineUnits], [MedicineUnitsType], [MedicineDosQuan], [MedicineDosUnits], [idSupplier]) VALUES (@MedicineName, @MedicineExpDate, @MedicineQuantity, @MedicineQuantityPres, @MedicineUnits, @MedicineUnitsType, @MedicineDosQuan, @MedicineDosUnits, @idSupplier);
  
  
 ";
@@ -7466,7 +7446,33 @@ WHERE Id_Medicine = @id_Medicine
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosQuan", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "MedicineDosQuan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosUnits", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "MedicineDosUnits", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Medicine", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Medicine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @" 
+
+UPDATE [Medicine] 
+SET
+[MedicineName] = @MedicineName, [MedicineExpDate] = @MedicineExpDate, 
+[MedicineQuantity] = @MedicineQuantity, [MedicineQuantityPres] = @MedicineQuantityPres,
+ [MedicineUnits] = @MedicineUnits, [MedicineUnitsType] = @MedicineUnitsType,
+[MedicineDosQuan] = @MedicineDosQuan, [MedicineDosUnits] = @MedicineDosUnits,
+ [idSupplier] = @idSupplier 
+WHERE Id_Medicine = @id_Medicine 
+
+ 
+ 
+";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineExpDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineExpDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineQuantity", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineQuantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineQuantityPres", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineQuantityPres", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineUnits", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "MedicineUnits", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineUnitsType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineUnitsType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosQuan", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "MedicineDosQuan", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineDosUnits", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "MedicineDosUnits", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSupplier", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idSupplier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Medicine", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Medicine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7497,8 +7503,44 @@ WHERE Id_Medicine = @id_Medicine
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByIdMedicine(DataSet1.MedicineDataTable dataTable, int id_Medicine) {
+        public virtual int FillByBuscarIDMedicine(DataSet1.MedicineDataTable dataTable, string id_Medicine) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((id_Medicine == null)) {
+                throw new global::System.ArgumentNullException("id_Medicine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(id_Medicine));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet1.MedicineDataTable GetDataByBuscarIDMedicine(string id_Medicine) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((id_Medicine == null)) {
+                throw new global::System.ArgumentNullException("id_Medicine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(id_Medicine));
+            }
+            DataSet1.MedicineDataTable dataTable = new DataSet1.MedicineDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByIdMedicine(DataSet1.MedicineDataTable dataTable, int id_Medicine) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_Medicine));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7512,7 +7554,7 @@ WHERE Id_Medicine = @id_Medicine
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSet1.MedicineDataTable GetDataByIdMedicine(int id_Medicine) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_Medicine));
             DataSet1.MedicineDataTable dataTable = new DataSet1.MedicineDataTable();
             this.Adapter.Fill(dataTable);
@@ -7524,7 +7566,7 @@ WHERE Id_Medicine = @id_Medicine
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByMedicineFiltering(DataSet1.MedicineDataTable dataTable, string MedicineName, string MedicineExpDate, string MedicineQuantity, string MedicineQuantityPres, string MedicineUnits, string MedicineUnitsType, string MedicineDosQuan, string MedicineDosUnits, string idSupplier) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((MedicineName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -7591,7 +7633,7 @@ WHERE Id_Medicine = @id_Medicine
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSet1.MedicineDataTable GetDataByMedicineFiltering(string MedicineName, string MedicineExpDate, string MedicineQuantity, string MedicineQuantityPres, string MedicineUnits, string MedicineUnitsType, string MedicineDosQuan, string MedicineDosUnits, string idSupplier) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((MedicineName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -8074,7 +8116,7 @@ WHERE Id_Medicine = @id_Medicine
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQueryMedicine(string MedicineName, string MedicineExpDate, global::System.Nullable<int> MedicineQuantity, string MedicineQuantityPres, global::System.Nullable<decimal> MedicineUnits, string MedicineUnitsType, global::System.Nullable<decimal> MedicineDosQuan, global::System.Nullable<decimal> MedicineDosUnits, global::System.Nullable<int> idSupplier) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((MedicineName == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -8151,7 +8193,7 @@ WHERE Id_Medicine = @id_Medicine
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQueryMedicine(string MedicineName, string MedicineExpDate, global::System.Nullable<int> MedicineQuantity, string MedicineQuantityPres, global::System.Nullable<decimal> MedicineUnits, string MedicineUnitsType, global::System.Nullable<decimal> MedicineDosQuan, global::System.Nullable<decimal> MedicineDosUnits, global::System.Nullable<int> idSupplier, int id_Medicine) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((MedicineName == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }

@@ -65,5 +65,11 @@ namespace ProyectoResInv_1
             FrmMedicamento frmMedicamento = new FrmMedicamento();
             frmMedicamento.ShowDialog();
         }
+
+        private void btnCompuestos_Click(object sender, EventArgs e)
+        {
+            FrmCompuesto frmCompuesto = new FrmCompuesto();
+            frmCompuesto.ShowDialog();
+        }
     }
 }

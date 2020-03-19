@@ -189,44 +189,42 @@ namespace ProyectoResInv_1
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
             string message = "Esta seguro que desea eliminar este registro?";
             string title = "Advertencia";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
+
             //
             int? id = GetId();
-
-            if (result == DialogResult.Yes)
+            if (id == null)
             {
-                if (id != null)
-                {
-                    DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
-                    try
-                    {
-                        ta.DeleteQueryDoctor((int)id);
-                        Refresh();
-                    }
-                    catch (Exception mensaje)
-                    {
-                        MessageBox.Show(mensaje.ToString());
-                    }
-                }
+                MessageBox.Show("No hay registros");
             }
             else
             {
-               
-                // Do something  
-            } 
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    if (id != null)
+                    {
+                        DataSet1TableAdapters.DoctorTableAdapter ta = new DataSet1TableAdapters.DoctorTableAdapter();
+                        try
+                        {
+                            ta.DeleteQueryDoctor((int)id);
+                            Refresh();
+                        }
+                        catch (Exception mensaje)
+                        {
+                            MessageBox.Show(mensaje.ToString());
+                        }
+                    }
+                }
+                else
+                {
 
-                //
-
-
-                //  ta.DeleteQueryDoctor((int)id);
-
-            
+                    // Do something  
+                }
+            }
         }
-    
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {

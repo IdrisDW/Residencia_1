@@ -109,10 +109,11 @@ namespace ProyectoResInv_1
             dataGridView1.Columns[4].HeaderText = "Presentacion";
 
             dataGridView1.Columns[5].HeaderText = "Unidades";
-            dataGridView1.Columns[6].HeaderText = "Cantidad Dosis";
-            dataGridView1.Columns[7].HeaderText = "Unidades Dosis";
+            dataGridView1.Columns[6].HeaderText = "Tipo de Unidades";
+            dataGridView1.Columns[7].HeaderText = "Cantidad Dosis";
+           dataGridView1.Columns[8].HeaderText = "Unidades Dosis";
 
-            dataGridView1.Columns[8].HeaderText = "Proveedor";
+             dataGridView1.Columns[9].HeaderText = "Proveedor";
         }
 
 
@@ -386,6 +387,52 @@ namespace ProyectoResInv_1
                 btnLimpiar.Enabled = true;
                 idd = 0;
                 Refresh();
+            }
+        }
+
+        private void txtBuscarMed_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                DataSet1TableAdapters.MedicineTableAdapter ta = new DataSet1TableAdapters.MedicineTableAdapter();
+                DataSet1.MedicineDataTable dt =
+             ta.GetDataByMedicineFiltering(txtBuscarMed.Text//,//string
+              , txtBuscarMed.Text
+              , txtBuscarMed.Text
+              , txtBuscarMed.Text
+              , txtBuscarMed.Text
+          ,  txtBuscarMed.Text
+          ,   txtBuscarMed.Text
+          , txtBuscarMed.Text
+          , txtBuscarMed.Text
+
+              
+                     );
+                //  (txtNombre.Text.Trim(), (int)udCantidad.Value,
+                //      clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value,
+
+                //   valorIdSupplier
+                //  , (int)idd);
+
+                ta.FillByMedicineFiltering
+                    (dt, txtBuscarMed.Text  
+
+              , txtBuscarMed.Text
+              , txtBuscarMed.Text
+              , txtBuscarMed.Text
+              , txtBuscarMed.Text
+             , txtBuscarMed.Text
+             , txtBuscarMed.Text
+             , txtBuscarMed.Text
+             , txtBuscarMed.Text
+              );
+
+                dataGridView1.DataSource = dt;
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
