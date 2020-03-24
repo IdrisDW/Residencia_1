@@ -1,7 +1,6 @@
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe.config
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.pdb
-C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csprojAssemblyReference.cache
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Form1.resources
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Form2.resources
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FormProductos.resources
