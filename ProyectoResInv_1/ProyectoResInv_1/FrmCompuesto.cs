@@ -232,7 +232,7 @@ namespace ProyectoResInv_1
             // Se recorre ca registro de la grilla de origen
             //
             int cantMarcados = dataGridView2.Rows.Cast<DataGridViewRow>().Where(x => Convert.ToBoolean(x.Cells["Seleccion"].Value)).Count();
-            if (cantMarcados <= 5)
+            if (   cantMarcados <= 5)
             {
                 foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
@@ -361,16 +361,52 @@ namespace ProyectoResInv_1
                     //living in
 
                     //  row3.id_Medicine = Convert.ToInt32(row.Cells[1].Value);
+
+
+                    // HERE HERE HERE
+
+                    row3.MedicineName = Convert.ToString(row.Cells[2].Value);
+
+
+                    //DateTime date = DateTime.Now;
+                    //DateTime safaera = Convert.ToDateTime(row.Cells[7].Value);
+                    //var blablabla = safaera.ToString("yyyy-MM-dd");
+                    //MessageBox.Show(blablabla.ToString());
+
+
+                    row3.MedicineExpDate = Convert.ToDateTime(row.Cells[3].Value);
+                    row3.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
+                    row3.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
+
+                    row3.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
+                    row3.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
+                    row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
+                    row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
+                   row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
+                   
+                     
+
+
+                    // END HERE
+
+                    /* SAFAERAAA
                     row3.MedicineName = Convert.ToString(row.Cells[2].Value);
                     row3.MedicineQuantity = Convert.ToInt32(row.Cells[3].Value);
                     row3.MedicineUnits = Convert.ToDecimal(row.Cells[4].Value);
                     row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[5].Value);
                     row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[6].Value);
+
+                    DateTime date = DateTime.Now;
+                    DateTime safaera = Convert.ToDateTime(row.Cells[7].Value);
+                    var blablabla = safaera.ToString("yyyy-MM-dd");
+                    MessageBox.Show(blablabla.ToString());
+
+                    
                     row3.MedicineExpDate = Convert.ToDateTime(row.Cells[7].Value);
                     row3.idSupplier = Convert.ToInt32(row.Cells[8].Value);
                     row3.MedicineUnitsType = Convert.ToString(row.Cells[9].Value);
                     row3.MedicineQuantityPres = Convert.ToString(row.Cells[10].Value);
-
+                    */
                     //    row3.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
                     // row3.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
                     //   row3.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
@@ -394,6 +430,13 @@ namespace ProyectoResInv_1
                 // dataGridView2.DataSource = datoi;
                 dataGridView2.DataSource = pt3;
                 //     dataGridView3.DataMember = "Productos";
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView3.Rows.Count > 1) {
+                MessageBox.Show("aceptado");
             }
         }
         //{
