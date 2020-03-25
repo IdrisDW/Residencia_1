@@ -999,7 +999,8 @@ namespace ProyectoResInv_1
                   //  row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
                     //beverlyhills
                     //  datoi.Medicine.Rows.Add(medicineRow);
-                    pt3.Rows.Add(row3);// Rows.Add(medicineRow);
+// pt3.Rows.Add(row3);//THIS LINE WAS HERE FOR SOME REASON .. DO NOT REMOVE
+                          // Rows.Add(medicineRow); 
                     dataGridView3.Rows.Remove(row);
               
                 }
@@ -1010,7 +1011,7 @@ namespace ProyectoResInv_1
                 //
                 dataGridView2.AutoGenerateColumns = false;
                 // dataGridView2.DataSource = datoi;
-                dataGridView2.DataSource = pt3;
+      dataGridView2.DataSource = pt3;
                 //     dataGridView3.DataMember = "Productos";
             }
         }

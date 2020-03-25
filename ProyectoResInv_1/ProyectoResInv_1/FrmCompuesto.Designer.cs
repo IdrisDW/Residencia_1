@@ -98,8 +98,6 @@
             this.medicineTableAdapter = new ProyectoResInv_1.DataSet1TableAdapters.MedicineTableAdapter();
             this.medicineTableAdapter1 = new ProyectoResInv_1.AnalisisResidenciaDataSetTableAdapters.MedicineTableAdapter();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.Selecciona = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.id_Medicine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,6 +109,8 @@
             this.MedicineDosQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineDosUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedSelected)).BeginInit();
@@ -367,7 +367,7 @@
             this.medicineDosUnitsDataGridViewTextBoxColumn,
             this.idSupplierDataGridViewTextBoxColumn});
             this.dataGridViewLeft.DataSource = this.medicineBindingSource;
-            this.dataGridViewLeft.Location = new System.Drawing.Point(59, 201);
+            this.dataGridViewLeft.Location = new System.Drawing.Point(71, 29);
             this.dataGridViewLeft.Name = "dataGridViewLeft";
             this.dataGridViewLeft.Size = new System.Drawing.Size(309, 128);
             this.dataGridViewLeft.TabIndex = 99;
@@ -696,26 +696,6 @@
             this.dataGridView3.Size = new System.Drawing.Size(273, 164);
             this.dataGridView3.TabIndex = 104;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(387, 323);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 122);
-            this.button1.TabIndex = 105;
-            this.button1.Text = "add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(387, 451);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 122);
-            this.button2.TabIndex = 106;
-            this.button2.Text = "remove";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Selecciona
             // 
             this.Selecciona.HeaderText = "Seleccion";
@@ -770,6 +750,26 @@
             // 
             this.idSupplier.HeaderText = "Proveedor";
             this.idSupplier.Name = "idSupplier";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(387, 323);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 122);
+            this.button1.TabIndex = 105;
+            this.button1.Text = "add";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(387, 451);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 122);
+            this.button2.TabIndex = 106;
+            this.button2.Text = "remove";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmCompuesto
             // 
