@@ -925,6 +925,17 @@ OR
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="AnalisisResidenciaConnectionString (Settings)" DbObjectName="AnalisisResidencia.dbo.Medicine" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBySelectDistinct" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySelectDistinct" GeneratorSourceName="FillBySelectDistinct" GetMethodModifier="Public" GetMethodName="GetDataBySelectDistinct" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySelectDistinct" UserSourceName="FillBySelectDistinct">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>	SELECT DISTINCT
+					id_Medicine, MedicineName, MedicineExpDate, MedicineQuantity, MedicineQuantityPres, MedicineUnits, MedicineUnitsType, MedicineDosQuan, MedicineDosUnits, idSupplier
+FROM            Medicine
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="AnalisisResidenciaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryMedicine" Modifier="Public" Name="InsertQueryMedicine" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQueryMedicine">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -1147,7 +1158,7 @@ FROM            Compound INNER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="AnalisisResidenciaConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySelectIdentCurrent" GeneratorSourceName="FillBySelectIdentCurrent" Modifier="Public" Name="FillBySelectIdentCurrent" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySelectIdentCurrent" UserSourceName="FillBySelectIdentCurrent">
+              <DbSource ConnectionRef="AnalisisResidenciaConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySelectIdentCurrent" GeneratorSourceName="FillBySelectIdentCurrent" Modifier="Public" Name="FillBySelectIdentCurrent" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillBySelectIdentCurrent">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText> 
@@ -1168,7 +1179,7 @@ FROM            Compound INNER JOIN
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="AnalisisResidenciaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryCompound" Modifier="Public" Name="InsertQueryCompound" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertQueryCompound">
+              <DbSource ConnectionRef="AnalisisResidenciaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryCompound" Modifier="Public" Name="InsertQueryCompound" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertQueryCompound">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Compound] ([CompoundName]) VALUES (@CompoundName) 
@@ -1180,7 +1191,7 @@ FROM            Compound INNER JOIN
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="AnalisisResidenciaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryCompound" Modifier="Public" Name="UpdateQueryCompound" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQueryCompound">
+              <DbSource ConnectionRef="AnalisisResidenciaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryCompound" Modifier="Public" Name="UpdateQueryCompound" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="UpdateQueryCompound">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE Compound
@@ -1205,7 +1216,7 @@ WHERE id_Compound = @id </CommandText>
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Doctor" msprop:Generator_TableClassName="DoctorDataTable" msprop:Generator_TableVarName="tableDoctor" msprop:Generator_TablePropName="Doctor" msprop:Generator_RowDeletingName="DoctorRowDeleting" msprop:Generator_RowChangingName="DoctorRowChanging" msprop:Generator_RowEvHandlerName="DoctorRowChangeEventHandler" msprop:Generator_RowDeletedName="DoctorRowDeleted" msprop:Generator_UserTableName="Doctor" msprop:Generator_RowChangedName="DoctorRowChanged" msprop:Generator_RowEvArgName="DoctorRowChangeEvent" msprop:Generator_RowClassName="DoctorRow">
+        <xs:element name="Doctor" msprop:Generator_TableClassName="DoctorDataTable" msprop:Generator_TableVarName="tableDoctor" msprop:Generator_RowChangedName="DoctorRowChanged" msprop:Generator_TablePropName="Doctor" msprop:Generator_RowDeletingName="DoctorRowDeleting" msprop:Generator_RowChangingName="DoctorRowChanging" msprop:Generator_RowEvHandlerName="DoctorRowChangeEventHandler" msprop:Generator_RowDeletedName="DoctorRowDeleted" msprop:Generator_RowClassName="DoctorRow" msprop:Generator_UserTableName="Doctor" msprop:Generator_RowEvArgName="DoctorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_Doctor" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Doctor" msprop:Generator_ColumnPropNameInRow="id_Doctor" msprop:Generator_ColumnPropNameInTable="id_DoctorColumn" msprop:Generator_UserColumnName="id_Doctor" type="xs:int" />
@@ -1226,7 +1237,7 @@ WHERE id_Compound = @id </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Patient" msprop:Generator_TableClassName="PatientDataTable" msprop:Generator_TableVarName="tablePatient" msprop:Generator_TablePropName="Patient" msprop:Generator_RowDeletingName="PatientRowDeleting" msprop:Generator_RowChangingName="PatientRowChanging" msprop:Generator_RowEvHandlerName="PatientRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientRowDeleted" msprop:Generator_UserTableName="Patient" msprop:Generator_RowChangedName="PatientRowChanged" msprop:Generator_RowEvArgName="PatientRowChangeEvent" msprop:Generator_RowClassName="PatientRow">
+        <xs:element name="Patient" msprop:Generator_TableClassName="PatientDataTable" msprop:Generator_TableVarName="tablePatient" msprop:Generator_RowChangedName="PatientRowChanged" msprop:Generator_TablePropName="Patient" msprop:Generator_RowDeletingName="PatientRowDeleting" msprop:Generator_RowChangingName="PatientRowChanging" msprop:Generator_RowEvHandlerName="PatientRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientRowDeleted" msprop:Generator_RowClassName="PatientRow" msprop:Generator_UserTableName="Patient" msprop:Generator_RowEvArgName="PatientRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_patient" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_patient" msprop:Generator_ColumnPropNameInRow="id_patient" msprop:Generator_ColumnPropNameInTable="id_patientColumn" msprop:Generator_UserColumnName="id_patient" type="xs:int" />
@@ -1254,7 +1265,7 @@ WHERE id_Compound = @id </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Supplier" msprop:Generator_TableClassName="SupplierDataTable" msprop:Generator_TableVarName="tableSupplier" msprop:Generator_RowChangedName="SupplierRowChanged" msprop:Generator_TablePropName="Supplier" msprop:Generator_RowDeletingName="SupplierRowDeleting" msprop:Generator_RowChangingName="SupplierRowChanging" msprop:Generator_RowEvHandlerName="SupplierRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplierRowDeleted" msprop:Generator_RowClassName="SupplierRow" msprop:Generator_UserTableName="Supplier" msprop:Generator_RowEvArgName="SupplierRowChangeEvent">
+        <xs:element name="Supplier" msprop:Generator_TableClassName="SupplierDataTable" msprop:Generator_TableVarName="tableSupplier" msprop:Generator_TablePropName="Supplier" msprop:Generator_RowDeletingName="SupplierRowDeleting" msprop:Generator_RowChangingName="SupplierRowChanging" msprop:Generator_RowEvHandlerName="SupplierRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplierRowDeleted" msprop:Generator_UserTableName="Supplier" msprop:Generator_RowChangedName="SupplierRowChanged" msprop:Generator_RowEvArgName="SupplierRowChangeEvent" msprop:Generator_RowClassName="SupplierRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_Supplier" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Supplier" msprop:Generator_ColumnPropNameInRow="id_Supplier" msprop:Generator_ColumnPropNameInTable="id_SupplierColumn" msprop:Generator_UserColumnName="id_Supplier" type="xs:int" />
@@ -1268,7 +1279,7 @@ WHERE id_Compound = @id </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Material" msprop:Generator_TableClassName="MaterialDataTable" msprop:Generator_TableVarName="tableMaterial" msprop:Generator_TablePropName="Material" msprop:Generator_RowDeletingName="MaterialRowDeleting" msprop:Generator_RowChangingName="MaterialRowChanging" msprop:Generator_RowEvHandlerName="MaterialRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialRowDeleted" msprop:Generator_UserTableName="Material" msprop:Generator_RowChangedName="MaterialRowChanged" msprop:Generator_RowEvArgName="MaterialRowChangeEvent" msprop:Generator_RowClassName="MaterialRow">
+        <xs:element name="Material" msprop:Generator_TableClassName="MaterialDataTable" msprop:Generator_TableVarName="tableMaterial" msprop:Generator_RowChangedName="MaterialRowChanged" msprop:Generator_TablePropName="Material" msprop:Generator_RowDeletingName="MaterialRowDeleting" msprop:Generator_RowChangingName="MaterialRowChanging" msprop:Generator_RowEvHandlerName="MaterialRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialRowDeleted" msprop:Generator_RowClassName="MaterialRow" msprop:Generator_UserTableName="Material" msprop:Generator_RowEvArgName="MaterialRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_Material" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Material" msprop:Generator_ColumnPropNameInRow="id_Material" msprop:Generator_ColumnPropNameInTable="id_MaterialColumn" msprop:Generator_UserColumnName="id_Material" type="xs:int" />
@@ -1293,7 +1304,7 @@ WHERE id_Compound = @id </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Product" msprop:Generator_TableClassName="ProductDataTable" msprop:Generator_TableVarName="tableProduct" msprop:Generator_TablePropName="Product" msprop:Generator_RowDeletingName="ProductRowDeleting" msprop:Generator_RowChangingName="ProductRowChanging" msprop:Generator_RowEvHandlerName="ProductRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductRowDeleted" msprop:Generator_UserTableName="Product" msprop:Generator_RowChangedName="ProductRowChanged" msprop:Generator_RowEvArgName="ProductRowChangeEvent" msprop:Generator_RowClassName="ProductRow">
+        <xs:element name="Product" msprop:Generator_TableClassName="ProductDataTable" msprop:Generator_TableVarName="tableProduct" msprop:Generator_RowChangedName="ProductRowChanged" msprop:Generator_TablePropName="Product" msprop:Generator_RowDeletingName="ProductRowDeleting" msprop:Generator_RowChangingName="ProductRowChanging" msprop:Generator_RowEvHandlerName="ProductRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductRowDeleted" msprop:Generator_RowClassName="ProductRow" msprop:Generator_UserTableName="Product" msprop:Generator_RowEvArgName="ProductRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_Product" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Product" msprop:Generator_ColumnPropNameInRow="id_Product" msprop:Generator_ColumnPropNameInTable="id_ProductColumn" msprop:Generator_UserColumnName="id_Product" type="xs:int" />
@@ -1325,7 +1336,7 @@ WHERE id_Compound = @id </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Medicine" msprop:Generator_TableClassName="MedicineDataTable" msprop:Generator_TableVarName="tableMedicine" msprop:Generator_RowChangedName="MedicineRowChanged" msprop:Generator_TablePropName="Medicine" msprop:Generator_RowDeletingName="MedicineRowDeleting" msprop:Generator_RowChangingName="MedicineRowChanging" msprop:Generator_RowEvHandlerName="MedicineRowChangeEventHandler" msprop:Generator_RowDeletedName="MedicineRowDeleted" msprop:Generator_RowClassName="MedicineRow" msprop:Generator_UserTableName="Medicine" msprop:Generator_RowEvArgName="MedicineRowChangeEvent">
+        <xs:element name="Medicine" msprop:Generator_TableClassName="MedicineDataTable" msprop:Generator_TableVarName="tableMedicine" msprop:Generator_TablePropName="Medicine" msprop:Generator_RowDeletingName="MedicineRowDeleting" msprop:Generator_RowChangingName="MedicineRowChanging" msprop:Generator_RowEvHandlerName="MedicineRowChangeEventHandler" msprop:Generator_RowDeletedName="MedicineRowDeleted" msprop:Generator_UserTableName="Medicine" msprop:Generator_RowChangedName="MedicineRowChanged" msprop:Generator_RowEvArgName="MedicineRowChangeEvent" msprop:Generator_RowClassName="MedicineRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_Medicine" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Medicine" msprop:Generator_ColumnPropNameInRow="id_Medicine" msprop:Generator_ColumnPropNameInTable="id_MedicineColumn" msprop:Generator_UserColumnName="id_Medicine" type="xs:int" />
@@ -1359,7 +1370,7 @@ WHERE id_Compound = @id </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MedicineCompound" msprop:Generator_TableClassName="MedicineCompoundDataTable" msprop:Generator_TableVarName="tableMedicineCompound" msprop:Generator_TablePropName="MedicineCompound" msprop:Generator_RowDeletingName="MedicineCompoundRowDeleting" msprop:Generator_RowChangingName="MedicineCompoundRowChanging" msprop:Generator_RowEvHandlerName="MedicineCompoundRowChangeEventHandler" msprop:Generator_RowDeletedName="MedicineCompoundRowDeleted" msprop:Generator_UserTableName="MedicineCompound" msprop:Generator_RowChangedName="MedicineCompoundRowChanged" msprop:Generator_RowEvArgName="MedicineCompoundRowChangeEvent" msprop:Generator_RowClassName="MedicineCompoundRow">
+        <xs:element name="MedicineCompound" msprop:Generator_TableClassName="MedicineCompoundDataTable" msprop:Generator_TableVarName="tableMedicineCompound" msprop:Generator_RowChangedName="MedicineCompoundRowChanged" msprop:Generator_TablePropName="MedicineCompound" msprop:Generator_RowDeletingName="MedicineCompoundRowDeleting" msprop:Generator_RowChangingName="MedicineCompoundRowChanging" msprop:Generator_RowEvHandlerName="MedicineCompoundRowChangeEventHandler" msprop:Generator_RowDeletedName="MedicineCompoundRowDeleted" msprop:Generator_RowClassName="MedicineCompoundRow" msprop:Generator_UserTableName="MedicineCompound" msprop:Generator_RowEvArgName="MedicineCompoundRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idMedicine" msprop:Generator_ColumnVarNameInTable="columnidMedicine" msprop:Generator_ColumnPropNameInRow="idMedicine" msprop:Generator_ColumnPropNameInTable="idMedicineColumn" msprop:Generator_UserColumnName="idMedicine" type="xs:int" minOccurs="0" />
@@ -1368,7 +1379,7 @@ WHERE id_Compound = @id </CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Compound" msprop:Generator_TableClassName="CompoundDataTable" msprop:Generator_TableVarName="tableCompound" msprop:Generator_TablePropName="Compound" msprop:Generator_RowDeletingName="CompoundRowDeleting" msprop:Generator_RowChangingName="CompoundRowChanging" msprop:Generator_RowEvHandlerName="CompoundRowChangeEventHandler" msprop:Generator_RowDeletedName="CompoundRowDeleted" msprop:Generator_UserTableName="Compound" msprop:Generator_RowChangedName="CompoundRowChanged" msprop:Generator_RowEvArgName="CompoundRowChangeEvent" msprop:Generator_RowClassName="CompoundRow">
+        <xs:element name="Compound" msprop:Generator_TableClassName="CompoundDataTable" msprop:Generator_TableVarName="tableCompound" msprop:Generator_RowChangedName="CompoundRowChanged" msprop:Generator_TablePropName="Compound" msprop:Generator_RowDeletingName="CompoundRowDeleting" msprop:Generator_RowChangingName="CompoundRowChanging" msprop:Generator_RowEvHandlerName="CompoundRowChangeEventHandler" msprop:Generator_RowDeletedName="CompoundRowDeleted" msprop:Generator_RowClassName="CompoundRow" msprop:Generator_UserTableName="Compound" msprop:Generator_RowEvArgName="CompoundRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_Compound" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Compound" msprop:Generator_ColumnPropNameInRow="id_Compound" msprop:Generator_ColumnPropNameInTable="id_CompoundColumn" msprop:Generator_UserColumnName="id_Compound" type="xs:int" />
@@ -1415,11 +1426,11 @@ WHERE id_Compound = @id </CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Material_Supplier" msdata:parent="Supplier" msdata:child="Material" msdata:parentkey="id_Supplier" msdata:childkey="idSupplier" msprop:Generator_UserChildTable="Material" msprop:Generator_ChildPropName="GetMaterialRows" msprop:Generator_UserRelationName="FK_Material_Supplier" msprop:Generator_ParentPropName="SupplierRow" msprop:Generator_RelationVarName="relationFK_Material_Supplier" msprop:Generator_UserParentTable="Supplier" />
-      <msdata:Relationship name="FK_Product_Supplier" msdata:parent="Supplier" msdata:child="Product" msdata:parentkey="id_Supplier" msdata:childkey="idSupplier" msprop:Generator_UserChildTable="Product" msprop:Generator_ChildPropName="GetProductRows" msprop:Generator_UserRelationName="FK_Product_Supplier" msprop:Generator_ParentPropName="SupplierRow" msprop:Generator_RelationVarName="relationFK_Product_Supplier" msprop:Generator_UserParentTable="Supplier" />
-      <msdata:Relationship name="FK_Medicine_Supplier" msdata:parent="Supplier" msdata:child="Medicine" msdata:parentkey="id_Supplier" msdata:childkey="idSupplier" msprop:Generator_UserChildTable="Medicine" msprop:Generator_ChildPropName="GetMedicineRows" msprop:Generator_UserRelationName="FK_Medicine_Supplier" msprop:Generator_RelationVarName="relationFK_Medicine_Supplier" msprop:Generator_UserParentTable="Supplier" msprop:Generator_ParentPropName="SupplierRow" />
-      <msdata:Relationship name="FK_MedicineCompound_Medicine" msdata:parent="Medicine" msdata:child="MedicineCompound" msdata:parentkey="id_Medicine" msdata:childkey="idMedicine" msprop:Generator_UserChildTable="MedicineCompound" msprop:Generator_ChildPropName="GetMedicineCompoundRows" msprop:Generator_UserRelationName="FK_MedicineCompound_Medicine" msprop:Generator_ParentPropName="MedicineRow" msprop:Generator_RelationVarName="relationFK_MedicineCompound_Medicine" msprop:Generator_UserParentTable="Medicine" />
-      <msdata:Relationship name="FK_MedicineCompound_Compound" msdata:parent="Compound" msdata:child="MedicineCompound" msdata:parentkey="id_Compound" msdata:childkey="idCompound" msprop:Generator_UserChildTable="MedicineCompound" msprop:Generator_ChildPropName="GetMedicineCompoundRows" msprop:Generator_UserRelationName="FK_MedicineCompound_Compound" msprop:Generator_RelationVarName="relationFK_MedicineCompound_Compound" msprop:Generator_UserParentTable="Compound" msprop:Generator_ParentPropName="CompoundRow" />
+      <msdata:Relationship name="FK_Material_Supplier" msdata:parent="Supplier" msdata:child="Material" msdata:parentkey="id_Supplier" msdata:childkey="idSupplier" msprop:Generator_UserChildTable="Material" msprop:Generator_ChildPropName="GetMaterialRows" msprop:Generator_UserRelationName="FK_Material_Supplier" msprop:Generator_RelationVarName="relationFK_Material_Supplier" msprop:Generator_UserParentTable="Supplier" msprop:Generator_ParentPropName="SupplierRow" />
+      <msdata:Relationship name="FK_Product_Supplier" msdata:parent="Supplier" msdata:child="Product" msdata:parentkey="id_Supplier" msdata:childkey="idSupplier" msprop:Generator_UserChildTable="Product" msprop:Generator_ChildPropName="GetProductRows" msprop:Generator_UserRelationName="FK_Product_Supplier" msprop:Generator_RelationVarName="relationFK_Product_Supplier" msprop:Generator_UserParentTable="Supplier" msprop:Generator_ParentPropName="SupplierRow" />
+      <msdata:Relationship name="FK_Medicine_Supplier" msdata:parent="Supplier" msdata:child="Medicine" msdata:parentkey="id_Supplier" msdata:childkey="idSupplier" msprop:Generator_UserChildTable="Medicine" msprop:Generator_ChildPropName="GetMedicineRows" msprop:Generator_UserRelationName="FK_Medicine_Supplier" msprop:Generator_ParentPropName="SupplierRow" msprop:Generator_RelationVarName="relationFK_Medicine_Supplier" msprop:Generator_UserParentTable="Supplier" />
+      <msdata:Relationship name="FK_MedicineCompound_Medicine" msdata:parent="Medicine" msdata:child="MedicineCompound" msdata:parentkey="id_Medicine" msdata:childkey="idMedicine" msprop:Generator_UserChildTable="MedicineCompound" msprop:Generator_ChildPropName="GetMedicineCompoundRows" msprop:Generator_UserRelationName="FK_MedicineCompound_Medicine" msprop:Generator_RelationVarName="relationFK_MedicineCompound_Medicine" msprop:Generator_UserParentTable="Medicine" msprop:Generator_ParentPropName="MedicineRow" />
+      <msdata:Relationship name="FK_MedicineCompound_Compound" msdata:parent="Compound" msdata:child="MedicineCompound" msdata:parentkey="id_Compound" msdata:childkey="idCompound" msprop:Generator_UserChildTable="MedicineCompound" msprop:Generator_ChildPropName="GetMedicineCompoundRows" msprop:Generator_UserRelationName="FK_MedicineCompound_Compound" msprop:Generator_ParentPropName="CompoundRow" msprop:Generator_RelationVarName="relationFK_MedicineCompound_Compound" msprop:Generator_UserParentTable="Compound" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

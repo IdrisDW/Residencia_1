@@ -29,19 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiarProd = new System.Windows.Forms.Button();
             this.btnLimpiarProv = new System.Windows.Forms.Button();
             this.txtBuscarMed = new System.Windows.Forms.TextBox();
             this.txtBuscarComp = new System.Windows.Forms.TextBox();
             this.dgvCompuesto = new System.Windows.Forms.DataGridView();
             this.cbxCargarTodo = new System.Windows.Forms.CheckBox();
-            this.Unidades = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblMedicamento = new System.Windows.Forms.Label();
-            this.lblUnidades = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblInfoSubtitulo = new System.Windows.Forms.Label();
             this.lblAgregarTitulo = new System.Windows.Forms.Label();
@@ -69,6 +67,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.BS_Test = new System.Windows.Forms.BindingSource(this.components);
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new ProyectoResInv_1.DataSet1();
             this.medicineBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -116,7 +116,7 @@
             // 
             this.btnLimpiarProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarProv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLimpiarProv.Location = new System.Drawing.Point(316, 108);
+            this.btnLimpiarProv.Location = new System.Drawing.Point(266, 108);
             this.btnLimpiarProv.Name = "btnLimpiarProv";
             this.btnLimpiarProv.Size = new System.Drawing.Size(60, 24);
             this.btnLimpiarProv.TabIndex = 41;
@@ -127,7 +127,7 @@
             // txtBuscarMed
             // 
             this.txtBuscarMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarMed.Location = new System.Drawing.Point(172, 138);
+            this.txtBuscarMed.Location = new System.Drawing.Point(122, 138);
             this.txtBuscarMed.Name = "txtBuscarMed";
             this.txtBuscarMed.Size = new System.Drawing.Size(204, 22);
             this.txtBuscarMed.TabIndex = 39;
@@ -154,20 +154,13 @@
             // 
             this.cbxCargarTodo.AutoSize = true;
             this.cbxCargarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCargarTodo.Location = new System.Drawing.Point(517, 398);
+            this.cbxCargarTodo.Location = new System.Drawing.Point(74, 369);
             this.cbxCargarTodo.Name = "cbxCargarTodo";
             this.cbxCargarTodo.Size = new System.Drawing.Size(184, 20);
             this.cbxCargarTodo.TabIndex = 34;
             this.cbxCargarTodo.Text = "Ver todos los registros";
             this.cbxCargarTodo.UseVisualStyleBackColor = true;
-            // 
-            // Unidades
-            // 
-            this.Unidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unidades.Location = new System.Drawing.Point(601, 69);
-            this.Unidades.Name = "Unidades";
-            this.Unidades.Size = new System.Drawing.Size(166, 22);
-            this.Unidades.TabIndex = 33;
+            this.cbxCargarTodo.CheckedChanged += new System.EventHandler(this.cbxCargarTodo_CheckedChanged);
             // 
             // txtNombre
             // 
@@ -181,7 +174,7 @@
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnActualizar.Location = new System.Drawing.Point(720, 335);
+            this.btnActualizar.Location = new System.Drawing.Point(677, 317);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(84, 41);
             this.btnActualizar.TabIndex = 30;
@@ -193,7 +186,7 @@
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.Location = new System.Drawing.Point(566, 335);
+            this.btnGuardar.Location = new System.Drawing.Point(540, 317);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(84, 41);
             this.btnGuardar.TabIndex = 29;
@@ -205,21 +198,11 @@
             // 
             this.lblMedicamento.AutoSize = true;
             this.lblMedicamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedicamento.Location = new System.Drawing.Point(63, 138);
+            this.lblMedicamento.Location = new System.Drawing.Point(13, 138);
             this.lblMedicamento.Name = "lblMedicamento";
             this.lblMedicamento.Size = new System.Drawing.Size(90, 16);
             this.lblMedicamento.TabIndex = 28;
             this.lblMedicamento.Text = "Medicamento";
-            // 
-            // lblUnidades
-            // 
-            this.lblUnidades.AutoSize = true;
-            this.lblUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidades.Location = new System.Drawing.Point(480, 72);
-            this.lblUnidades.Name = "lblUnidades";
-            this.lblUnidades.Size = new System.Drawing.Size(67, 16);
-            this.lblUnidades.TabIndex = 27;
-            this.lblUnidades.Text = "Unidades";
             // 
             // lblNombre
             // 
@@ -266,7 +249,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(172, 112);
+            this.checkBox2.Location = new System.Drawing.Point(122, 112);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(113, 20);
             this.checkBox2.TabIndex = 94;
@@ -305,9 +288,9 @@
             this.medicineDosUnitsDataGridViewTextBoxColumn2,
             this.idSupplierDataGridViewTextBoxColumn2});
             this.dataGridView2.DataSource = this.medicineBindingSource2;
-            this.dataGridView2.Location = new System.Drawing.Point(54, 166);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 166);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(350, 109);
+            this.dataGridView2.Size = new System.Drawing.Size(350, 139);
             this.dataGridView2.TabIndex = 103;
             // 
             // medicineBindingSource2
@@ -341,10 +324,12 @@
             this.MedicineDosUnits,
             this.idSupplier,
             this.CompoundQuantityUnits});
-            this.dataGridView3.Location = new System.Drawing.Point(540, 166);
+            this.dataGridView3.Location = new System.Drawing.Point(490, 163);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(300, 106);
+            this.dataGridView3.Size = new System.Drawing.Size(350, 139);
             this.dataGridView3.TabIndex = 104;
+            this.dataGridView3.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellValidated);
+            this.dataGridView3.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView3_CellValidating);
             this.dataGridView3.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView3_EditingControlShowing);
             // 
             // Selecciona
@@ -404,9 +389,9 @@
             // 
             // CompoundQuantityUnits
             // 
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.CompoundQuantityUnits.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.CompoundQuantityUnits.DefaultCellStyle = dataGridViewCellStyle3;
             this.CompoundQuantityUnits.HeaderText = "Unidades Necesarias";
             this.CompoundQuantityUnits.Name = "CompoundQuantityUnits";
             // 
@@ -414,7 +399,7 @@
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAgregar.Location = new System.Drawing.Point(434, 166);
+            this.btnAgregar.Location = new System.Drawing.Point(384, 176);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(81, 32);
             this.btnAgregar.TabIndex = 105;
@@ -426,13 +411,35 @@
             // 
             this.btnQuitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnQuitar.Location = new System.Drawing.Point(434, 242);
+            this.btnQuitar.Location = new System.Drawing.Point(384, 252);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(81, 30);
             this.btnQuitar.TabIndex = 106;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEliminar.Location = new System.Drawing.Point(677, 382);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 41);
+            this.btnEliminar.TabIndex = 108;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEditar.Location = new System.Drawing.Point(540, 382);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(84, 41);
+            this.btnEditar.TabIndex = 107;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
             // 
             // medicineBindingSource
             // 
@@ -537,6 +544,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 595);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dataGridView3);
@@ -550,12 +559,10 @@
             this.Controls.Add(this.txtBuscarComp);
             this.Controls.Add(this.dgvCompuesto);
             this.Controls.Add(this.cbxCargarTodo);
-            this.Controls.Add(this.Unidades);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblMedicamento);
-            this.Controls.Add(this.lblUnidades);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblInfoSubtitulo);
             this.Controls.Add(this.lblAgregarTitulo);
@@ -588,12 +595,10 @@
         private System.Windows.Forms.TextBox txtBuscarComp;
         private System.Windows.Forms.DataGridView dgvCompuesto;
         private System.Windows.Forms.CheckBox cbxCargarTodo;
-        private System.Windows.Forms.TextBox Unidades;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lblMedicamento;
-        private System.Windows.Forms.Label lblUnidades;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblInfoSubtitulo;
         private System.Windows.Forms.Label lblAgregarTitulo;
@@ -628,6 +633,8 @@
         private System.Windows.Forms.BindingSource compoundBindingSource;
         private DataSet1TableAdapters.CompoundTableAdapter compoundTableAdapter;
         private System.Windows.Forms.BindingSource compoundTableAdapterBindingSource;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMedicineDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn medicineNameDataGridViewTextBoxColumn2;
