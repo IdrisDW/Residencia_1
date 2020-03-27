@@ -21,7 +21,37 @@ namespace ProyectoResInv_1
             InitializeComponent();
         }
 
+        private void RefreshCompound() {
 
+            DataSet1TableAdapters.CompoundTableAdapter ta =
+            new DataSet1TableAdapters.CompoundTableAdapter();
+
+            DataSet1.CompoundDataTable dt = ta.GetDataByThreeInnerJoin
+            ();
+            BS_Test.DataSource = dt;
+            dgvCompuesto.DataSource = BS_Test;
+            dgvCompuesto.Columns.RemoveAt(0);
+
+            dgvCompuesto.Columns[0].HeaderText = "Nombre de compuesto";
+            dgvCompuesto.Columns[1].HeaderText = "Nombre de medicina";
+            dgvCompuesto.Columns[2].HeaderText = "Unidades Necesarias";
+            dgvCompuesto.Columns[3].HeaderText = "Id compuesto";
+
+            dgvCompuesto.Columns[4].HeaderText = "Id Medicina";
+            // DataSet1TableAdapters.CompoundTableAdapter ta =
+            //   new DataSet1TableAdapters.CompoundTableAdapter();
+
+            // DataSet1.CompoundDataTable dt = ta.GetDataByInnerJoin 
+            // ();
+            // BS_Test.DataSource = dt;
+            //dgvCompuesto.DataSource = BS_Test;
+            // dgvCompuesto.Columns.RemoveAt(0);
+            // dgvCompuesto.DataSource = dt; this doesnt
+
+
+
+
+        }//endRefreshCompound
         private void Refresh()
         {
             DataSet1TableAdapters.MedicineTableAdapter ta =
@@ -29,19 +59,19 @@ namespace ProyectoResInv_1
 
             DataSet1.MedicineDataTable dt = ta.GetDataMedicine();
 
-            dataGridView1.DataSource = dt;
-            dataGridView1.Columns[0].HeaderText = "Id";
-            dataGridView1.Columns[1].HeaderText = "Nombre";
-            dataGridView1.Columns[2].HeaderText = "Caducidad";
-            dataGridView1.Columns[3].HeaderText = "Cantidad";
+            dgvCompuesto.DataSource = dt;
+            dgvCompuesto.Columns[0].HeaderText = "Id";
+            dgvCompuesto.Columns[1].HeaderText = "Nombre";
+            dgvCompuesto.Columns[2].HeaderText = "Caducidad";
+            dgvCompuesto.Columns[3].HeaderText = "Cantidad";
 
-            dataGridView1.Columns[4].HeaderText = "Cantidad Presentacion";
-            dataGridView1.Columns[5].HeaderText = "Unidades";
+            dgvCompuesto.Columns[4].HeaderText = "Cantidad Presentacion";
+            dgvCompuesto.Columns[5].HeaderText = "Unidades";
 
-            dataGridView1.Columns[6].HeaderText = "Tipo Unidad";
-            dataGridView1.Columns[7].HeaderText = "Cantidad Dosis";
-            dataGridView1.Columns[8].HeaderText = "Unidades Dosis";
-            dataGridView1.Columns[9].HeaderText = "Proveedor";
+            dgvCompuesto.Columns[6].HeaderText = "Tipo Unidad";
+            dgvCompuesto.Columns[7].HeaderText = "Cantidad Dosis";
+            dgvCompuesto.Columns[8].HeaderText = "Unidades Dosis";
+            dgvCompuesto.Columns[9].HeaderText = "Proveedor";
 
             //
 
@@ -129,21 +159,25 @@ namespace ProyectoResInv_1
 
         private void FrmCompuesto_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.Compound' table. You can move, or remove it, as needed.
+            this.compoundTableAdapter.FillCompound(this.dataSet11.Compound);
             // TODO: This line of code loads data into the 'analisisResidenciaDataSet.Medicine' table. You can move, or remove it, as needed.
             int? idM = GetIdMedicine();
             int valorcillo;
             RefreshMedicine();
-           // DataSet1TableAdapters.MedicineTableAdapter dataSet = new DataSet1TableAdapters.MedicineTableAdapter();
+        RefreshCompound();
 
-                      //DataSet1.MedicineDataTable pt2 = dataSet.GetDataByIdMedicine((int)idM);
-                      //medicineBindingSource2.DataSource = pt2;
+            // DataSet1TableAdapters.MedicineTableAdapter dataSet = new DataSet1TableAdapters.MedicineTableAdapter();
+
+            //DataSet1.MedicineDataTable pt2 = dataSet.GetDataByIdMedicine((int)idM);
+            //medicineBindingSource2.DataSource = pt2;
 
             //DataSet1.MedicineDataTable pt3 = dataSet.GetDataMedicine();
 
 
             //dataGridView2.AutoGenerateColumns = false;
             //medicineBindingSource2.DataSource = pt3;
-
+        //    dataGridView3.Columns[3].DefaultCellStyle.Format = "0.00##";
         }
 
         private void btnLimpiarProv_Click(object sender, EventArgs e)
@@ -255,13 +289,28 @@ namespace ProyectoResInv_1
                 // Se agrega el item seleccionado a la grilla de destino
                 // eliminando la fila de la grilla original
                 //
+
+                // *********************************
+                // *********************************
+
+              
+
+                //
                 foreach (DataGridViewRow row in rowSelected)
                 {
+
+                    DateTime date = DateTime.Now;
+                    DateTime safaera = Convert.ToDateTime(row.Cells[3].Value);
+                    var blablabla = safaera.ToString("yyyy-MM-dd");
+                  //  MessageBox.Show(blablabla.ToString());
+                    //    ToShortDateString()
+
                     // MessageBox.Show(row.Cells[0].Value.ToString());
                     dataGridView3.Rows.Add(new object[] {false,
                                             row.Cells[1].Value,
                                             row.Cells[2].Value,
-                                            row.Cells[3].Value,
+                                            blablabla.ToString(),
+                                           // row.Cells[3].Value,
                                             row.Cells[4].Value,
                                             row.Cells[5].Value,
                                             row.Cells[6].Value,
@@ -435,10 +484,173 @@ namespace ProyectoResInv_1
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (dataGridView3.Rows.Count > 1) {
-                MessageBox.Show("aceptado");
+            if (dataGridView3.Rows.Count < 2)
+            {
+                MessageBox.Show("Agregar mas de 1 medicamento al compuesto");
+            }
+            else
+            {
+                //
+                //  int valorId = int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString());
+                // MessageBox.Show(idd.ToString());
+                DataSet1TableAdapters.CompoundTableAdapter ta = new DataSet1TableAdapters.CompoundTableAdapter();
+
+                DataSet1TableAdapters.MedicineCompoundTableAdapter tc = new DataSet1TableAdapters.MedicineCompoundTableAdapter();
+                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+
+
+                {
+
+                    MessageBox.Show("Verifique que todos los campos hayan sido llenados correctamente");
+                }
+                //
+
+                //
+
+                else
+               if (idd == 0)
+                {
+                    int algomas = 0;
+
+                    ta.InsertQueryCompound(txtNombre.Text.Trim());
+
+
+                    MessageBox.Show(ta.FillBySelectIdentCurrent().ToString());
+
+                    txtNombre.Clear();
+
+                    //refresh
+
+                    //nae no ni
+
+                    for (int i = 0; i < dataGridView3.Rows.Count; i++)
+                    {
+                        int idMedicina;
+                        idMedicina = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
+                        decimal idCompoundsie = 0;
+
+                        try
+                        {
+                            idMedicina = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
+                            idCompoundsie = Convert.ToDecimal(dataGridView3.Rows[i].Cells[11].Value);
+                            algomas = Convert.ToInt32(ta.FillBySelectIdentCurrent().ToString());
+                        }
+                        catch (Exception always)
+                        {
+                            MessageBox.Show
+                                ("Revisar que los campos sean correctos");
+                        };
+
+                        tc.InsertQueryMedicineCompound(idMedicina, algomas, idCompoundsie);
+
+                        //MessageBox.Show(
+                        //  (
+                        //decimal.TryParse(dataGridView3.Rows[i].Cells[11].Value.ToString()
+                        //    , out idCompound)
+                        //    ;
+                        //)
+                        //.ToString()
+                        //)
+                        //;
+
+
+
+
+
+                        //MessageBox.Show(Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value).ToString());
+
+                        // MessageBox.Show(Convert.ToDecimal(dataGridView3.Rows[i].Cells[11].Value).ToString());
+
+
+
+
+
+                        // tc.InsertQueryMedicineCompound( Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value), algomas,Convert.ToDecimal(dataGridView2.Rows[i].Cells[11].Value));
+                        //   tc.InsertQueryMedicineCompound(idd, Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value),Convert.ToDecimal(dataGridView2.Rows[i].Cells[11].Value));
+                        //StrQuery = @"INSERT INTO tableName VALUES ("
+                        //    + dataGridView1.Rows[i].Cells["ColumnName"].Text + ", "
+                        //    + dataGridView1.Rows[i].Cells["ColumnName"].Text + ");";
+                        //comm.CommandText = StrQuery;
+                        //comm.ExecuteNonQuery();
+                    }//for
+                    idd = 0;
+                }
+
+                else
+                {
+
+                    ta.UpdateQueryCompound
+                    (txtNombre.Text.Trim(), (int)idd);
+                    //Refresh();
+                    txtNombre.Clear();
+                    idd = 0;
+                }
+            }//else
+            //dataGridView3.Columns[3].DefaultCellStyle.Format =  "0.00##";
+            //MessageBox.Show(dataGridView3.Columns[3].DefaultCellStyle.Format = "0.00##".ToString()) ;
+            //if (dataGridView3.Rows.Count > 1) {
+            //    MessageBox.Show("aceptado");
+            //}
+            }//boton
+
+        private void dataGridView3_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+
+            e.Control.KeyPress -= new KeyPressEventHandler(Column11_KeyPress);
+            if (dataGridView3.CurrentCell.ColumnIndex == 11) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column11_KeyPress);
+                }
             }
         }
+
+        private void Column11_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            RefreshCompound();
+        }
+
+        private void txtBuscarComp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                DataSet1TableAdapters.CompoundTableAdapter ta = new DataSet1TableAdapters.CompoundTableAdapter();
+
+              
+                DataSet1.CompoundDataTable dt =
+          ta.GetDataByBusquedaThree(txtBuscarComp.Text,txtBuscarComp.Text,
+          txtBuscarComp.Text, txtBuscarComp.Text, txtBuscarComp.Text);
+                //  (txtNombre.Text.Trim(), (int)udCantidad.Value,
+                //      clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value,
+
+                //   valorIdSupplier
+                //  , (int)idd);
+
+                ta.FillByBusquedaThree
+                    (dt, txtBuscarComp.Text, txtBuscarComp.Text, txtBuscarComp.Text, txtBuscarComp.Text
+                    , txtBuscarComp.Text
+              );
+               
+                dgvCompuesto.DataSource = dt;
+                dgvCompuesto.Columns.Remove("id_Compound");
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
         //{
         //    DataSet1TableAdapters.MedicineTableAdapter ta =
         //        new DataSet1TableAdapters.MedicineTableAdapter();

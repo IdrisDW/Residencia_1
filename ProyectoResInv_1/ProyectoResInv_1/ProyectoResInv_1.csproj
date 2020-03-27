@@ -173,6 +173,7 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\DataSet1.MedicineDataTable.datasource" />
+    <None Include="Properties\DataSources\ProyectoResInv_1.DataSet1TableAdapters.CompoundTableAdapter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

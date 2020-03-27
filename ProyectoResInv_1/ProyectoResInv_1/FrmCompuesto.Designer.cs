@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiarProd = new System.Windows.Forms.Button();
             this.btnLimpiarProv = new System.Windows.Forms.Button();
             this.txtBuscarMed = new System.Windows.Forms.TextBox();
             this.txtBuscarComp = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCompuesto = new System.Windows.Forms.DataGridView();
             this.cbxCargarTodo = new System.Windows.Forms.CheckBox();
             this.Unidades = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -67,10 +68,14 @@
             this.CompoundQuantityUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.BS_Test = new System.Windows.Forms.BindingSource(this.components);
             this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new ProyectoResInv_1.DataSet1();
             this.medicineBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.medicineTableAdapter = new ProyectoResInv_1.DataSet1TableAdapters.MedicineTableAdapter();
+            this.compoundBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.compoundTableAdapter = new ProyectoResInv_1.DataSet1TableAdapters.CompoundTableAdapter();
+            this.compoundTableAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idMedicineDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicineNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,15 +87,18 @@
             this.medicineDosQuanDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicineDosUnitsDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idSupplierDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompuesto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analisisResidenciaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_Test)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.compoundBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.compoundTableAdapterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLimpiarProd
@@ -132,14 +140,15 @@
             this.txtBuscarComp.Name = "txtBuscarComp";
             this.txtBuscarComp.Size = new System.Drawing.Size(204, 22);
             this.txtBuscarComp.TabIndex = 38;
+            this.txtBuscarComp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarComp_KeyPress);
             // 
-            // dataGridView1
+            // dgvCompuesto
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(59, 433);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(745, 150);
-            this.dataGridView1.TabIndex = 36;
+            this.dgvCompuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompuesto.Location = new System.Drawing.Point(59, 433);
+            this.dgvCompuesto.Name = "dgvCompuesto";
+            this.dgvCompuesto.Size = new System.Drawing.Size(745, 150);
+            this.dgvCompuesto.TabIndex = 36;
             // 
             // cbxCargarTodo
             // 
@@ -178,6 +187,7 @@
             this.btnActualizar.TabIndex = 30;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnGuardar
             // 
@@ -335,6 +345,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(300, 106);
             this.dataGridView3.TabIndex = 104;
+            this.dataGridView3.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView3_EditingControlShowing);
             // 
             // Selecciona
             // 
@@ -393,6 +404,9 @@
             // 
             // CompoundQuantityUnits
             // 
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = "0";
+            this.CompoundQuantityUnits.DefaultCellStyle = dataGridViewCellStyle7;
             this.CompoundQuantityUnits.HeaderText = "Unidades Necesarias";
             this.CompoundQuantityUnits.Name = "CompoundQuantityUnits";
             // 
@@ -438,6 +452,19 @@
             // medicineTableAdapter
             // 
             this.medicineTableAdapter.ClearBeforeFill = true;
+            // 
+            // compoundBindingSource
+            // 
+            this.compoundBindingSource.DataMember = "Compound";
+            this.compoundBindingSource.DataSource = this.dataSet11;
+            // 
+            // compoundTableAdapter
+            // 
+            this.compoundTableAdapter.ClearBeforeFill = true;
+            // 
+            // compoundTableAdapterBindingSource
+            // 
+            this.compoundTableAdapterBindingSource.DataSource = typeof(ProyectoResInv_1.DataSet1TableAdapters.CompoundTableAdapter);
             // 
             // Seleccion
             // 
@@ -521,7 +548,7 @@
             this.Controls.Add(this.btnLimpiarProv);
             this.Controls.Add(this.txtBuscarMed);
             this.Controls.Add(this.txtBuscarComp);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCompuesto);
             this.Controls.Add(this.cbxCargarTodo);
             this.Controls.Add(this.Unidades);
             this.Controls.Add(this.txtNombre);
@@ -536,15 +563,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Compuesto";
             this.Load += new System.EventHandler(this.FrmCompuesto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompuesto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analisisResidenciaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS_Test)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.compoundBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.compoundTableAdapterBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,7 +586,7 @@
         private System.Windows.Forms.Button btnLimpiarProv;
         private System.Windows.Forms.TextBox txtBuscarMed;
         private System.Windows.Forms.TextBox txtBuscarComp;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCompuesto;
         private System.Windows.Forms.CheckBox cbxCargarTodo;
         private System.Windows.Forms.TextBox Unidades;
         private System.Windows.Forms.TextBox txtNombre;
@@ -594,6 +624,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineDosUnits;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSupplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn CompoundQuantityUnits;
+        private System.Windows.Forms.BindingSource BS_Test;
+        private System.Windows.Forms.BindingSource compoundBindingSource;
+        private DataSet1TableAdapters.CompoundTableAdapter compoundTableAdapter;
+        private System.Windows.Forms.BindingSource compoundTableAdapterBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMedicineDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn medicineNameDataGridViewTextBoxColumn2;

@@ -9320,11 +9320,19 @@ WHERE Id_Medicine = @id_Medicine
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM MedicineCompound";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO [MedicineCompound] ([idMedicine], [idCompound], [CompoundQuantity_Uni" +
+                "ts]) VALUES (@idMedicine, @idCompound, @CompoundQuantity_Units)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idMedicine", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idMedicine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idCompound", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idCompound", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompoundQuantity_Units", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "CompoundQuantity_Units", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9417,6 +9425,47 @@ WHERE Id_Medicine = @id_Medicine
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQueryMedicineCompound(global::System.Nullable<int> idMedicine, global::System.Nullable<int> idCompound, global::System.Nullable<decimal> CompoundQuantity_Units) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((idMedicine.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(idMedicine.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((idCompound.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(idCompound.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((CompoundQuantity_Units.HasValue == true)) {
+                command.Parameters[2].Value = ((decimal)(CompoundQuantity_Units.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -9581,7 +9630,7 @@ SELECT id_Compound, CompoundName FROM Compound WHERE (id_Compound = @id_Compound
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM Compound";
@@ -9593,29 +9642,66 @@ SELECT id_Compound, CompoundName FROM Compound WHERE (id_Compound = @id_Compound
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Compound", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Compound", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        id_Compound,CompoundName \r\nFROM         Compound\r\nWHERE\r\n\r\n(Compoun" +
-                "dName LIKE \'%\' + @CompoundName + \'%\') ";
+            this._commandCollection[2].CommandText = @"SELECT        MedicineCompound.idCompound, Medicine.MedicineName, Compound.CompoundName, MedicineCompound.idMedicine, MedicineCompound.CompoundQuantity_Units
+FROM            Compound INNER JOIN
+                         MedicineCompound ON MedicineCompound.idCompound = Compound.id_Compound INNER JOIN
+                         Medicine ON MedicineCompound.idMedicine = Medicine.id_Medicine
+WHERE   
+     (Compound.CompoundName LIKE '%' + @CompoundName + '%') 
+OR
+                         (Medicine.MedicineName LIKE '%' + @MedicineName + '%') 
+OR
+                         (CONVERT(varchar(20), MedicineCompound.CompoundQuantity_Units) LIKE '%' + CONVERT(varchar(20), @CompoundQuantity_Units) + '%') 
+OR
+                         (CONVERT(varchar(20), MedicineCompound.idMedicine) LIKE '%' + CONVERT(varchar(20), @idMedicine) + '%')
+ OR
+                         (CONVERT(varchar(20), MedicineCompound.idCompound) LIKE '%' + CONVERT(varchar(20), @idCompound) + '%')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompoundName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "CompoundName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MedicineName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "MedicineName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompoundQuantity_Units", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idMedicine", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idCompound", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT  \r\nCompoundName\r\n \r\nFROM\r\nCompound\r\nWHERE (id_Compound= @id_Compound)";
+            this._commandCollection[3].CommandText = "SELECT        id_Compound,CompoundName \r\nFROM         Compound\r\nWHERE\r\n\r\n(Compoun" +
+                "dName LIKE \'%\' + @CompoundName + \'%\') ";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Compound", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Compound", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompoundName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "CompoundName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "INSERT INTO [COMPOUND] ([CompoundName] \r\n \r\nVALUES (@CompoundName);\r\n \r\n";
+            this._commandCollection[4].CommandText = "SELECT  \r\nCompoundName\r\n \r\nFROM\r\nCompound\r\nWHERE (id_Compound= @id_Compound)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Compound", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Compound", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "UPDATE [Compound] SET [CompoundName] = @CompoundName WHERE (([id_Compound] = @id_" +
-                "Compound) ";
+            this._commandCollection[5].CommandText = @"SELECT        MedicineCompound.idCompound, Compound.CompoundName, MedicineCompound.idMedicine, MedicineCompound.CompoundQuantity_Units
+FROM            Compound INNER JOIN
+                         MedicineCompound ON MedicineCompound.idCompound = Compound.id_Compound";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompoundName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompoundName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Compound", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Compound", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CompoundName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompoundName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompoundName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompoundName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Compound", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Compound", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = " \r\nSELECT IDENT_CURRENT(\'Compound\') \r\n ";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"SELECT        Compound.CompoundName, Medicine.MedicineName, MedicineCompound.CompoundQuantity_Units, MedicineCompound.idCompound, MedicineCompound.idMedicine
+FROM            Compound INNER JOIN
+                         MedicineCompound ON MedicineCompound.idCompound = Compound.id_Compound INNER JOIN
+                         Medicine ON MedicineCompound.idMedicine = Medicine.id_Medicine";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = "INSERT INTO [Compound] ([CompoundName]) VALUES (@CompoundName) \r\n \r\n ";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompoundName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "CompoundName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "UPDATE Compound\r\n\r\n SET CompoundName = @CompoundName \r\n\r\nWHERE id_Compound = @id " +
+                "";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompoundName", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "CompoundName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Compound", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9646,8 +9732,92 @@ SELECT id_Compound, CompoundName FROM Compound WHERE (id_Compound = @id_Compound
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByFilteringCompound(DataSet1.CompoundDataTable dataTable, string CompoundName) {
+        public virtual int FillByBusquedaThree(DataSet1.CompoundDataTable dataTable, string CompoundName, string MedicineName, string CompoundQuantity_Units, string idMedicine, string idCompound) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((CompoundName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CompoundName));
+            }
+            if ((MedicineName == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(MedicineName));
+            }
+            if ((CompoundQuantity_Units == null)) {
+                throw new global::System.ArgumentNullException("CompoundQuantity_Units");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(CompoundQuantity_Units));
+            }
+            if ((idMedicine == null)) {
+                throw new global::System.ArgumentNullException("idMedicine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(idMedicine));
+            }
+            if ((idCompound == null)) {
+                throw new global::System.ArgumentNullException("idCompound");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(idCompound));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet1.CompoundDataTable GetDataByBusquedaThree(string CompoundName, string MedicineName, string CompoundQuantity_Units, string idMedicine, string idCompound) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((CompoundName == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CompoundName));
+            }
+            if ((MedicineName == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(MedicineName));
+            }
+            if ((CompoundQuantity_Units == null)) {
+                throw new global::System.ArgumentNullException("CompoundQuantity_Units");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(CompoundQuantity_Units));
+            }
+            if ((idMedicine == null)) {
+                throw new global::System.ArgumentNullException("idMedicine");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(idMedicine));
+            }
+            if ((idCompound == null)) {
+                throw new global::System.ArgumentNullException("idCompound");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(idCompound));
+            }
+            DataSet1.CompoundDataTable dataTable = new DataSet1.CompoundDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByFilteringCompound(DataSet1.CompoundDataTable dataTable, string CompoundName) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((CompoundName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -9666,7 +9836,7 @@ SELECT id_Compound, CompoundName FROM Compound WHERE (id_Compound = @id_Compound
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSet1.CompoundDataTable GetDataByFilteringCompound(string CompoundName) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((CompoundName == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -9683,13 +9853,61 @@ SELECT id_Compound, CompoundName FROM Compound WHERE (id_Compound = @id_Compound
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByIdCompound(DataSet1.CompoundDataTable dataTable, int id_Compound) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_Compound));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByInnerJoin(DataSet1.CompoundDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet1.CompoundDataTable GetDataByInnerJoin() {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            DataSet1.CompoundDataTable dataTable = new DataSet1.CompoundDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByThreeInnerJoin(DataSet1.CompoundDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet1.CompoundDataTable GetDataByThreeInnerJoin() {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            DataSet1.CompoundDataTable dataTable = new DataSet1.CompoundDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9850,9 +10068,43 @@ SELECT id_Compound, CompoundName FROM Compound WHERE (id_Compound = @id_Compound
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object FillBySelectIdentCurrent() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQueryCompound() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+        public virtual int InsertQueryCompound(string CompoundName) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            if ((CompoundName == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(CompoundName));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9874,28 +10126,15 @@ SELECT id_Compound, CompoundName FROM Compound WHERE (id_Compound = @id_Compound
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQueryCompound(string CompoundName, int Original_id_Compound, global::System.Nullable<int> IsNull_CompoundName, string Original_CompoundName, int id_Compound) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+        public virtual int UpdateQueryCompound(string CompoundName, int id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             if ((CompoundName == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[0].Value = ((string)(CompoundName));
             }
-            command.Parameters[1].Value = ((int)(Original_id_Compound));
-            if ((IsNull_CompoundName.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(IsNull_CompoundName.Value));
-            }
-            else {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_CompoundName == null)) {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[3].Value = ((string)(Original_CompoundName));
-            }
-            command.Parameters[4].Value = ((int)(id_Compound));
+            command.Parameters[1].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
