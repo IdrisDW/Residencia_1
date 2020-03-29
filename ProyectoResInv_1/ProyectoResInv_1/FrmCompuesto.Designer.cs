@@ -48,6 +48,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.medicineDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idMedicineDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineExpDateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineQuantityDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineQuantityPresDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineUnitsDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineUnitsTypeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineDosQuanDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicineDosUnitsDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSupplierDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicineBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.analisisResidenciaDataSet = new ProyectoResInv_1.AnalisisResidenciaDataSet();
             this.medicineTableAdapter1 = new ProyectoResInv_1.AnalisisResidenciaDataSetTableAdapters.MedicineTableAdapter();
@@ -76,17 +87,6 @@
             this.compoundBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.compoundTableAdapter = new ProyectoResInv_1.DataSet1TableAdapters.CompoundTableAdapter();
             this.compoundTableAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.idMedicineDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineExpDateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineQuantityDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineQuantityPresDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineUnitsDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineUnitsTypeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineDosQuanDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineDosUnitsDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idSupplierDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompuesto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicineDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -293,6 +293,72 @@
             this.dataGridView2.Size = new System.Drawing.Size(350, 139);
             this.dataGridView2.TabIndex = 103;
             // 
+            // Seleccion
+            // 
+            this.Seleccion.HeaderText = "Seleccionar";
+            this.Seleccion.Name = "Seleccion";
+            // 
+            // idMedicineDataGridViewTextBoxColumn2
+            // 
+            this.idMedicineDataGridViewTextBoxColumn2.DataPropertyName = "id_Medicine";
+            this.idMedicineDataGridViewTextBoxColumn2.HeaderText = "id_Medicine";
+            this.idMedicineDataGridViewTextBoxColumn2.Name = "idMedicineDataGridViewTextBoxColumn2";
+            this.idMedicineDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // medicineNameDataGridViewTextBoxColumn2
+            // 
+            this.medicineNameDataGridViewTextBoxColumn2.DataPropertyName = "MedicineName";
+            this.medicineNameDataGridViewTextBoxColumn2.HeaderText = "MedicineName";
+            this.medicineNameDataGridViewTextBoxColumn2.Name = "medicineNameDataGridViewTextBoxColumn2";
+            // 
+            // medicineExpDateDataGridViewTextBoxColumn2
+            // 
+            this.medicineExpDateDataGridViewTextBoxColumn2.DataPropertyName = "MedicineExpDate";
+            this.medicineExpDateDataGridViewTextBoxColumn2.HeaderText = "MedicineExpDate";
+            this.medicineExpDateDataGridViewTextBoxColumn2.Name = "medicineExpDateDataGridViewTextBoxColumn2";
+            // 
+            // medicineQuantityDataGridViewTextBoxColumn2
+            // 
+            this.medicineQuantityDataGridViewTextBoxColumn2.DataPropertyName = "MedicineQuantity";
+            this.medicineQuantityDataGridViewTextBoxColumn2.HeaderText = "MedicineQuantity";
+            this.medicineQuantityDataGridViewTextBoxColumn2.Name = "medicineQuantityDataGridViewTextBoxColumn2";
+            // 
+            // medicineQuantityPresDataGridViewTextBoxColumn2
+            // 
+            this.medicineQuantityPresDataGridViewTextBoxColumn2.DataPropertyName = "MedicineQuantityPres";
+            this.medicineQuantityPresDataGridViewTextBoxColumn2.HeaderText = "MedicineQuantityPres";
+            this.medicineQuantityPresDataGridViewTextBoxColumn2.Name = "medicineQuantityPresDataGridViewTextBoxColumn2";
+            // 
+            // medicineUnitsDataGridViewTextBoxColumn2
+            // 
+            this.medicineUnitsDataGridViewTextBoxColumn2.DataPropertyName = "MedicineUnits";
+            this.medicineUnitsDataGridViewTextBoxColumn2.HeaderText = "MedicineUnits";
+            this.medicineUnitsDataGridViewTextBoxColumn2.Name = "medicineUnitsDataGridViewTextBoxColumn2";
+            // 
+            // medicineUnitsTypeDataGridViewTextBoxColumn2
+            // 
+            this.medicineUnitsTypeDataGridViewTextBoxColumn2.DataPropertyName = "MedicineUnitsType";
+            this.medicineUnitsTypeDataGridViewTextBoxColumn2.HeaderText = "MedicineUnitsType";
+            this.medicineUnitsTypeDataGridViewTextBoxColumn2.Name = "medicineUnitsTypeDataGridViewTextBoxColumn2";
+            // 
+            // medicineDosQuanDataGridViewTextBoxColumn2
+            // 
+            this.medicineDosQuanDataGridViewTextBoxColumn2.DataPropertyName = "MedicineDosQuan";
+            this.medicineDosQuanDataGridViewTextBoxColumn2.HeaderText = "MedicineDosQuan";
+            this.medicineDosQuanDataGridViewTextBoxColumn2.Name = "medicineDosQuanDataGridViewTextBoxColumn2";
+            // 
+            // medicineDosUnitsDataGridViewTextBoxColumn2
+            // 
+            this.medicineDosUnitsDataGridViewTextBoxColumn2.DataPropertyName = "MedicineDosUnits";
+            this.medicineDosUnitsDataGridViewTextBoxColumn2.HeaderText = "MedicineDosUnits";
+            this.medicineDosUnitsDataGridViewTextBoxColumn2.Name = "medicineDosUnitsDataGridViewTextBoxColumn2";
+            // 
+            // idSupplierDataGridViewTextBoxColumn2
+            // 
+            this.idSupplierDataGridViewTextBoxColumn2.DataPropertyName = "idSupplier";
+            this.idSupplierDataGridViewTextBoxColumn2.HeaderText = "idSupplier";
+            this.idSupplierDataGridViewTextBoxColumn2.Name = "idSupplierDataGridViewTextBoxColumn2";
+            // 
             // medicineBindingSource2
             // 
             this.medicineBindingSource2.DataMember = "Medicine";
@@ -324,7 +390,7 @@
             this.MedicineDosUnits,
             this.idSupplier,
             this.CompoundQuantityUnits});
-            this.dataGridView3.Location = new System.Drawing.Point(490, 163);
+            this.dataGridView3.Location = new System.Drawing.Point(490, 157);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(350, 139);
             this.dataGridView3.TabIndex = 104;
@@ -472,72 +538,6 @@
             // compoundTableAdapterBindingSource
             // 
             this.compoundTableAdapterBindingSource.DataSource = typeof(ProyectoResInv_1.DataSet1TableAdapters.CompoundTableAdapter);
-            // 
-            // Seleccion
-            // 
-            this.Seleccion.HeaderText = "Seleccionar";
-            this.Seleccion.Name = "Seleccion";
-            // 
-            // idMedicineDataGridViewTextBoxColumn2
-            // 
-            this.idMedicineDataGridViewTextBoxColumn2.DataPropertyName = "id_Medicine";
-            this.idMedicineDataGridViewTextBoxColumn2.HeaderText = "id_Medicine";
-            this.idMedicineDataGridViewTextBoxColumn2.Name = "idMedicineDataGridViewTextBoxColumn2";
-            this.idMedicineDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // medicineNameDataGridViewTextBoxColumn2
-            // 
-            this.medicineNameDataGridViewTextBoxColumn2.DataPropertyName = "MedicineName";
-            this.medicineNameDataGridViewTextBoxColumn2.HeaderText = "MedicineName";
-            this.medicineNameDataGridViewTextBoxColumn2.Name = "medicineNameDataGridViewTextBoxColumn2";
-            // 
-            // medicineExpDateDataGridViewTextBoxColumn2
-            // 
-            this.medicineExpDateDataGridViewTextBoxColumn2.DataPropertyName = "MedicineExpDate";
-            this.medicineExpDateDataGridViewTextBoxColumn2.HeaderText = "MedicineExpDate";
-            this.medicineExpDateDataGridViewTextBoxColumn2.Name = "medicineExpDateDataGridViewTextBoxColumn2";
-            // 
-            // medicineQuantityDataGridViewTextBoxColumn2
-            // 
-            this.medicineQuantityDataGridViewTextBoxColumn2.DataPropertyName = "MedicineQuantity";
-            this.medicineQuantityDataGridViewTextBoxColumn2.HeaderText = "MedicineQuantity";
-            this.medicineQuantityDataGridViewTextBoxColumn2.Name = "medicineQuantityDataGridViewTextBoxColumn2";
-            // 
-            // medicineQuantityPresDataGridViewTextBoxColumn2
-            // 
-            this.medicineQuantityPresDataGridViewTextBoxColumn2.DataPropertyName = "MedicineQuantityPres";
-            this.medicineQuantityPresDataGridViewTextBoxColumn2.HeaderText = "MedicineQuantityPres";
-            this.medicineQuantityPresDataGridViewTextBoxColumn2.Name = "medicineQuantityPresDataGridViewTextBoxColumn2";
-            // 
-            // medicineUnitsDataGridViewTextBoxColumn2
-            // 
-            this.medicineUnitsDataGridViewTextBoxColumn2.DataPropertyName = "MedicineUnits";
-            this.medicineUnitsDataGridViewTextBoxColumn2.HeaderText = "MedicineUnits";
-            this.medicineUnitsDataGridViewTextBoxColumn2.Name = "medicineUnitsDataGridViewTextBoxColumn2";
-            // 
-            // medicineUnitsTypeDataGridViewTextBoxColumn2
-            // 
-            this.medicineUnitsTypeDataGridViewTextBoxColumn2.DataPropertyName = "MedicineUnitsType";
-            this.medicineUnitsTypeDataGridViewTextBoxColumn2.HeaderText = "MedicineUnitsType";
-            this.medicineUnitsTypeDataGridViewTextBoxColumn2.Name = "medicineUnitsTypeDataGridViewTextBoxColumn2";
-            // 
-            // medicineDosQuanDataGridViewTextBoxColumn2
-            // 
-            this.medicineDosQuanDataGridViewTextBoxColumn2.DataPropertyName = "MedicineDosQuan";
-            this.medicineDosQuanDataGridViewTextBoxColumn2.HeaderText = "MedicineDosQuan";
-            this.medicineDosQuanDataGridViewTextBoxColumn2.Name = "medicineDosQuanDataGridViewTextBoxColumn2";
-            // 
-            // medicineDosUnitsDataGridViewTextBoxColumn2
-            // 
-            this.medicineDosUnitsDataGridViewTextBoxColumn2.DataPropertyName = "MedicineDosUnits";
-            this.medicineDosUnitsDataGridViewTextBoxColumn2.HeaderText = "MedicineDosUnits";
-            this.medicineDosUnitsDataGridViewTextBoxColumn2.Name = "medicineDosUnitsDataGridViewTextBoxColumn2";
-            // 
-            // idSupplierDataGridViewTextBoxColumn2
-            // 
-            this.idSupplierDataGridViewTextBoxColumn2.DataPropertyName = "idSupplier";
-            this.idSupplierDataGridViewTextBoxColumn2.HeaderText = "idSupplier";
-            this.idSupplierDataGridViewTextBoxColumn2.Name = "idSupplierDataGridViewTextBoxColumn2";
             // 
             // FrmCompuesto
             // 

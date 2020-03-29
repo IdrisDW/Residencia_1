@@ -66,7 +66,7 @@ namespace ProyectoResInv_1
             // dgvCompuesto.Columns.RemoveAt(0);
             // dgvCompuesto.DataSource = dt; this doesnt
 
-            
+
 
         }//endRefreshCompound
 
@@ -79,7 +79,7 @@ namespace ProyectoResInv_1
         //        {
         //            // dgvCompuesto.Rows[u].Cells[0].Value = string.Empty;
         //            dgvCompuesto.Rows[u].Cells[0].Style.BackColor = Color.White;
-                 
+
         //        }
         //        else
         //        {
@@ -90,23 +90,23 @@ namespace ProyectoResInv_1
 
         //}
 
-            //private void bla()
-            //{
-            //    string removeduplicates = dgvCompuesto.Rows[0].Cells[0].Value.ToString();
-            //    for (int u = 1; u < dgvCompuesto.Rows.Count; u++)
-            //    {
-            //        if (dgvCompuesto.Rows[u].Cells[0].Value.ToString() == removeduplicates)
-            //        {
-            //            dgvCompuesto.Rows[u].Cells[0].Value = string.Empty;
-            //        }
-            //        else
-            //        {
-            //            removeduplicates = dgvCompuesto.Rows[u].Cells[0].Value.ToString();
-            //        }
-            //    }
+        //private void bla()
+        //{
+        //    string removeduplicates = dgvCompuesto.Rows[0].Cells[0].Value.ToString();
+        //    for (int u = 1; u < dgvCompuesto.Rows.Count; u++)
+        //    {
+        //        if (dgvCompuesto.Rows[u].Cells[0].Value.ToString() == removeduplicates)
+        //        {
+        //            dgvCompuesto.Rows[u].Cells[0].Value = string.Empty;
+        //        }
+        //        else
+        //        {
+        //            removeduplicates = dgvCompuesto.Rows[u].Cells[0].Value.ToString();
+        //        }
+        //    }
 
-            //}
-            private void Refresh()
+        //}
+        private void Refresh()
         {
             DataSet1TableAdapters.MedicineTableAdapter ta =
                 new DataSet1TableAdapters.MedicineTableAdapter();
@@ -162,13 +162,13 @@ namespace ProyectoResInv_1
             try {
 
                 return null;
-            //{
-            //    idd = int.Parse(
-            //            dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0].Value.ToString()
-            //            );
-            //    return int.Parse(
-            //        dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0].Value.ToString()
-            //        );
+                //{
+                //    idd = int.Parse(
+                //            dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0].Value.ToString()
+                //            );
+                //    return int.Parse(
+                //        dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0].Value.ToString()
+                //        );
 
             }
             catch
@@ -186,19 +186,19 @@ namespace ProyectoResInv_1
             //DataSet1.MedicineDataTable pt2 = dataSet.GetDataByIdMedicine((int)idM);
             //medicineBindingSource2.DataSource = pt2;
 
-             DataSet1.MedicineDataTable pt3 = dataSet.GetDataMedicine();
+            DataSet1.MedicineDataTable pt3 = dataSet.GetDataMedicine();
 
-       
+
             dataGridView2.AutoGenerateColumns = false;
             medicineBindingSource2.DataSource = pt3;
 
-         
+
             dataGridView2.Columns[1].HeaderText = "Id";
             dataGridView2.Columns[2].HeaderText = "Nombre";
             dataGridView2.Columns[3].HeaderText = "Caducidad";
             dataGridView2.Columns[4].HeaderText = "Cantidad";
             dataGridView2.Columns[5].HeaderText = "Presentacion";
-        
+
             dataGridView2.Columns[6].HeaderText = "Unidades";
             dataGridView2.Columns[7].HeaderText = "Tipo de Unidades";
             dataGridView2.Columns[8].HeaderText = "Cantidad Dosis";
@@ -221,7 +221,9 @@ namespace ProyectoResInv_1
             RefreshMedicine();
             RefreshCompound();
 
-         
+            this.dataGridView3.Columns.Add(new DataGridViewTextBoxColumn());
+
+            this.dataGridView3.CellValidated += new DataGridViewCellEventHandler(dataGridView3_CellValidated);
 
             //
 
@@ -229,7 +231,7 @@ namespace ProyectoResInv_1
 
 
 
-         
+
             //vino readyya
 
             //
@@ -250,7 +252,7 @@ namespace ProyectoResInv_1
         {
             txtBuscarMed.Clear();
             RefreshMedicine();
-          
+
 
         }
 
@@ -322,7 +324,7 @@ namespace ProyectoResInv_1
 
         }//end button
 
-    private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             //
             // Se define una lista temporal de registro seleccionados
@@ -333,7 +335,7 @@ namespace ProyectoResInv_1
             // Se recorre ca registro de la grilla de origen
             //
             int cantMarcados = dataGridView2.Rows.Cast<DataGridViewRow>().Where(x => Convert.ToBoolean(x.Cells["Seleccion"].Value)).Count();
-            if (   cantMarcados <= 5)
+            if (cantMarcados <= 5)
             {
                 foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
@@ -343,13 +345,52 @@ namespace ProyectoResInv_1
                     //
                     DataGridViewCheckBoxCell cellSelecion = row.Cells["Seleccion"] as DataGridViewCheckBoxCell;
 
+                    //
+                    //
 
+                    /*
+                     var rowExists = dt.Rows.Find(dr);
 
+if (rowExists == null) { // The row doesn't exist
+  dt.Rows.Add(dr); // Add the row
+}
+                     */
+                    // probablemente
 
-                    if (Convert.ToBoolean(cellSelecion.Value))
+                    if (dataGridView3.RowCount > 0)
                     {
-                        rowSelected.Add(row);
-                    }
+                        foreach (DataGridViewRow filadgv3 in dataGridView3.Rows)
+                        {
+                            if (
+                cellSelecion.Value.ToString() ==
+                  dataGridView3.CurrentRow.Cells[1].Value.ToString()
+                  //   dataGridView3.Rows[filadgv3].Cells[1].Value.ToString()
+                  )
+                    
+                            //dataGridView3.Cells.value[];//.CurrentCell.Value.ToString())
+                            {
+                                MessageBox.Show("REPETIDO");
+
+
+                            }//if its the same
+                        }//foreach
+                     
+                    }//if its more than 0 
+
+
+                    /*
+                     ***********************
+                     * *******************
+                     * *********************
+                      */
+                    // probablemente
+                    else
+                    {
+                        if (Convert.ToBoolean(cellSelecion.Value))
+                        {
+                            rowSelected.Add(row);
+                        }
+                    }//this else
                 }
 
                 //
@@ -360,7 +401,7 @@ namespace ProyectoResInv_1
                 // *********************************
                 // *********************************
 
-              
+
 
                 //
                 foreach (DataGridViewRow row in rowSelected)
@@ -369,7 +410,7 @@ namespace ProyectoResInv_1
                     DateTime date = DateTime.Now;
                     DateTime safaera = Convert.ToDateTime(row.Cells[3].Value);
                     var blablabla = safaera.ToString("yyyy-MM-dd");
-                  //  MessageBox.Show(blablabla.ToString());
+                    //  MessageBox.Show(blablabla.ToString());
                     //    ToShortDateString()
 
                     // MessageBox.Show(row.Cells[0].Value.ToString());
@@ -394,7 +435,7 @@ namespace ProyectoResInv_1
             else {
                 MessageBox.Show("Solo se pueden seleccionar 5 o menos medicamentos");
             }
-            
+
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -498,9 +539,9 @@ namespace ProyectoResInv_1
                     row3.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
                     row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
                     row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
-                   row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
-                   
-                     
+                    row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
+
+
 
 
                     // END HERE
@@ -591,36 +632,36 @@ namespace ProyectoResInv_1
                      * 
                      * SAFAERA
                      * ****/
-                
+
 
 
 
                     //
-                        //for (int p = 0; p < dataGridView3.Rows.Count; p++)
-                        //{
+                    //for (int p = 0; p < dataGridView3.Rows.Count; p++)
+                    //{
 
-                        //    if (dataGridView3.Rows[p].Cells[0].Value = ) {
+                    //    if (dataGridView3.Rows[p].Cells[0].Value = ) {
 
-                        //    }
-                        //    int someid;
+                    //    }
+                    //    int someid;
 
-                        //  someid = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
+                    //  someid = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
 
-                        //}
+                    //}
 
 
-                        /*
-                         IT
+                    /*
+                     IT
 
-                         END
+                     END
 
-                        HERES
-                         */
+                    HERES
+                     */
 
-                        for (int i = 0; i < dataGridView3.Rows.Count; i++)
+                    for (int i = 0; i < dataGridView3.Rows.Count; i++)
                     {
 
- 
+
                         //
                         int idMedicina;
                         idMedicina = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
@@ -685,12 +726,12 @@ namespace ProyectoResInv_1
                     RefreshCompound();
                 }
             }//else
-            //dataGridView3.Columns[3].DefaultCellStyle.Format =  "0.00##";
-            //MessageBox.Show(dataGridView3.Columns[3].DefaultCellStyle.Format = "0.00##".ToString()) ;
-            //if (dataGridView3.Rows.Count > 1) {
-            //    MessageBox.Show("aceptado");
-            //}
-            }//boton
+             //dataGridView3.Columns[3].DefaultCellStyle.Format =  "0.00##";
+             //MessageBox.Show(dataGridView3.Columns[3].DefaultCellStyle.Format = "0.00##".ToString()) ;
+             //if (dataGridView3.Rows.Count > 1) {
+             //    MessageBox.Show("aceptado");
+             //}
+        }//boton
 
         private void dataGridView3_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
@@ -708,7 +749,7 @@ namespace ProyectoResInv_1
             //
             //   safaera
 
-       
+
 
             //
         }
@@ -732,9 +773,9 @@ namespace ProyectoResInv_1
             {
                 DataSet1TableAdapters.CompoundTableAdapter ta = new DataSet1TableAdapters.CompoundTableAdapter();
 
-              
+
                 DataSet1.CompoundDataTable dt =
-          ta.GetDataByBusquedaThree(txtBuscarComp.Text,txtBuscarComp.Text,
+          ta.GetDataByBusquedaThree(txtBuscarComp.Text, txtBuscarComp.Text,
           txtBuscarComp.Text, txtBuscarComp.Text, txtBuscarComp.Text);
                 //  (txtNombre.Text.Trim(), (int)udCantidad.Value,
                 //      clnFechaExp.SelectionRange.Start.ToShortDateString(), (decimal)udUnidades.Value,
@@ -746,7 +787,7 @@ namespace ProyectoResInv_1
                     (dt, txtBuscarComp.Text, txtBuscarComp.Text, txtBuscarComp.Text, txtBuscarComp.Text
                     , txtBuscarComp.Text
               );
-               
+
                 dgvCompuesto.DataSource = dt;
                 dgvCompuesto.Columns.Remove("id_Compound");
             }
@@ -762,50 +803,56 @@ namespace ProyectoResInv_1
             RefreshCompound();
         }
 
+
         private void dataGridView3_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("aasd");
-            if (e.ColumnIndex == 1 && dataGridView3.CurrentCell.Value != null)
-            {
-                foreach (DataGridViewRow row in this.dataGridView3.Rows) {
-                    if (row.Index == this.dataGridView3.CurrentCell.RowIndex) {
-                        continue;
-                    }
-                    if (this.dataGridView3.CurrentCell.Value==null) {
-                        continue;
-                    }
-                    if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() ==
-                        dataGridView3.CurrentCell.Value.ToString()) {
-                        MessageBox.Show("id repetido");
-                        dataGridView3.CurrentCell.Value = null;
-                    }
-                }
-            }
+            
+                  
         }
+        //{
+        //    MessageBox.Show("aasd");
+        //    if (e.ColumnIndex == 1 && dataGridView3.CurrentCell.Value != null)
+        //    {
+        //        foreach (DataGridViewRow row in this.dataGridView3.Rows) {
+        //            if (row.Index == this.dataGridView3.CurrentCell.RowIndex) {
+        //                continue;
+        //            }
+        //            if (this.dataGridView3.CurrentCell.Value==null) {
+        //                continue;
+        //            }
+        //            if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() ==
+        //                dataGridView3.CurrentCell.Value.ToString()) {
+        //                MessageBox.Show("id repetido");
+        //                dataGridView3.CurrentCell.Value = null;
+        //            }
+
+
+
 
         private void dataGridView3_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            if (e.ColumnIndex == 1 && dataGridView3.CurrentCell.Value != null)
-            {
-                foreach (DataGridViewRow row in this.dataGridView3.Rows)
-                {
-                    if (row.Index == this.dataGridView3.CurrentCell.RowIndex)
-                    {
-                        continue;
-                    }
-                    if (this.dataGridView3.CurrentCell.Value == null)
-                    {
-                        continue;
-                    }
-                    if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() ==
-                        dataGridView3.CurrentCell.Value.ToString())
-                    {
-                        MessageBox.Show("id repetido");
-                        dataGridView3.CurrentCell.Value = null;
-                    }
-                }
-            }
-            }
+        { }
+    }
+            //if (e.ColumnIndex == 1 && dataGridView3.CurrentCell.Value != null)
+            //{
+            //    foreach (DataGridViewRow row in this.dataGridView3.Rows)
+            //    {
+            //        if (row.Index == this.dataGridView3.CurrentCell.RowIndex)
+            //        {
+            //            continue;
+            //        }
+            //        if (this.dataGridView3.CurrentCell.Value == null)
+            //        {
+            //            continue;
+            //        }
+            //        if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() ==
+            //            dataGridView3.CurrentCell.Value.ToString())
+            //        {
+            //            MessageBox.Show("id repetido");
+            //            dataGridView3.CurrentCell.Value = null;
+            //        }
+            //    }
+           // }
+            //}
 
 
         //{
@@ -868,7 +915,7 @@ namespace ProyectoResInv_1
         //    //dgvMedSelected.Columns[9].HeaderText = "Proveedor";
 
 
-    }
+    //}//cell validating
 
 
     //private void txtMedicamento_KeyPress(object sender, KeyPressEventArgs e)
