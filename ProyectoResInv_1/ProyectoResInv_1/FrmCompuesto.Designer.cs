@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiarProd = new System.Windows.Forms.Button();
             this.btnLimpiarProv = new System.Windows.Forms.Button();
             this.txtBuscarMed = new System.Windows.Forms.TextBox();
@@ -455,9 +455,9 @@
             // 
             // CompoundQuantityUnits
             // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.CompoundQuantityUnits.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.CompoundQuantityUnits.DefaultCellStyle = dataGridViewCellStyle2;
             this.CompoundQuantityUnits.HeaderText = "Unidades Necesarias";
             this.CompoundQuantityUnits.Name = "CompoundQuantityUnits";
             // 
@@ -495,6 +495,7 @@
             this.btnEliminar.TabIndex = 108;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -506,6 +507,7 @@
             this.btnEditar.TabIndex = 107;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // medicineBindingSource
             // 

@@ -21,7 +21,8 @@ namespace ProyectoResInv_1
             InitializeComponent();
         }
 
-        private void RefreshCompound() {
+        private void RefreshCompound()
+        {
 
             DataSet1TableAdapters.CompoundTableAdapter ta =
             new DataSet1TableAdapters.CompoundTableAdapter();
@@ -137,13 +138,13 @@ namespace ProyectoResInv_1
         {
             try
             {
-                return null;
-                //idd = int.Parse(
-                //        dgvMedicamento.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()
-                //        );
-                //return int.Parse(
-                //    dgvMedicamento.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()
-                //    );
+                // return null;
+                idd = int.Parse(
+                        dgvCompuesto.Rows[dgvCompuesto.CurrentRow.Index].Cells[3].Value.ToString()
+                        );
+                return int.Parse(
+                    dgvCompuesto.Rows[dgvCompuesto.CurrentRow.Index].Cells[3].Value.ToString()
+                    );
 
             }
             catch
@@ -159,7 +160,8 @@ namespace ProyectoResInv_1
         private int? GetIdMedicine()
         {
 
-            try {
+            try
+            {
 
                 return null;
                 //{
@@ -180,7 +182,8 @@ namespace ProyectoResInv_1
 
         }
 
-        private void RefreshMedicine() {
+        private void RefreshMedicine()
+        {
             DataSet1TableAdapters.MedicineTableAdapter dataSet = new DataSet1TableAdapters.MedicineTableAdapter();
 
             //DataSet1.MedicineDataTable pt2 = dataSet.GetDataByIdMedicine((int)idM);
@@ -356,7 +359,7 @@ if (rowExists == null) { // The row doesn't exist
 }
                      */
                     // probablemente
-
+                    /*
                     if (dataGridView3.RowCount > 0)
                     {
                         foreach (DataGridViewRow filadgv3 in dataGridView3.Rows)
@@ -376,6 +379,7 @@ if (rowExists == null) { // The row doesn't exist
                         }//foreach
                      
                     }//if its more than 0 
+                    */
 
 
                     /*
@@ -384,13 +388,14 @@ if (rowExists == null) { // The row doesn't exist
                      * *********************
                       */
                     // probablemente
-                    else
+                    /* else
+                     {*/
+                    if (Convert.ToBoolean(cellSelecion.Value))
                     {
-                        if (Convert.ToBoolean(cellSelecion.Value))
-                        {
-                            rowSelected.Add(row);
-                        }
-                    }//this else
+                        rowSelected.Add(row);
+                    }
+                    /*  }//this else
+                     */
                 }
 
                 //
@@ -432,23 +437,22 @@ if (rowExists == null) { // The row doesn't exist
                     dataGridView2.Rows.Remove(row);
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("Solo se pueden seleccionar 5 o menos medicamentos");
             }
 
         }
 
+
+        //
         private void btnQuitar_Click(object sender, EventArgs e)
-        {
-
-            //
-            // Se define una lista temporal de registro seleccionados
-            //
+        { 
+            DataSet1TableAdapters.MedicineTableAdapter ta =
+              new DataSet1TableAdapters.MedicineTableAdapter();
+ 
             List<DataGridViewRow> rowSelected = new List<DataGridViewRow>();
-
-            //
-            // Se recorre cada fila de la grilla de seleccion y se determian que registros estan checkeados
-            //
+           
             foreach (DataGridViewRow row in dataGridView3.Rows)
             {
                 DataGridViewCheckBoxCell cellSelecion = row.Cells["Selecciona"] as DataGridViewCheckBoxCell;
@@ -456,267 +460,432 @@ if (rowExists == null) { // The row doesn't exist
                 if (Convert.ToBoolean(cellSelecion.Value))
                 {
                     rowSelected.Add(row);
-                }
-            }
-
-            //
-            // Se valida si hay algun registro por eliminar
-            //
-            if (rowSelected.Count > 0)
-            {
-                //
-                // Se recupera el origen de datos que tiene asignada la grilla de productos
-                //
-                //   dtoProductos datos = dgvProductos.DataSource as dtoProductos;
-                DataSet1 datoi = dataGridView2.DataSource as DataSet1;
-                //
-                /**/
-                //this
-                DataSet1TableAdapters.MedicineTableAdapter dataSet = new DataSet1TableAdapters.MedicineTableAdapter();
-                DataSet1.MedicineDataTable pt3 = dataSet.GetDataMedicine();
-
-
-
-
-                //to this
-                /**/
-                //
-                // Se recorre cada item seleccionado y se arma programaticamente la fila del DataTable
-                // se elimina el registro de la grilla de selecciones
-                //
-                foreach (DataGridViewRow row in rowSelected)
-                {
-
-                    // MessageBox.Show("and all that jazz");
-                    // dtoProductos.ProductosRow productoRow = datos.Productos.NewProductosRow();
-                    // datoi.Medicine.NewMedicineRow productoRow = datoi.Medicine.NewMedicineRow();
-                    //  DataSet1.MedicineRow medicineRow = datoi.Medicine.NewMedicineRow();
-                    //
-                    //DataSet1TableAdapters.MedicineTableAdapter ta = new DataSet1TableAdapters.MedicineTableAdapter();
-                    //DataSet1.MedicineDataTable pt = ta.GetDataByIdMedicine((int)idM);
-
-                    //DataSet1.MedicineRow row = (DataSet1.MedicineRow)pt.Rows[0];
-                    //MessageBox.Show(idM.ToString());
-
-                    //DataSet1.MedicineDataTable pt2 = ta.GetDataByIdMedicine((int)idM);
-                    //DataSet1.MedicineRow row2 = (DataSet1.MedicineRow)pt2.Rows[0];
-                    DataSet1.MedicineRow row3;
-                    //     row3 = (DataSet1.MedicineRow)pt3.Rows[0];
-                    row3 = pt3.NewMedicineRow();
-
-                    //
-                    //medicineRow.id_Medicine = Convert.ToInt32(row.Cells[1].Value);
-                    //medicineRow.MedicineName = Convert.ToString(row.Cells[2].Value);
-                    //medicineRow.MedicineExpDate = Convert.ToDateTime(row.Cells[3].Value);
-                    //medicineRow.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
-                    //medicineRow.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
-                    //medicineRow.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
-                    //medicineRow.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
-                    //medicineRow.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
-                    //medicineRow.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
-                    //medicineRow.idSupplier= Convert.ToInt32(row.Cells[10].Value);
-                    //living in
-
-                    //  row3.id_Medicine = Convert.ToInt32(row.Cells[1].Value);
-
-
-                    // HERE HERE HERE
-
-                    row3.MedicineName = Convert.ToString(row.Cells[2].Value);
-
-
-                    //DateTime date = DateTime.Now;
-                    //DateTime safaera = Convert.ToDateTime(row.Cells[7].Value);
-                    //var blablabla = safaera.ToString("yyyy-MM-dd");
-                    //MessageBox.Show(blablabla.ToString());
-
-
-                    row3.MedicineExpDate = Convert.ToDateTime(row.Cells[3].Value);
-                    row3.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
-                    row3.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
-
-                    row3.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
-                    row3.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
-                    row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
-                    row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
-                    row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
-
-
-
-
-                    // END HERE
-
-                    /* SAFAERAAA
-                    row3.MedicineName = Convert.ToString(row.Cells[2].Value);
-                    row3.MedicineQuantity = Convert.ToInt32(row.Cells[3].Value);
-                    row3.MedicineUnits = Convert.ToDecimal(row.Cells[4].Value);
-                    row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[5].Value);
-                    row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[6].Value);
-
-                    DateTime date = DateTime.Now;
-                    DateTime safaera = Convert.ToDateTime(row.Cells[7].Value);
-                    var blablabla = safaera.ToString("yyyy-MM-dd");
-                    MessageBox.Show(blablabla.ToString());
-
                     
-                    row3.MedicineExpDate = Convert.ToDateTime(row.Cells[7].Value);
-                    row3.idSupplier = Convert.ToInt32(row.Cells[8].Value);
-                    row3.MedicineUnitsType = Convert.ToString(row.Cells[9].Value);
-                    row3.MedicineQuantityPres = Convert.ToString(row.Cells[10].Value);
-                    */
-                    //    row3.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
-                    // row3.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
-                    //   row3.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
-                    //  row3.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
-                    //  row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
-                    //  row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
-                    //  row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
-                    //beverlyhills
-                    //  datoi.Medicine.Rows.Add(medicineRow);
-                    // pt3.Rows.Add(row3);//THIS LINE WAS HERE FOR SOME REASON .. DO NOT REMOVE
-                    // Rows.Add(medicineRow); 
                     dataGridView3.Rows.Remove(row);
+                 
+
 
                 }
-
-                //
-                // Se binden los datos nuevamente, pero ahora con los nuevos registros
-                // agregados del paso anterior
-                //
-                dataGridView2.AutoGenerateColumns = false;
-                // dataGridView2.DataSource = datoi;
-                dataGridView2.DataSource = pt3;
-                //     dataGridView3.DataMember = "Productos";
             }
-        }
+      }//quitar
+
+        //ta.Insert(r);
+        //  DataSet1.MedicineDataTable dt;//= ta.GetDataMedicine();
+        //  medicineBindingSource2.DataSource = dt.NewRow;
+
+        //
+        /*
+            DataSet1TableAdapters.MedicineTableAdapter ta =
+               new DataSet1TableAdapters.MedicineTableAdapter();
+
+            DataSet1.MedicineDataTable dt = ta.GetDataMedicine();
+            */
+        //   DataSet1.MedicineDataTable pt3 = dataSet.GetDataMedicine();
+        //medicineBindingSource2.AddNew();
+        //medicineBindingSource2.Add(row);
+        //  medicineBindingSource2.Add(row);
+        /*
+         AGREGAR EL REGISTRO QUE SE QUITA AL DATAGRID 2    
+         */
+        //
+
+        ////
+        //private void btnQuitar_Click(object sender, EventArgs e)
+        //{
+
+        //    //    ((BindingList<Airplane>)bsA.List).AllowNew = true;
+        //    List<DataGridViewRow> rowSelected = new List<DataGridViewRow>();
+        //    BindingList<DataGridViewRow> rowSelectedi = new BindingList<DataGridViewRow>();
+        //    medicineBindingSource2.AllowNew = true;
+        //  //  dataGridView2.AllowUserToAddRows=true;
+
+        //    DataRowView dataRowView = (DataRowView)dataGridView3.CurrentRow.DataBoundItem;
+        //    foreach (DataGridViewRow row in dataGridView3.Rows)
+        //    {
+        //        DataGridViewCheckBoxCell cellSelecion = row.Cells["Selecciona"] as DataGridViewCheckBoxCell;
+
+        //        if (Convert.ToBoolean(cellSelecion.Value))
+        //        {
+        //            rowSelected.Add(row);
+        //            rowSelectedi.Add(row);
+        //            dataGridView3.Rows.Remove(row);
+        //            // medicineBindingSource2.bi
+        //            // dataGridView2.DataSource = rowSelectedi;
+        //            // medicineBindingSource2.DataSource = rowSelectedi;
+
+        //            var bindingList = new BindingList<DataGridViewRow>(rowSelected);
+        //            var source = new BindingSource(bindingList, null);
+        //            dataGridView2.DataSource = source;
+        //            dataGridView2.Refresh();
+        //            //
+        //            medicineBindingSource2.AddNew();
+        //            medicineBindingSource2.ResetBindings(true);
+        //           // medicineBindingSource2.AddNew();
+        //            //((DataTable)(medicineBindingSource2.DataSource)).Rows.Add(row );
+        //            //dataGridView2.DataSource = medicineBindingSource2;
+        //            //  dataGridView2.Rows.Add( row);
+        //            // gets the selected row
+        //            // APPEND IT TO THE DGV2
+
+        //        }
+        //    }
+
+
+        //  //  DataRowView currentDataRowView = (DataRowView)dataGridView2.CurrentRow.DataBoundItem;
+        //  //  DataRow row = currentDataRowView.Row;
+
+        //}
+
+
+        //DataSet1TableAdapters.MedicineTableAdapter dataSet = new DataSet1TableAdapters.MedicineTableAdapter();
+        //DataSet1.MedicineDataTable pt3 = dataSet.GetDataMedicine();
+        //dataGridView2.AutoGenerateColumns = false;
+        //medicineBindingSource2.DataSource = pt3;
+        /*
+       List<DataGridViewRow> rowSelected = new List<DataGridViewRow>();
+
+       foreach (DataGridViewRow row in dataGridView3.Rows)
+       {
+           DataGridViewCheckBoxCell cellSelecion = row.Cells["Selecciona"] as DataGridViewCheckBoxCell;
+
+           if (Convert.ToBoolean(cellSelecion.Value))
+           {
+               rowSelected.Add(row);
+               dataGridView3.Rows.Remove(row);
+
+               //DataTable table = new DataTable();
+               //       DataRow newRow = dataGridView2.NewRow();
+
+               //    dataGridView2.DataSource = rowSelected;
+               //   dataGridView2.Rows.Add(row);
+
+
+           }
+       }
+       /*
+      if (rowSelected.Count > 0)
+      {
+
+          DataSet1 datoi = dataGridView2.DataSource as DataSet1;
+
+          DataSet1TableAdapters.MedicineTableAdapter dataSet = new DataSet1TableAdapters.MedicineTableAdapter();
+          DataSet1.MedicineDataTable pt3 = dataSet.GetDataMedicine();
+
+          foreach (DataGridViewRow row in rowSelected)
+          {
+
+              DataSet1.MedicineRow row3;
+
+              row3 = pt3.NewMedicineRow();
+
+
+              row3.MedicineName = Convert.ToString(row.Cells[2].Value);
+
+              row3.MedicineExpDate = Convert.ToDateTime(row.Cells[3].Value);
+              row3.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
+              row3.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
+
+              row3.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
+              row3.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
+              row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
+              row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
+              row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
+
+              dataGridView3.Rows.Remove(row);
+
+          }
+
+          dataGridView2.AutoGenerateColumns = false;
+
+         // dataGridView2.DataSource = pt3;
+
+      }
+  }
+  */
+        // }
+        //
+
+
+        //private void btnQuitar_Click(object sender, EventArgs e)
+        //{
+
+        //    //
+        //    // Se define una lista temporal de registro seleccionados
+        //    //
+        //    List<DataGridViewRow> rowSelected = new List<DataGridViewRow>();
+
+        //    //
+        //    // Se recorre cada fila de la grilla de seleccion y se determian que registros estan checkeados
+        //    //
+        //    foreach (DataGridViewRow row in dataGridView3.Rows)
+        //    {
+        //        DataGridViewCheckBoxCell cellSelecion = row.Cells["Selecciona"] as DataGridViewCheckBoxCell;
+
+        //        if (Convert.ToBoolean(cellSelecion.Value))
+        //        {
+        //            rowSelected.Add(row);
+        //        }
+        //    }
+
+        //    //
+        //    // Se valida si hay algun registro por eliminar
+        //    //
+        //    if (rowSelected.Count > 0)
+        //    {
+        //        //
+        //        // Se recupera el origen de datos que tiene asignada la grilla de productos
+        //        //
+        //        //   dtoProductos datos = dgvProductos.DataSource as dtoProductos;
+        //        DataSet1 datoi = dataGridView2.DataSource as DataSet1;
+        //        //
+        //        /**/
+        //        //this
+        //        DataSet1TableAdapters.MedicineTableAdapter dataSet = new DataSet1TableAdapters.MedicineTableAdapter();
+        //        DataSet1.MedicineDataTable pt3 = dataSet.GetDataMedicine();
+
+
+
+
+        //        //to this
+        //        /**/
+        //        //
+        //        // Se recorre cada item seleccionado y se arma programaticamente la fila del DataTable
+        //        // se elimina el registro de la grilla de selecciones
+        //        //
+
+
+        //        foreach (DataGridViewRow row in rowSelected)
+        //        {
+
+        //            // MessageBox.Show("and all that jazz");
+        //            // dtoProductos.ProductosRow productoRow = datos.Productos.NewProductosRow();
+        //            // datoi.Medicine.NewMedicineRow productoRow = datoi.Medicine.NewMedicineRow();
+        //            //  DataSet1.MedicineRow medicineRow = datoi.Medicine.NewMedicineRow();
+        //            //
+        //            //DataSet1TableAdapters.MedicineTableAdapter ta = new DataSet1TableAdapters.MedicineTableAdapter();
+        //            //DataSet1.MedicineDataTable pt = ta.GetDataByIdMedicine((int)idM);
+
+        //            //DataSet1.MedicineRow row = (DataSet1.MedicineRow)pt.Rows[0];
+        //            //MessageBox.Show(idM.ToString());
+
+        //            //DataSet1.MedicineDataTable pt2 = ta.GetDataByIdMedicine((int)idM);
+        //            //DataSet1.MedicineRow row2 = (DataSet1.MedicineRow)pt2.Rows[0];
+        //            DataSet1.MedicineRow row3;
+        //            //     row3 = (DataSet1.MedicineRow)pt3.Rows[0];
+        //            row3 = pt3.NewMedicineRow();
+
+        //            //
+        //            //medicineRow.id_Medicine = Convert.ToInt32(row.Cells[1].Value);
+        //            //medicineRow.MedicineName = Convert.ToString(row.Cells[2].Value);
+        //            //medicineRow.MedicineExpDate = Convert.ToDateTime(row.Cells[3].Value);
+        //            //medicineRow.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
+        //            //medicineRow.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
+        //            //medicineRow.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
+        //            //medicineRow.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
+        //            //medicineRow.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
+        //            //medicineRow.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
+        //            //medicineRow.idSupplier= Convert.ToInt32(row.Cells[10].Value);
+        //            //living in
+
+        //            //  row3.id_Medicine = Convert.ToInt32(row.Cells[1].Value);
+
+
+        //            // HERE HERE HERE
+
+        //            row3.MedicineName = Convert.ToString(row.Cells[2].Value);
+
+
+        //            //DateTime date = DateTime.Now;
+        //            //DateTime safaera = Convert.ToDateTime(row.Cells[7].Value);
+        //            //var blablabla = safaera.ToString("yyyy-MM-dd");
+        //            //MessageBox.Show(blablabla.ToString());
+
+
+        //            row3.MedicineExpDate = Convert.ToDateTime(row.Cells[3].Value);
+        //            row3.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
+        //            row3.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
+
+        //            row3.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
+        //            row3.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
+        //            row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
+        //            row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
+        //            row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
+
+
+
+
+        //            // END HERE
+
+        //            /* SAFAERAAA
+        //            row3.MedicineName = Convert.ToString(row.Cells[2].Value);
+        //            row3.MedicineQuantity = Convert.ToInt32(row.Cells[3].Value);
+        //            row3.MedicineUnits = Convert.ToDecimal(row.Cells[4].Value);
+        //            row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[5].Value);
+        //            row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[6].Value);
+
+        //            DateTime date = DateTime.Now;
+        //            DateTime safaera = Convert.ToDateTime(row.Cells[7].Value);
+        //            var blablabla = safaera.ToString("yyyy-MM-dd");
+        //            MessageBox.Show(blablabla.ToString());
+
+
+        //            row3.MedicineExpDate = Convert.ToDateTime(row.Cells[7].Value);
+        //            row3.idSupplier = Convert.ToInt32(row.Cells[8].Value);
+        //            row3.MedicineUnitsType = Convert.ToString(row.Cells[9].Value);
+        //            row3.MedicineQuantityPres = Convert.ToString(row.Cells[10].Value);
+        //            */
+        //            //    row3.MedicineQuantity = Convert.ToInt32(row.Cells[4].Value);
+        //            // row3.MedicineQuantityPres = Convert.ToString(row.Cells[5].Value);
+        //            //   row3.MedicineUnits = Convert.ToDecimal(row.Cells[6].Value);
+        //            //  row3.MedicineUnitsType = Convert.ToString(row.Cells[7].Value);
+        //            //  row3.MedicineDosQuan = Convert.ToDecimal(row.Cells[8].Value);
+        //            //  row3.MedicineDosUnits = Convert.ToDecimal(row.Cells[9].Value);
+        //            //  row3.idSupplier = Convert.ToInt32(row.Cells[10].Value);
+        //            //beverlyhills
+        //            //  datoi.Medicine.Rows.Add(medicineRow);
+        //            // pt3.Rows.Add(row3);//THIS LINE WAS HERE FOR SOME REASON .. DO NOT REMOVE
+        //            // Rows.Add(medicineRow); 
+        //            dataGridView3.Rows.Remove(row);
+
+        //        }
+
+        //        //
+        //        // Se binden los datos nuevamente, pero ahora con los nuevos registros
+        //        // agregados del paso anterior
+        //        //
+        //        dataGridView2.AutoGenerateColumns = false;
+        //        // dataGridView2.DataSource = datoi;
+        //        dataGridView2.DataSource = pt3;
+        //        //     dataGridView3.DataMember = "Productos";
+        //    }
+        //}
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (dataGridView3.Rows.Count < 2)
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+
+
             {
-                MessageBox.Show("Agregar mas de 1 medicamento al compuesto");
+
+                MessageBox.Show("Verifique que todos los campos hayan sido llenados correctamente");
             }
             else
+            if (dataGridView3.RowCount > 4|| dataGridView3.RowCount < 2) {
+                MessageBox.Show("Seleccionar minimo 2 y maximo 5 medicamentos");
+            }
+           
+            else
             {
-                //
-                //  int valorId = int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString());
-                // MessageBox.Show(idd.ToString());
+                /*
+                 DataGridViewRow prevRow;
+int index = 0;
+foreach (DataGridViewRow row in dataGridViewMain.Rows)
+{
+     if ((string)row.Cells["machineName"].Value  = "HALM")
+     {
+
+          dur = CalculatePrintDuration(jobColor, (string)row.Cells["Colors"].Value)
+ 
+     }
+
+     jobColor = row.Cells["Colors"].Value.ToString();
+
+     prevRow = row;
+}
+
+                 */
+
+
+                /*
+                DataGridViewRow prevRow ;
+                int index = 0;
+                foreach (DataGridViewRow dgv3 in dataGridView3.Rows) {
+                     
+                        if (dgv3.Cells[1] == prevRow.CurrentRow.Cells[1].Value) 
+              
+
+                    {
+                       
+                        MessageBox.Show("REPETIDO");
+                         
+
+                        dataGridView3.Rows.RemoveAt(dgv3.Index);
+                    }
+
+                }*/
+
+
+                //for (int x = 0; x < dataGridView3.Rows.Count - 1; x++)
+                //{
+                //    var rowvar = dataGridView3.Rows[x];
+                //    MessageBox.Show("Rep ", dataGridView3.CurrentRow.Cells[1].Value.ToString());
+                //    MessageBox.Show("As ", rowvar.Cells[1].Value.ToString());
+                //    if (dataGridView3.CurrentRow.Cells[1].Value ==
+                //      rowvar.Cells[1].Value ) {
+
+                //    }
+                //    dataGridView3.Rows.Remove(rowvar);
+                //    //     dataGridView1.CurrentRow.Index].Cells[0].
+                //    // foreach (DataGridViewCell cell in row.Cells )
+                //    // {
+                //    // MessageBox.Show(row.ToString());
+                //    //pdfTable.AddCell(cell.Value.ToString());
+                //    // }
+                //}
+
+
                 DataSet1TableAdapters.CompoundTableAdapter ta = new DataSet1TableAdapters.CompoundTableAdapter();
-
-                DataSet1TableAdapters.MedicineCompoundTableAdapter tc = new DataSet1TableAdapters.MedicineCompoundTableAdapter();
-                if (string.IsNullOrWhiteSpace(txtNombre.Text))
-
-
-                {
-
-                    MessageBox.Show("Verifique que todos los campos hayan sido llenados correctamente");
-                }
-                //
-
-                //
-
-                else
+                 DataSet1TableAdapters.MedicineCompoundTableAdapter tc = new DataSet1TableAdapters.MedicineCompoundTableAdapter();
+               
+                
                if (idd == 0)
                 {
-                    int algomas = 0;
+                        int algomas = 0;
 
+                    //works
                     ta.InsertQueryCompound(txtNombre.Text.Trim());
 
 
-                    MessageBox.Show(ta.FillBySelectIdentCurrent().ToString());
+                      //  MessageBox.Show(ta.FillBySelectIdentCurrent().ToString());
 
-                    txtNombre.Clear();
+                        txtNombre.Clear();
+ 
+                            for (int i = 0; i < dataGridView3.Rows.Count; i++)
+                            { 
+                                int idMedicina;
+                                idMedicina = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
+                                decimal idCompoundsie = 0;
 
-                    //
-                    /***
-                     * 
-                     * SAFAERA
-                     * ****/
+                                try
+                                {
+                                    idMedicina = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
+                                    idCompoundsie = Convert.ToDecimal(dataGridView3.Rows[i].Cells[11].Value);
 
-
-
-
-                    //
-                    //for (int p = 0; p < dataGridView3.Rows.Count; p++)
-                    //{
-
-                    //    if (dataGridView3.Rows[p].Cells[0].Value = ) {
-
-                    //    }
-                    //    int someid;
-
-                    //  someid = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
-
-                    //}
-
-
-                    /*
-                     IT
-
-                     END
-
-                    HERES
-                     */
-
-                    for (int i = 0; i < dataGridView3.Rows.Count; i++)
-                    {
-
-
-                        //
-                        int idMedicina;
-                        idMedicina = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
-                        decimal idCompoundsie = 0;
-
-                        try
-                        {
-                            idMedicina = Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value);
-                            idCompoundsie = Convert.ToDecimal(dataGridView3.Rows[i].Cells[11].Value);
-                            algomas = Convert.ToInt32(ta.FillBySelectIdentCurrent().ToString());
+                                    algomas = Convert.ToInt32(ta.FillBySelectIdentCurrent().ToString());
+                          //  MessageBox.Show(algomas.ToString());
+                                }
+                                catch (Exception always)
+                                {
+                                    MessageBox.Show
+                                  ("Error 1");
+                                };
+                        try {
+                            
+                            tc.InsertQueryMedicineCompound(idMedicina, algomas, idCompoundsie);
                         }
-                        catch (Exception always)
-                        {
-                            MessageBox.Show
-                                ("Revisar que los campos sean correctos");
+                        catch (Exception pero) {
+                            MessageBox.Show("Error 2");
                         };
+                               
 
-                        tc.InsertQueryMedicineCompound(idMedicina, algomas, idCompoundsie);
+                       
+                             }//for
+                                idd = 0;
+                                RefreshCompound();
+                         }
 
-                        //MessageBox.Show(
-                        //  (
-                        //decimal.TryParse(dataGridView3.Rows[i].Cells[11].Value.ToString()
-                        //    , out idCompound)
-                        //    ;
-                        //)
-                        //.ToString()
-                        //)
-                        //;
-
-
-
-
-
-                        //MessageBox.Show(Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value).ToString());
-
-                        // MessageBox.Show(Convert.ToDecimal(dataGridView3.Rows[i].Cells[11].Value).ToString());
-
-
-
-
-
-                        // tc.InsertQueryMedicineCompound( Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value), algomas,Convert.ToDecimal(dataGridView2.Rows[i].Cells[11].Value));
-                        //   tc.InsertQueryMedicineCompound(idd, Convert.ToInt32(dataGridView3.Rows[i].Cells[1].Value),Convert.ToDecimal(dataGridView2.Rows[i].Cells[11].Value));
-                        //StrQuery = @"INSERT INTO tableName VALUES ("
-                        //    + dataGridView1.Rows[i].Cells["ColumnName"].Text + ", "
-                        //    + dataGridView1.Rows[i].Cells["ColumnName"].Text + ");";
-                        //comm.CommandText = StrQuery;
-                        //comm.ExecuteNonQuery();
-                    }//for
-                    idd = 0;
-                    RefreshCompound();
-                }
-
-                else
-                {
+                    else
+                    {
 
                     ta.UpdateQueryCompound
                     (txtNombre.Text.Trim(), (int)idd);
@@ -724,13 +893,9 @@ if (rowExists == null) { // The row doesn't exist
                     txtNombre.Clear();
                     idd = 0;
                     RefreshCompound();
-                }
-            }//else
-             //dataGridView3.Columns[3].DefaultCellStyle.Format =  "0.00##";
-             //MessageBox.Show(dataGridView3.Columns[3].DefaultCellStyle.Format = "0.00##".ToString()) ;
-             //if (dataGridView3.Rows.Count > 1) {
-             //    MessageBox.Show("aceptado");
-             //}
+                  }
+             }//else
+             
         }//boton
 
         private void dataGridView3_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -831,6 +996,98 @@ if (rowExists == null) { // The row doesn't exist
 
         private void dataGridView3_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         { }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+
+            string message = "Esta seguro que desea eliminar este registro?";
+            string title = "Advertencia";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+
+            //
+            int? id = GetId();
+            if (id == null)
+            {
+                MessageBox.Show("No hay registros");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    if (id != null)
+                    {
+                        DataSet1TableAdapters.CompoundTableAdapter ta = new DataSet1TableAdapters.CompoundTableAdapter();
+
+                        DataSet1TableAdapters.MedicineCompoundTableAdapter tmca = new DataSet1TableAdapters.MedicineCompoundTableAdapter();
+
+                        try
+                        {
+                           //tmca.DeleteQueryInnerJoinMC((int)id);
+                             tmca.DeleteQueryMedicineCompound((int)id);
+                            ta.DeleteQueryCompound((int)id);
+
+                            RefreshCompound();
+                        }
+                        catch (Exception mensaje)
+                        {
+                            MessageBox.Show(mensaje.ToString());
+                        }
+                    }
+                }
+                else
+                {
+
+                    // Do something  
+                }
+            }
+
+            //
+
+            /*
+              string message = "Esta seguro que desea eliminar este registro?";
+            string title = "Advertencia";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            
+            //
+            int? id = GetId();
+            if (id == null)
+            {
+                MessageBox.Show("No hay registros");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    if (id != null)
+                    {
+                        DataSet1TableAdapters.MedicineTableAdapter ta = new DataSet1TableAdapters.MedicineTableAdapter();
+                        try
+                        {
+                            ta.DeleteQueryMedicine((int)id);
+                            Refresh();
+                        }
+                        catch (Exception mensaje)
+                        {
+                            MessageBox.Show(mensaje.ToString());
+                        }
+                    }
+                }
+                else
+                {
+
+                    // Do something  
+                }
+            }
+             */
+        }
     }
             //if (e.ColumnIndex == 1 && dataGridView3.CurrentCell.Value != null)
             //{
