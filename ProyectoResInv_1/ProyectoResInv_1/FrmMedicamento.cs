@@ -261,8 +261,13 @@ namespace ProyectoResInv_1
                     if (id != null)
                     {
                         DataSet1TableAdapters.MedicineTableAdapter ta = new DataSet1TableAdapters.MedicineTableAdapter();
+
+                        DataSet1TableAdapters.MedicineCompoundTableAdapter tac = new DataSet1TableAdapters.MedicineCompoundTableAdapter();
                         try
                         {
+                          
+                            tac.DeleteQueryMedicineCompound_IDMed((int)id);
+
                             ta.DeleteQueryMedicine((int)id);
                             Refresh();
                         }

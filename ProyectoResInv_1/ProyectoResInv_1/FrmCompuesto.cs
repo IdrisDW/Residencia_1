@@ -159,18 +159,15 @@ namespace ProyectoResInv_1
         /*WE'LL GET THE medicine ID*/
         private int? GetIdMedicine()
         {
-
             try
             {
-
-                return null;
-                //{
-                //    idd = int.Parse(
-                //            dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0].Value.ToString()
-                //            );
-                //    return int.Parse(
-                //        dgvMedicamento.Rows[dgvMedicamento.CurrentRow.Index].Cells[0].Value.ToString()
-                //        );
+                // return null;
+                idd = int.Parse(
+                        dgvCompuesto.Rows[dgvCompuesto.CurrentRow.Index].Cells[4].Value.ToString()
+                        );
+                return int.Parse(
+                    dgvCompuesto.Rows[dgvCompuesto.CurrentRow.Index].Cells[4].Value.ToString()
+                    );
 
             }
             catch
@@ -770,7 +767,7 @@ if (rowExists == null) { // The row doesn't exist
                 MessageBox.Show("Verifique que todos los campos hayan sido llenados correctamente");
             }
             else
-            if (dataGridView3.RowCount > 4|| dataGridView3.RowCount < 2) {
+            if (dataGridView3.RowCount > 5|| dataGridView3.RowCount < 2) {
                 MessageBox.Show("Seleccionar minimo 2 y maximo 5 medicamentos");
             }
            
@@ -1000,6 +997,143 @@ foreach (DataGridViewRow row in dataGridViewMain.Rows)
         private void btnEditar_Click(object sender, EventArgs e)
         {
 
+            int? id = GetId();//id compuesto
+            int? idMed = GetIdMedicine();
+            int valorcillo;
+            int a;
+
+
+            if (id != null)// && idMed != null)
+
+            {
+                DataSet1TableAdapters.MedicineCompoundTableAdapter tmedCompound = new DataSet1TableAdapters.MedicineCompoundTableAdapter();
+                DataSet1.MedicineCompoundDataTable getidmedComp = tmedCompound.GetDataByMedCom_ByIDComp((int)id);
+                DataSet1.MedicineCompoundRow row = (DataSet1.MedicineCompoundRow)getidmedComp.Rows[0];
+
+
+                DataSet1TableAdapters.CompoundTableAdapter tcompound = new DataSet1TableAdapters.CompoundTableAdapter();
+                DataSet1.CompoundDataTable getidComp = tcompound.GetDataByCompound_ID((int)id);
+                DataSet1.CompoundDataTable hoysal = tcompound.GetDataByCompound_WHERE((int)id);
+                DataSet1.CompoundRow row3 = (DataSet1.CompoundRow)getidComp.Rows[0];
+
+                dgvCompuesto.DataSource = hoysal;
+                //      dgvCompuesto.Columns.RemoveAt(5);
+            
+                dgvCompuesto.Columns[1].HeaderText = "Nombre de compuesto";
+                dgvCompuesto.Columns[2].HeaderText = "Nombre de medicina";
+                dgvCompuesto.Columns[3].HeaderText = "Unidades Necesarias";
+                dgvCompuesto.Columns[4].HeaderText = "Id medicina";
+                dgvCompuesto.Columns[5].HeaderText = "Id compuesto";
+                dgvCompuesto.Columns.RemoveAt(0);
+                //    dgvCompuesto.Columns[4].HeaderText = "Id Medicina";
+
+                //   dgvCompuesto.Columns.RemoveAt(4);
+
+                // dgvCompuesto.DataSource = getidmedComp;
+                //   dgvCompuesto.Rows[0].Cells[0] = row.id
+
+
+            }
+
+
+
+            //    DataSet1TableAdapters.MedicineCompoundTableAdapter tmedCompound = new DataSet1TableAdapters.MedicineCompoundTableAdapter();
+            //    DataSet1.MedicineCompoundDataTable getidmedComp = tmedCompound.GetDataByMedCom_ByIDComp((int)id);
+            //    DataSet1.MedicineCompoundRow row = (DataSet1.MedicineCompoundRow)getidmedComp.Rows[0];
+
+            //    //DataSet1TableAdapters.MedicineTableAdapter tmedicine = new DataSet1TableAdapters.MedicineTableAdapter();
+            //    //DataSet1.MedicineDataTable getidmed = tmedicine.GetDataByIdMedicine((int)idMed);
+            //    //DataSet1.MedicineRow row2 = (DataSet1.MedicineRow)getidmed.Rows[0];
+
+
+            //    txtNombre.Text = row3.CompoundName;
+
+
+            //    dataGridView3.DataSource = getidComp;
+
+
+            //    //     dataGridView3.DataSource = row2;
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("No hay registros");
+            //}
+            //DataSet1TableAdapters.MedicineTableAdapter tmedicine = new DataSet1TableAdapters.MedicineTableAdapter();
+            //DataSet1.MedicineDataTable getidmed = tmedicine.GetDataByIdMedicine((int)idMed);
+            //DataSet1.MedicineRow row2 = (DataSet1.MedicineRow)getidmed.Rows[4];
+
+            //DataSet1TableAdapters.CompoundTableAdapter tcompound = new DataSet1TableAdapters.CompoundTableAdapter();
+            //DataSet1.CompoundDataTable getidComp = tcompound.GetDataByCompound_ID((int)id);
+            //DataSet1.CompoundRow row3 = (DataSet1.CompoundRow)getidComp.Rows[3];
+
+            //   txtNombre.Text = row3.CompoundName;
+
+            //   MessageBox.Show(row3.CompoundName.ToString());
+
+
+
+            // dataGridView3.DataSource = tmedicine;
+            //
+
+            //udCantidad.Value = row.MedicineQuantity;
+            //txtPres.Text = row.MedicineQuantityPres;
+            //udUnidades.Value = row.MedicineUnits;
+
+            //clnFechaExp.SetDate(row.MedicineExpDate);
+            //txtTipoUnidad.Text = row.MedicineUnitsType;
+            //udUnidadesDosis.Value = row.MedicineDosUnits;
+            //udCantidadDosis.Value = row.MedicineDosQuan;
+
+            //valorcillo = row.idSupplier;
+
+            //DataSet1TableAdapters.SupplierTableAdapter tas = new DataSet1TableAdapters.SupplierTableAdapter();
+            //DataSet1.SupplierDataTable pts = tas.GetDataByIdSupplier((int)valorcillo);
+
+
+            //dgvProveedor.DataSource = pts;
+
+            //         DataSet1.MedicineDataTable pt = tmed.GetDataByIdMedicine((int)id);
+            //  }
+
+            /*
+
+            int? id = GetId();
+            int valorcillo;
+       //     MessageBox.Show(id.ToString());
+            if (id != null)
+            {
+                DataSet1TableAdapters.MedicineTableAdapter ta = new DataSet1TableAdapters.MedicineTableAdapter();
+                DataSet1.MedicineDataTable pt = ta.GetDataByIdMedicine((int)id);
+
+                DataSet1.MedicineRow row = (DataSet1.MedicineRow)pt.Rows[0];
+
+                txtNombre.Text = row.MedicineName;
+
+
+                udCantidad.Value = row.MedicineQuantity;
+                txtPres.Text = row.MedicineQuantityPres;
+                udUnidades.Value = row.MedicineUnits;
+                //  txtTipoUnidad.Text = row.MaterialUnitType;
+                clnFechaExp.SetDate(row.MedicineExpDate);
+                txtTipoUnidad.Text = row.MedicineUnitsType;
+                udUnidadesDosis.Value = row.MedicineDosUnits;
+                udCantidadDosis.Value = row.MedicineDosQuan;
+
+                valorcillo = row.idSupplier;
+                // MessageBox.Show(valorcillo.ToString());
+                //from here
+                DataSet1TableAdapters.SupplierTableAdapter tas = new DataSet1TableAdapters.SupplierTableAdapter();
+                DataSet1.SupplierDataTable pts = tas.GetDataByIdSupplier((int)valorcillo);
+                //  DataSet1.SupplierRow rowsup = (DataSet1.SupplierRow)pts.Rows[0];
+                //  txtProveedor.Text = rowsup.ToString();
+
+                dgvProveedor.DataSource = pts;
+            }
+            else {
+                MessageBox.Show("No hay registros");
+            }
+             */
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -1030,9 +1164,11 @@ foreach (DataGridViewRow row in dataGridViewMain.Rows)
                         try
                         {
                            //tmca.DeleteQueryInnerJoinMC((int)id);
-                             tmca.DeleteQueryMedicineCompound((int)id);
-                            ta.DeleteQueryCompound((int)id);
-
+                            // tmca.DeleteQueryMedicineCompound((int)id);
+                            tmca.DeleteQueryMedicineCompound((int)id);
+                      //      MessageBox.Show(id.ToString());
+                          ta.DeleteQueryCompound((int)id);
+                        //    MessageBox.Show("nuevo ",id.ToString());
                             RefreshCompound();
                         }
                         catch (Exception mensaje)
