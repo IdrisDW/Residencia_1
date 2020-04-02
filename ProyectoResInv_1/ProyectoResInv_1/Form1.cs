@@ -21,5 +21,55 @@ namespace ProyectoResInv_1
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmDoctor frmdoctor = new FrmDoctor();
+            frmdoctor.ShowDialog();
+           // Refresh();
+
+        }
+
+        private void btnDoctores_Click(object sender, EventArgs e)
+        {
+            FrmDoctor frmdoctor = new FrmDoctor();
+            frmdoctor.ShowDialog();
+        }
+
+        private void btnPacientes_Click(object sender, EventArgs e)
+        {
+            FrmPaciente frmpaciente = new FrmPaciente();
+            frmpaciente.ShowDialog();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedor frmProveedor = new FrmProveedor();
+            frmProveedor.ShowDialog();
+        }
+
+        private void btnMateriales_Click(object sender, EventArgs e)
+        {
+            FrmMaterial frmMaterial = new FrmMaterial();
+            frmMaterial.ShowDialog();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FormProductos formProductos = new FormProductos();
+            formProductos.ShowDialog();
+        }
+
+        private void btnMedicamentos_Click(object sender, EventArgs e)
+        {
+            FrmMedicamento frmMedicamento = new FrmMedicamento();
+            frmMedicamento.ShowDialog();
+        }
+
+        private void btnCompuestos_Click(object sender, EventArgs e)
+        {
+            FrmCompuesto frmCompuesto = new FrmCompuesto();
+            frmCompuesto.ShowDialog();
+        }
     }
 }

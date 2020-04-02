@@ -1,13 +1,38 @@
-C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe.config
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe
-C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.pdb
-C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csprojAssemblyReference.cache
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe.config
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.pdb
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csprojAssemblyReference.cache
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Form1.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Form2.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FormProductos.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmCompuesto.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmDoctor.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmMedicamento.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmPaciente.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmMaterial.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmProveedor.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Properties.Resources.resources
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csproj.GenerateResource.cache
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csproj.CoreCompileInputs.cache
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.exe
+C:\Users\Juliet\Desktop\Enero Junio\versiones\15 V3 working on rep id\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.pdb
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe.config
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Form1.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Form2.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FormProductos.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmCompuesto.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmDoctor.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmMedicamento.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmPaciente.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmMaterial.resources
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmProveedor.resources
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.Properties.Resources.resources
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csproj.GenerateResource.cache
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csproj.CoreCompileInputs.cache
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.exe
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.pdb
+<<<<<<< HEAD
 C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.FrmProveedor.resources
 C:\Users\Michelle\Desktop\Proyecto-residencia\Residencia_1\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe.config
 C:\Users\Michelle\Desktop\Proyecto-residencia\Residencia_1\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.exe
@@ -29,3 +54,7 @@ C:\Users\Michelle\Desktop\Proyecto-residencia\Residencia_1\ProyectoResInv_1\Proy
 C:\Users\Michelle\Desktop\Proyecto-residencia\Residencia_1\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csproj.CoreCompileInputs.cache
 C:\Users\Michelle\Desktop\Proyecto-residencia\Residencia_1\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.exe
 C:\Users\Michelle\Desktop\Proyecto-residencia\Residencia_1\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.pdb
+=======
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\bin\Debug\ProyectoResInv_1.pdb
+C:\Users\Juliet\source\repos\ProyectoResInv_1\ProyectoResInv_1\obj\Debug\ProyectoResInv_1.csprojAssemblyReference.cache
+>>>>>>> a9822d9b283486ba589c498382491497767b1a65

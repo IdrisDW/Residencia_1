@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Agenda\FrmCita.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,12 +76,38 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAnalisisResidencia.xsd</DependentUpon>
+=======
+    <Compile Include="AnalisisResidenciaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnalisisResidenciaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+>>>>>>> a9822d9b283486ba589c498382491497767b1a65
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductos.Designer.cs">
+      <DependentUpon>FormProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCompuesto.cs">
       <SubType>Form</SubType>
@@ -135,6 +162,12 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProductos.resx">
+      <DependentUpon>FormProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCompuesto.resx">
       <DependentUpon>FrmCompuesto.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +195,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <None Include="dsAnalisisResidencia.xsc">
       <DependentUpon>dsAnalisisResidencia.xsd</DependentUpon>
     </None>
@@ -173,6 +207,31 @@
     <None Include="dsAnalisisResidencia.xss">
       <DependentUpon>dsAnalisisResidencia.xsd</DependentUpon>
     </None>
+=======
+    <None Include="AnalisisResidenciaDataSet.xsc">
+      <DependentUpon>AnalisisResidenciaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AnalisisResidenciaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AnalisisResidenciaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AnalisisResidenciaDataSet.xss">
+      <DependentUpon>AnalisisResidenciaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\DataSet1.MedicineDataTable.datasource" />
+    <None Include="Properties\DataSources\ProyectoResInv_1.DataSet1TableAdapters.CompoundTableAdapter.datasource" />
+>>>>>>> a9822d9b283486ba589c498382491497767b1a65
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

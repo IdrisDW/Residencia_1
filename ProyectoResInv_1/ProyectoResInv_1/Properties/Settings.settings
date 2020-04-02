@@ -5,10 +5,17 @@
     <Setting Name="AnalisisResidenciaConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+<<<<<<< HEAD
   &lt;ConnectionString&gt;Data Source=DESKTOP-L95B0CC\SQLEXPRESS;Initial Catalog=AnalisisResidencia;Integrated Security=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=DESKTOP-L95B0CC\SQLEXPRESS;Initial Catalog=AnalisisResidencia;Integrated Security=True</Value>
+=======
+  &lt;ConnectionString&gt;Data Source=LAPTOP-1EGC4TCR\SQLEXPRESS;Initial Catalog=AnalisisResidencia;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=LAPTOP-1EGC4TCR\SQLEXPRESS;Initial Catalog=AnalisisResidencia;Integrated Security=True</Value>
+>>>>>>> a9822d9b283486ba589c498382491497767b1a65
     </Setting>
   </Settings>
 </SettingsFile>
