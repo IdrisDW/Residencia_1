@@ -46,6 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agenda\FrmCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agenda\FrmCita.Designer.cs">
+      <DependentUpon>FrmCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agenda\FrmAgendaDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agenda\FrmAgendaDoctor.Designer.cs">
+      <DependentUpon>FrmAgendaDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agenda\FrmCitaResumen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agenda\FrmCitaResumen.Designer.cs">
+      <DependentUpon>FrmCitaResumen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agenda\FrmDoctores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agenda\FrmDoctores.Designer.cs">
+      <DependentUpon>FrmDoctores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agenda\Notificar.cs" />
+    <Compile Include="dsAnalisisResidencia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAnalisisResidencia.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +120,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Agenda\FrmCita.resx">
+      <DependentUpon>FrmCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agenda\FrmAgendaDoctor.resx">
+      <DependentUpon>FrmAgendaDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agenda\FrmCitaResumen.resx">
+      <DependentUpon>FrmCitaResumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agenda\FrmDoctores.resx">
+      <DependentUpon>FrmDoctores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +162,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="dsAnalisisResidencia.xsc">
+      <DependentUpon>dsAnalisisResidencia.xsd</DependentUpon>
+    </None>
+    <None Include="dsAnalisisResidencia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAnalisisResidencia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsAnalisisResidencia.xss">
+      <DependentUpon>dsAnalisisResidencia.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -132,6 +185,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="img\delete-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
