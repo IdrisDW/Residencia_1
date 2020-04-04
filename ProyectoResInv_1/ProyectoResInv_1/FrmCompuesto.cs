@@ -1,4 +1,5 @@
 ﻿using ProyectoResInv_1.DataSet1TableAdapters;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

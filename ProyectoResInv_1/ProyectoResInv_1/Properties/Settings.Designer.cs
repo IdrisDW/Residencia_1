@@ -12,11 +12,10 @@ namespace ProyectoResInv_1.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-<<<<<<< HEAD
+ 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
-=======
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
->>>>>>> a9822d9b283486ba589c498382491497767b1a65
+ 
+ 
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -30,11 +29,10 @@ namespace ProyectoResInv_1.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-<<<<<<< HEAD
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-L95B0CC\\SQLEXPRESS;Initial Catalog=AnalisisResidencia;Integra" +
-=======
+ 
+       
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-1EGC4TCR\\SQLEXPRESS;Initial Catalog=AnalisisResidencia;Integra" +
->>>>>>> a9822d9b283486ba589c498382491497767b1a65
+ 
             "ted Security=True")]
         public string AnalisisResidenciaConnectionString {
             get {
